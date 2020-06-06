@@ -4,35 +4,41 @@
 
 % Math operators
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\GL}{GL}
 
 % Other commands
 \newcommand{\ot}{\otimes}
 \newcommand{\op}{\oplus}
+\newcommand{\act}{\rotatebox[origin=c]{-120}{$\circlearrowright$}}
+\newcommand{\Diff}{\mathbf{Diff}}
+\newcommand{\Grp}{\mathbf{Grp}}
 
 \begin{document}
 
 \maketitle
 
+\begin{abstract}
+    In this talk we introduce the stability condition for Higgs bundles and prove the Hitchin--Kobayashi correspondence.
+    The main result is \cite[Theorem 4.3]{hit87}.
+    Relevant literature is \cite[\S 3 and \S 4]{hit87} and \cite[\S 2 and \S 3]{wen14}.
+    Maybe we will also use \cite{wen16} every now and then.
+
+    This talk is related to Tanuj's talk on \textit{Stable vector bundles}, for which the main reference is \cite{kob87}.
+    Therefore we will also use \cite{kob87} as a main reference for generalities on complex vector bundles.
+\end{abstract}
+
 \tableofcontents
 
-\section{First section}
+\input{notation}
 
-Let $\F$ be a coherent sheaf on $X$.
-Then
-\[ \chi(\F)=\sum_{i=1}^{\dim{X}}(-1)^{i}h^{i}(X,\F). \]
+\section{Self-duality}
 
-\begin{defn}
-    First definition!
-\end{defn}
+We consider $\R^{4}$ with its standard smooth structure \cite[Example 1.22]{lee13}.
 
-\begin{ufact}
-    This is an unnumbered fact.
-\end{ufact}
+\appendix
 
-\begin{cthm}{A}[Custom numbered theorem]
-    This theorem has custom numbering.
-\end{cthm}
-
+\input{principal}
 
 \bibliographystyle{alpha}
 \bibliography{main}
