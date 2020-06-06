@@ -1,0 +1,41 @@
+\documentclass[A4paper, 12pt, british, reqno]{amsart}
+
+\input{preamble} % Content described in README.md
+
+% Math operators
+\DeclareMathOperator{\Hom}{Hom}
+
+% Other commands
+\newcommand{\ot}{\otimes}
+\newcommand{\op}{\oplus}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{First section}
+
+Let $\F$ be a coherent sheaf on $X$.
+Then
+\[ \chi(\F)=\sum_{i=1}^{\dim{X}}(-1)^{i}h^{i}(X,\F). \]
+
+\begin{defn}
+    First definition!
+\end{defn}
+
+\begin{ufact}
+    This is an unnumbered fact.
+\end{ufact}
+
+\begin{cthm}{A}[Custom numbered theorem]
+    This theorem has custom numbering.
+\end{cthm}
+
+
+\bibliographystyle{alpha}
+\bibliography{main}
+\vspace{0.3cm}
+
+\end{document}

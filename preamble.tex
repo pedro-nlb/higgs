@@ -1,0 +1,451 @@
+%%%%%%%%%% CONTENTS OF PREAMBLE %%%%%%%%%%
+
+% Packages ----------------- Line 10
+% General things ----------- Line 72
+% Font definitions --------- Line 83
+% Theorem environments ----- Line 228
+% Tikzcd ------------------- Line 400
+% Author, title, etc ------- Line 420
+
+%%%%%%%%%% PACKAGES %%%%%%%%%%
+
+\usepackage[T1]{fontenc}
+% This uses 8-bit font encoding (with 256 glyphs) instead of the default 7-bit font encoding (with 128 glyphs). For example, with this option ö is a single glyph in the font, whereas on the 7-bit font encoding the font ö is made by adding an accent to the existing glyph o. A bad consequence of not using this package is that you cannot properly copy-paste such words form the output pdf file. Also, for some reason, funny stuff happens with |, < and > in text.
+
+% Some people suggest to load fontenc before inputenc, most agree that it does not matter.
+
+\usepackage[utf8]{inputenc}
+% When you type ä in an editor set up for utf8, the machine stores the character number 228. When TeX reads the file it finds the character number 228 and the macros of inputenc transform this into \"a. Finally fontenc does its thing and transforms this into the command print character 228 (otherwise the two things would be printed separatedly as explained in fontenc).
+
+\usepackage[UKenglish]{babel}
+% To manage culturally determined typographical and similar rules, in this case for british english. Some people suggest to load babel after fontenc to avoid warnings, although most agree that it does not matter.
+
+\usepackage{mathtools}
+% Loads the amsmath package (\usepackage{amsmath}: miscellaneous improvements such as the commands \DeclareMathOperator and \text). It fixes some quirks it has and adds some useful settings, symbols and environments. It improves the aesthetics as well.
+
+\usepackage{amssymb}
+% Extended symbol collection, e.g. \Cap and \Cup. More importantly: the \mathbb command! It loads the amsfonts package (\usepackage{amsfonts}: fraktur letters, bold Greek letters...), so we do not need to include it in the preamble anymore.
+
+\usepackage{mathrsfs}
+% Font package (only supports upper case letters).
+
+\usepackage{enumitem}
+% To control the layout of enumerate, itemize and description. It supersedes the enumerate package.
+
+\usepackage{tikz-cd}
+% To draw commutative diagrams.
+\usetikzlibrary{decorations.markings}
+% For open and closed immersions.
+
+\usepackage{graphicx}
+% An extension of the graphics package, with optional arguments for the \includegraphics command.
+
+\usepackage{todonotes}
+% To write to do notes use the command \todo.
+
+\usepackage{xcolor}
+% To write in colors.
+
+\usepackage{mathdots}
+% To draw diagonal dots.
+
+\usepackage{marginnote}
+% To write on margins.
+
+\usepackage{manfnt}
+% To draw dangerous bent symbol.
+
+\usepackage{float}
+% Improved interface for floating objects such as figures and tables, introducing for example the H modifier to force the position of a float in the page or the boxed float. Should be loaded before hyperref.
+
+\usepackage[backref=page]{hyperref}
+% To handle cross-referencing and produce hypertext links in the document. It should be loaded last (with few exceptions), because it redefines many LaTeX commands.
+% The backref option inserts links on each bibliography entry to the pages in which the citation was used.
+%% The hidelinks option removes colors and boxes around links, but the links remain clickable. On firefox the links are even highlighted when the mouse pointer passes over them.
+\renewcommand{\backref}[1]{$\uparrow$~#1}
+% Adds an upwards arrow before referencing to the pages in which the citations appear.
+
+\usepackage[noabbrev]{cleveref}
+% Enhances cross-referencing features, e.g. to reference to a theorem and automatically include the word theorem.
+% No abbreviature option to write figure instead of fig. etc.
+
+%%%%%%%%%% GENERAL THINGS %%%%%%%%%%
+
+% Limit table of contents to section titles
+\setcounter{tocdepth}{1}
+
+% Sloppy formatting -- often looks better
+\sloppy
+
+% To make long aligned equations look better
+\allowdisplaybreaks
+
+%%%%%%%%%% FONT DEFINITIONS %%%%%%%%%%
+
+% Script Font used for sheaves
+\DeclareFontFamily{OMS}{rsfs}{\skewchar\font'60}
+\DeclareFontShape{OMS}{rsfs}{m}{n}{<-5>rsfs5 <5-7>rsfs7 <7->rsfs10 }{}
+\DeclareSymbolFont{rsfs}{OMS}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\scr}{rsfs}
+\DeclareSymbolFontAlphabet{\scr}{rsfs}
+
+% Sheaves
+\newcommand{\sA}{\scr{A}}
+\newcommand{\sB}{\scr{B}}
+\newcommand{\sC}{\scr{C}}
+\newcommand{\sD}{\scr{D}}
+\newcommand{\E}{\scr{E}} % Exception (Vector bundles)
+\newcommand{\F}{\scr{F}} % Exception (Coherent sheaves)
+\newcommand{\G}{\scr{G}} % Exception (Coherent sheaves)
+\newcommand{\sH}{\scr{H}}
+\renewcommand{\hom}{\scr{H}\negthinspace om} % Exception (Hom-sheaf)
+\newcommand{\I}{\scr{I}} % Exception (Ideal sheaves)
+\newcommand{\sJ}{\scr{J}}
+\newcommand{\sK}{\scr{K}}
+\renewcommand{\L}{\scr{L}} % Exception (Line bundles)
+\newcommand{\M}{\scr{M}} % Exception (Line bundles)
+\newcommand{\sN}{\scr{N}}
+\renewcommand{\O}{\scr{O}} % Exception (Structure sheaf)
+\newcommand{\sP}{\scr{P}}
+\newcommand{\sQ}{\scr{Q}}
+\newcommand{\sR}{\scr{R}}
+\newcommand{\sS}{\scr{S}}
+\newcommand{\sT}{\scr{T}}
+\newcommand{\sU}{\scr{U}}
+\newcommand{\sV}{\scr{V}}
+\newcommand{\sW}{\scr{W}}
+\newcommand{\w}{\omega} % Addition (Canonical sheaf)
+\newcommand{\sX}{\scr{X}}
+\newcommand{\sY}{\scr{Y}}
+\newcommand{\sZ}{\scr{Z}}
+
+% Mathcal fonts
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\U}{\mathcal{U}} % Exception (Open covers)
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\X}{\mathcal{X}} % Exception (Families of varieties)
+\newcommand{\Y}{\mathcal{Y}} % Exception (Families of varieties)
+\newcommand{\calZ}{\mathcal{Z}}
+
+% Blackboard Bold Symbols
+\newcommand{\A}{\mathbb{A}} % Exception (Affine space)
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\C}{\mathbb{C}} % Exception (Complex numbers)
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\Gm}{\mathbb{G}_{\mathrm{m}}} % Addition (Punctured affine line)
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\renewcommand{\k}{\Bbbk} % Addition (Field)
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\N}{\mathbb{N}} % Exception (Natural numbers)
+\newcommand{\bbO}{\mathbb{O}}
+\renewcommand{\P}{\mathbb{P}} % Exception (Projective space)
+\newcommand{\Q}{\mathbb{Q}} % Exception (Rational numbers)
+\newcommand{\R}{\mathbb{R}} % Exception (Real numbers)
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}} % Exception (Geometric vector bundle)
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}} % Exception (Integers)
+
+% Boldfont (categories)
+\newcommand{\bfA}{\mathbf{A}}
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\bfB}{\mathbf{B}}
+\newcommand{\bfC}{\mathbf{C}}
+\newcommand{\Cat}{\mathbf{Cat}} % Addition (Categories)
+\newcommand{\Coh}{\mathbf{Coh}} % Addition (Coherent sheaves)
+\newcommand{\D}{\mathbf{D}} % Exception (Derived category)
+\newcommand{\Db}{\mathbf{D}^{\mathrm{b}}} % Addition (Bounded derived category)
+\newcommand{\bfE}{\mathbf{E}}
+\newcommand{\bfF}{\mathbf{F}}
+\newcommand{\bfG}{\mathbf{G}}
+\newcommand{\bfH}{\mathbf{H}}
+\newcommand{\bfI}{\mathbf{I}}
+\newcommand{\bfJ}{\mathbf{J}}
+\newcommand{\K}{\mathbf{K}} % Exception (Homotopy category)
+\newcommand{\bfL}{\mathbf{L}}
+\newcommand{\bfM}{\mathbf{M}}
+\newcommand{\Mod}{\mathbf{Mod}} % Addition (Modules)
+\newcommand{\bfN}{\mathbf{N}}
+\newcommand{\bfO}{\mathbf{O}}
+\newcommand{\bfP}{\mathbf{P}}
+\newcommand{\PSh}{\mathbf{PSh}} % Addition (Presheaves)
+\newcommand{\bfQ}{\mathbf{Q}}
+\newcommand{\QCoh}{\mathbf{QCoh}} % Addition (Quasi-coherent sheaves)
+\newcommand{\bfR}{\mathbf{R}}
+\newcommand{\bfS}{\mathbf{S}}
+\newcommand{\Set}{\mathbf{Set}} % Addition (Sets)
+\newcommand{\Sh}{\mathbf{Sh}} % Addition (Sheaves)
+\newcommand{\bfT}{\mathbf{T}}
+\newcommand{\Top}{\mathbf{Top}} % Addition (Topological spaces)
+\newcommand{\bfU}{\mathbf{U}}
+\newcommand{\bfV}{\mathbf{V}}
+\renewcommand{\Vec}{\mathbf{Vec}} % Addition (Vector bundles)
+\newcommand{\bfW}{\mathbf{W}}
+\newcommand{\bfX}{\mathbf{X}}
+\newcommand{\bfY}{\mathbf{Y}}
+\newcommand{\bfZ}{\mathbf{Z}}
+
+% Mathfrak for ideals
+\renewcommand{\a}{\mathfrak{a}}
+\renewcommand{\b}{\mathfrak{b}}
+\renewcommand{\c}{\mathfrak{c}}
+\renewcommand{\d}{\mathfrak{d}}
+\newcommand{\e}{\mathfrak{e}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\n}{\mathfrak{n}}
+
+%%%%%%%%%% THEOREM ENVIRONMENTS %%%%%%%%%%
+
+% Custom colors for theorem styles below
+\definecolor{darkgreen}{RGB}{0,75,0}
+\definecolor{darkblue}{RGB}{0,0,75}
+\definecolor{darkred}{RGB}{75,0,0}
+\definecolor{linkred}{rgb}{0.7,0.2,0.2}
+\definecolor{linkblue}{rgb}{0,0.2,0.6}
+
+% Custom theorem styles (empty fields take default values)
+\newtheoremstyle{darkgreentheorem}% name of the style
+{}% measure of space to leave above the theorem. E.g.: 3pt
+{}% measure of space to leave below the theorem. E.g.: 3pt
+{\itshape}% name of font to use in the body of the theorem
+{}% measure of space to indent
+{\color{darkgreen}\bfseries}% name of head font
+{.}% punctuation between head and body
+{ }% space after theorem head; " " = normal interword space
+{}% Manually specify head
+\newtheoremstyle{darkbluedefinition}
+{}{}{}{}{\color{darkblue}\bfseries}{.}{ }{}
+\newtheoremstyle{darkredexample}
+{}{}{}{}{\color{darkred}\bfseries}{.}{ }{}
+
+% Numbered theorems
+\theoremstyle{plain}
+% \theoremstyle{darkgreentheorem}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lm}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{fact}[thm]{Fact}
+\theoremstyle{definition}
+% \theoremstyle{darkbluedefinition}
+\newtheorem{defn}[thm]{Definition}
+% \theoremstyle{darkredexample}
+\newtheorem{exa}[thm]{Example}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{nota}[thm]{Notation}
+\newtheorem{q}[thm]{Question}
+\newtheorem{exe}[thm]{Exercise}
+
+% Custom numbered theorems
+\theoremstyle{plain}
+% \theoremstyle{darkgreentheorem}
+\newtheorem{innercustomthm}{Theorem}
+\newenvironment{cthm}[1]
+    {\renewcommand\theinnercustomthm{#1}\innercustomthm}
+    {\endinnercustomthm}
+\newtheorem{innercustomlm}{Lemma}
+\newenvironment{clm}[1]
+    {\renewcommand\theinnercustomlm{#1}\innercustomlm}
+    {\endinnercustomlm}
+\newtheorem{innercustomprop}{Proposition}
+\newenvironment{cprop}[1]
+    {\renewcommand\theinnercustomprop{#1}\innercustomprop}
+    {\endinnercustomprop}
+\newtheorem{innercustomcor}{Corollary}
+\newenvironment{ccor}[1]
+    {\renewcommand\theinnercustomcor{#1}\innercustomcor}
+    {\endinnercustomcor}
+\newtheorem{innercustomconj}{Conjecture}
+\newenvironment{cconj}[1]
+    {\renewcommand\theinnercustomconj{#1}\innercustomconj}
+    {\endinnercustomconj}
+\newtheorem{innercustomfact}{Fact}
+\newenvironment{cfact}[1]
+    {\renewcommand\theinnercustomfact{#1}\innercustomfact}
+    {\endinnercustomfact}
+% Definitions
+\theoremstyle{definition}
+% \theoremstyle{darkbluedefinition}
+\newtheorem{innercustomdefn}{Definition}
+\newenvironment{cdefn}[1]
+    {\renewcommand\theinnercustomdefn{#1}\innercustomdefn}
+    {\endinnercustomdefn}
+% \theoremstyle{darkredexample}
+\newtheorem{innercustomexa}{Example}
+\newenvironment{cexa}[1]
+    {\renewcommand\theinnercustomexa{#1}\innercustomexa}
+    {\endinnercustomexa}
+\theoremstyle{remark}
+\newtheorem{innercustomrem}{Remark}
+\newenvironment{crem}[1]
+    {\renewcommand\theinnercustomrem{#1}\innercustomrem}
+    {\endinnercustomrem}
+\newtheorem{innercustomnota}{Notation}
+\newenvironment{cnota}[1]
+    {\renewcommand\theinnercustomnota{#1}\innercustomnota}
+    {\endinnercustomnota}
+\newtheorem{innercustomq}{Question}
+\newenvironment{cq}[1]
+    {\renewcommand\theinnercustomq{#1}\innercustomq}
+    {\endinnercustomq}
+\newtheorem{innercustomexe}{Exercise}
+\newenvironment{cexe}[1]
+    {\renewcommand\theinnercustomexe{#1}\innercustomexe}
+    {\endinnercustomexe}
+
+% Unnumbered theorems
+\theoremstyle{plain}
+% \theoremstyle{darkgreentheorem}
+\newtheorem*{uthm}{Theorem}
+\newtheorem*{ulm}{Lemma}
+\newtheorem*{uprop}{Proposition}
+\newtheorem*{ucor}{Corollary}
+\newtheorem*{uconj}{Conjecture}
+\newtheorem*{ufact}{Fact}
+\theoremstyle{definition}
+% \theoremstyle{darkbluedefinition}
+\newtheorem*{udefn}{Definition}
+% \theoremstyle{darkredexample}
+\newtheorem*{uexa}{Example}
+\theoremstyle{remark}
+\newtheorem*{urem}{Remark}
+\newtheorem*{unota}{Notation}
+\newtheorem*{uq}{Question}
+\newtheorem*{uexe}{Exercise}
+
+% Cross-referencing
+\crefname{thm}{theorem}{theorems}
+\Crefname{thm}{Theorem}{Theorems}
+\crefname{lm}{lemma}{lemmas}
+\Crefname{lm}{Lemma}{Lemmas}
+\crefname{prop}{proposition}{propositions}
+\Crefname{prop}{Proposition}{Propositions}
+\crefname{cor}{corollary}{corollaries}
+\Crefname{cor}{Corollary}{Corollaries}
+\crefname{conj}{conjecture}{conjectures}
+\Crefname{conj}{Conjecture}{Conjectures}
+\crefname{fact}{fact}{facts}
+\Crefname{fact}{Fact}{Facts}
+\crefname{defn}{definition}{definitions}
+\Crefname{defn}{Definition}{Definitions}
+\crefname{exa}{example}{examples}
+\Crefname{exa}{Example}{Examples}
+\crefname{rem}{remark}{remarks}
+\Crefname{rem}{Remark}{Remarks}
+\crefname{nota}{notation}{notations}
+\Crefname{nota}{Notation}{Notations}
+\crefname{q}{question}{questions}
+\Crefname{q}{Question}{Questions}
+\crefname{exe}{exercise}{exercises}
+\Crefname{exe}{Exercise}{Exercises}
+% More cross-referencing
+\crefname{cthm}{theorem}{theorems}
+\Crefname{cthm}{Theorem}{Theorems}
+\crefname{clm}{lemma}{lemmas}
+\Crefname{clm}{Lemma}{Lemmas}
+\crefname{cprop}{proposition}{propositions}
+\Crefname{cprop}{Proposition}{Propositions}
+\crefname{ccor}{corollary}{corollaries}
+\Crefname{ccor}{Corollary}{Corollaries}
+\crefname{cconj}{conjecture}{conjectures}
+\Crefname{cconj}{Conjecture}{Conjectures}
+\crefname{cfact}{fact}{facts}
+\Crefname{cfact}{Fact}{Facts}
+\crefname{cdefn}{definition}{definitions}
+\Crefname{cdefn}{Definition}{Definitions}
+\crefname{cexa}{example}{examples}
+\Crefname{cexa}{Example}{Examples}
+\crefname{crem}{remark}{remarks}
+\Crefname{crem}{Remark}{Remarks}
+\crefname{cnota}{notation}{notations}
+\Crefname{cnota}{Notation}{Notations}
+\crefname{cq}{question}{questions}
+\Crefname{cq}{Question}{Questions}
+\crefname{cexe}{exercise}{exercises}
+\Crefname{cexe}{Exercise}{Exercises}
+
+%%%%%%%%%% TIKZCD %%%%%%%%%%
+
+% Open and closed immersion arrows.
+\makeatletter
+\tikzcdset{
+open/.code={\tikzcdset{hook, circled};},
+closed/.code={\tikzcdset{hook, slashed};},
+circled/.code={\tikzcdset{markwith={\draw (0,0) circle (.375ex);}};},
+slashed/.code={\tikzcdset{markwith={\draw[-] (-.4ex,-.4ex) -- (.4ex,.4ex);}};},
+markwith/.code={
+\pgfutil@ifundefined{tikz@library@decorations.markings@loaded}%
+{\pgfutil@packageerror{tikz-cd}{You need to say %
+\string\usetikzlibrary{decorations.markings} to use arrow with markings}{}}{}%
+\pgfkeysalso{/tikz/postaction={/tikz/decorate,
+/tikz/decoration={
+markings,
+mark = at position 0.5 with
+{#1}}}}},
+}
+\makeatother
+
+%%%%%%%%%% AUTHOR, TITLE, ETC %%%%%%%%%%
+
+% Author info
+\author{Pedro Núñez}
+\address{Pedro Núñez, Mathematisches Institut, Albert-Ludwigs-Universität Freiburg, Ernst-Zermelo-Straße 1, 79104 Freiburg im Breisgau, Germany}
+\email{\href{mailto:pedro.nunez@math.uni-freiburg.de}{pedro.nunez@math.uni-freiburg.de}}
+\urladdr{\href{https://home.mathematik.uni-freiburg.de/nunez/}{https://home.mathematik.uni-freiburg.de/nunez}}
+\thanks{Supported by the DFG-Graduiertenkolleg GK1821 ``Cohomological Methods in Geometry'' at the University of Freiburg.}
+
+% Content details
+%\keywords{...}
+%\subjclass[...]{...}
+\title[Title]{Title}
+\date{\today}
+
+% Links and pdf options
+\makeatletter
+\hypersetup{
+  pdfauthor={\authors},
+  pdftitle={\@title},
+  %pdfsubject={\@subjclass},
+  %pdfkeywords={\@keywords},
+  pdfstartview={Fit},
+  pdfpagelayout={TwoColumnRight},
+  pdfpagemode={UseOutlines},
+  bookmarks,
+  colorlinks,
+  linkcolor=linkblue,
+  citecolor=linkred,
+  urlcolor=linkred}
+\makeatother
