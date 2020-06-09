@@ -1,0 +1,41 @@
+\section{Complex vector bundles, connections and curvature}
+
+\begin{defn}[Complex vector bundle]
+    Let $M\in \Diff$. 
+    A \textit{complex vector bundle} on $M$ consists of a family $\{E_{x}\}_{x\in M}$ of complex vector spaces parametrized by $M$, together with a smooth manifold structure on $E:=\sqcup_{x\in M}E_{x}$ such that
+    \begin{enumerate}[label=\roman*)]
+	\item The projection map $\pi\colon E\to M$ taking $E_{x}$ to $x$ is smooth, and
+	\item For every $x_{0}\in M$, there exists an open set $U$ in $M$ containing $x_{0}$ and a diffeomorphism
+	    \[ \varphi_{U}\colon \pi^{-1}(U)\to U\times \C^{k} \]
+	    taking the vector space $E_{x}$ isomorphically onto $\{x\}\times \C^{k}$ for each $x\in U$;
+	    $\varphi_{U}$ is called a \textit{trivialization of $E$ over $U$}.
+    \end{enumerate}
+\end{defn}
+
+\begin{rem}
+    If $M$ is a complex manifold, we can also talk about \textit{holomorphic vector bundles}.
+    These are complex vector bundles $\pi\colon E\to M$ together with a structure of complex manifold on $E$ such that we can find around each point a biholomorphic local trivialization $\varphi_{U}$.
+\end{rem}
+
+\begin{defn}[Complex differential forms]
+    Let $M\in \Diff$ and let $T_{M}$ be its tangent bundle.
+    Let $E\to M$ be a complex vector bundle on $M$.
+    Then the bundle of \textit{complex $p$-forms with values in $E$} is defined as
+    \[ \Omega_{M,\C}^{p}(E):=\bigwedge\nolimits^{p}\Hom_{M}(T_{M},E). \]
+    A \textit{complex $p$-form with values in $E$} is then a smooth global section of $\Omega_{M,\C}^{p}(E)$.
+    The $\C$-vector space of complex $p$-forms with values in $E$ will be denoted by $A^{p}(E)$.
+\end{defn}
+
+\begin{rem}
+    In the particular case in which $E=M\times \C$ is the trivial complex line bundle on $M$, we simply talk about the bundle of complex $p$-forms on $M$, denoted $\Omega_{M,\C}^{p}$.
+    Similarly, a smooth global section of $\Omega_{M,\C}^{p}$ will be simply called a complex $p$-form on $M$, and the $\C$-vector space of complex $p$-forms on $M$ will be denoted by $A^{p}$.
+\end{rem}
+
+\begin{defn}[Connection]
+    Let $M\in \Diff$ and $E\to M$ a complex vector bundle.
+    A \textit{connection} $D$ in $E$ is a $\C$-linear homomorphism
+    \[ D\colon A^{0}(E)\to A^{1}(E) \]
+    such that
+    \[ D(f\sigma)=\sigma df +f\cdot D\sigma \]
+    for $f\in A^{0}=C^{\infty}(M,\C)$ and $\sigma\in A^{0}(E)=\Gamma(M,E)$.
+\end{defn}
