@@ -4,8 +4,15 @@
 
 % Math operators
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\let\hom\relax
+\DeclareMathOperator{\hom}{hom}
 
 % Other commands
 \newcommand{\ot}{\otimes}
@@ -31,17 +38,128 @@
 
 \tableofcontents
 
-\input{notation}
+\section*{Notation and conventions}
 
-\section{Self-duality}
+All morphisms, vector bundles and sections are holomorphic unless otherwise specified.
 
-We consider $\R^{4}$ with its standard smooth structure \cite[Example 1.22]{lee13}.
+\section{Stability}
 
-\appendix
+[explain that the self-duality equations were originally talking about some principal $G$-bundle on space time $\R^{4}$, but after a series of simplifications \cite[\S 1]{hit87} we ended up talking about rank 2 complex vector bundles on a compact Riemann surface]
 
-\input{complex}
+[picture of moduli space of holomorphic rank 2 vector bundles]
 
-\input{principal}
+[Upshot: a rank 2 holomorphic vector bundle doesn't quite determine a solution to the self-duality equation, but almost! Vector bundle + tangent vector in its moduli space does.]
+
+[Use fact from moduli space + Serre duality to translate this tangent vector into a Higgs field]
+
+From now on let $M$ be a compcat Riemann surface (of genus $g\geqslant 2$) and $K\to M$ its canonical line bundle.
+
+\begin{defn}[Higgs bundles]
+A \textit{Higgs bundle} on $M$ is a pair $(V,\Phi)$, where $V\to M$ is a vector bundle on $M$ and $\Phi\colon M\to K\ot \End(V)$ is a global section of $K\ot \End{V}$.
+    We call $\Phi$ a \textit{Higgs field} on $V$.
+\end{defn}
+
+\begin{rem}
+    $\Phi$ can be regarded as morphism
+    \[ \Phi\colon V\to V\ot K \]
+    because $K\ot \End{V}\cong K\ot V\ot V\dual\cong \Hom(V,V\ot K)$.
+\end{rem}
+
+\begin{rem}
+    We are mainly interested in rank $2$ vector bundles and traceless endomorphisms.
+\end{rem}
+
+\begin{exa}
+    Let $M$ have genus $g>1$.
+    Then $\deg{K}=2g-2>0$, so we can find a line bundle $K^{\frac{1}{2}}$ such that
+    \[ K^{\frac{1}{2}}\ot K^{\frac{1}{2}}\cong K. \]
+    Let $V=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$, where $K^{-\frac{1}{2}}=(K^{\frac{1}{2}})^{-1}$.
+    We consider the Higgs field $\Phi_{w}\colon K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\to (K^{\frac{1}{2}}\op K^{-\frac{1}{2}})\ot K$ given by a matrix
+    \[
+	\begin{pmatrix}
+	    0 & w \\
+	    1 & 0
+	\end{pmatrix},
+    \]
+    where $w\in \Hom(K^{-\frac{1}{2}},K^{\frac{1}{2}}\ot K)\cong H^{0}(M,K^{2})$ can be regarded as a quadratic differential.
+
+    Therefore we have a family $\{(V,\Phi_{w})\}_{w}$ of Higgs bundles on $M$ parametrised by quadratic differential forms $w$ on $M$.
+\end{exa}
+
+Let us denote the \textit{slope} of a vector bundle $V\to M$ as
+\[ \mu(V):=\frac{\deg{V}}{\rk{V}}. \]
+
+\begin{defn}[Stability of Higgs bundles]
+    Let $(V,\Phi)$ be a Higgs bundle on $M$.
+    A vector subbundle $W\subseteq V$ is said to be \textit{$\Phi$-invariant} if $\Phi(W)\subseteq W\ot K$.
+    We say that $(V,\Phi)$ is...
+    \begin{enumerate}[label=\roman*)]
+	\item \textit{stable} if for every $\Phi$-invariant subbundle $0\subsetneq W\subsetneq V$ we have $\mu(W) <\mu(V)$.
+	\item \textit{semi-stable} if for every $\Phi$-invariant subbundle $0\subsetneq W\subsetneq V$ we have $\mu(W)\leqslant \mu(V)$.
+    \end{enumerate}
+\end{defn}
+
+\begin{rem}
+    The Higgs bundle $(V,0)$ is (semi-)stable if and only if $V$ is (semi-)stable in the usual sense, because every vector subbundle is $0$-invariant.
+\end{rem}
+
+\begin{exa}[Omit during the talk]
+    On $\P^{1}$, we can write every rank $2$ vector bundle as
+    \[ V\cong O(a)\op O(b) \]
+    for some integers $a\geqslant b$, where $O(-1)$ is the tautological line bundle on $\P^{1}$ and $O(a):=O(-1)^{-a}$.
+    Let $\Phi\in \Hom(V,V\ot K)$ be given by the matrix
+    \[
+	\begin{pmatrix}
+	    0 & \theta_{1} \\
+	    \theta_{2} & 0
+	\end{pmatrix}
+    \]
+    with $\theta_{1}\in \Hom(O(b),O(a)\ot K)$ and $\theta_{2}\in \Hom(O(a),O(b)\ot K)$.
+    Since $K\cong O(-2)$, we can also regard
+    \[ \theta_{1}\in H^{0}(\P^{1},O(a-b-2)) \text{ and } \theta_{2}\in H^{0}(\P^{1},O(b-a-2)). \]
+    Since $a\geqslant b$, the line bundle $O(b-a-2)$ does not have any global sections.
+    Hence $\theta_{2}=0$ and $O(a)\subseteq V$ is $\Phi$-invariant.
+    But
+    \[ \deg{O(a)}=a\geqslant \frac{a+b}{2}=\frac{\deg{V}}{2}, \]
+    so $(V,\Phi)$ cannot be a stable Higgs bundle.
+\end{exa}
+
+\begin{exa}
+    Let $M$ have genus $g\geqslant 2$ and consier $V=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ again.
+    Then $\Phi_{0}$ is stable, because $K^{-\frac{1}{2}}$ is the only $\Phi_{0}$-invariant line bundle and
+    \[ \deg{K^{-\frac{1}{2}}}=1-g<0=\frac{\deg{V}}{2}. \]
+\end{exa}
+
+\begin{prop}
+    Let $M$ have genus $g\geqslant 2$.
+    a rank $2$ vector bundle $V$ occurs in a stable Higgs bundle $(V,\Phi)$ if and only if one of the following holds:
+    \begin{enumerate}[label=\roman*)]
+	\item $V$ is stable;
+	\item $V$ is semi-stable and $g>2$;
+	\item $V$ is semi-stgable, $g=2$ and $V\cong U\ot L$, where $U$ is either a direct sum of line bundles or an extension of the form
+	    \[ 0\to O\to U\to O\to 0, \]
+	    where $O=M\times \C\to M$ is the trivial line bundle.
+	\item $V$ is not semi-stable and $h^{0}(M,L_{V}^{-2}\ot K\ot \det{V})>1$, where $L_{V}\subseteq V$ is the unique rank 1 subbundle with $\mu(L_{V})\geqslant \mu(V)$;
+	\item $V$ is a direct sum of line bundles of the form
+	    \[ V\cong L_{V}\op (L_{V}^{-1}\ot \det{V}) \]
+	    and $h^{0}(M,L_{V}^{-2}\ot K\ot \det{V})=1$, where $L_{V}\subseteq V$ is again the unique rank 1 subbundle with $\mu(L_{V})\geqslant \mu(V)$.
+    \end{enumerate}
+    \begin{proof}
+	Let $p\colon \P(V)\to M$ be the projectivisation of our rank 2 vector bundle, which is the $\P^{1}$-bundle obtained by replacing each fibre $V_{x}$ of $V\to M$ by its projectivisation $\P(V_{x}):=(V_{x}\setminus \{0\})/\C^{\times}$.
+	Let $S\subseteq p^{*}V$ be the tautological line bundle on $\P(V)$, whose fibre over a point $([v],x)\in p^{-1}(x)$ is given by the line
+	\[ \{ (\lambda v, x)\in V_{x}\times \{x\}\mid \lambda \in \C \}. \]
+	Let $H:=S\dual$ be its dual, which fits into a short exact sequence
+	\[ 0\to Q\dual \to p^{*}V\dual \to H \to 0. \]
+	Let $\varnothing\neq U\subseteq M$ be an open subset trivialising $V$.
+	Then the quotient map $p^{*}V\dual \to H$ induces an isomorphism
+	\[ H^{0}(p^{-1}(U),p^{*}V\dual)\cong H^{0}(p^{-1}(U),H), \]
+	so the pushforward of the sheaf of sections of $p^{*}V\dual$ is isomorphic to the pushforward of the sheaf of sections of $H$.
+	Since $p$ has connected fibres we have $p_{*}\O_{\P(V)}\cong \O_{M}$, so applying the projection formula \cite[Exercise II.5.1.d]{har77} we deduce that the pushforward of the sheaf of sections of $H$ is isomorphic to the sheaf of sections of $V\dual$.
+	Abusing slightly the notation, from now on we will write these kind of statements as
+	\[ V\dual \cong p_{*}H. \]
+	With the same argument we can show that $\Sym^{2}V\dual \cong p_{*}H^{2}$.
+    \end{proof}
+\end{prop}
 
 \bibliographystyle{alpha}
 \bibliography{main}
