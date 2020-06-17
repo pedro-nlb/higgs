@@ -10,6 +10,8 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\ad}{ad}
 \DeclareMathOperator{\GL}{GL}
+\let\div\relax
+\DeclareMathOperator{\div}{div}
 \DeclareMathOperator{\SO}{SO}
 \let\hom\relax
 \DeclareMathOperator{\hom}{hom}
@@ -33,25 +35,21 @@
     Maybe we will also use \cite{wen16} every now and then.
 
     This talk is related to Tanuj's talk on \textit{Stable vector bundles}, for which the main reference is \cite{kob87}.
-    Therefore we will also use \cite{kob87} as a main reference for generalities on complex vector bundles.
+    Therefore we will also use \cite{kob87} as a default reference for generalities on complex vector bundles.
 \end{abstract}
 
 \tableofcontents
 
 \section*{Notation and conventions}
 
-We will try to follow the notation and conventions of the main reference \cite{hit87a} most of the time.
-$M$ will denote a compact Riemann surface genus $g$.
-We denote by $O$ the trivial line bundle on $M$ and by $K$ the canonical line bundle on $M$.
-All morphisms, vector bundles and sections are holomorphic unless otherwise specified.
-
-The slope of a vector bundle $V$ on $M$ will be denoted by
-\[ \mu(V):=\frac{\deg{V}}{\rk{V}}. \]
-
-The dimension of $H^{i}(M,V)$ will be denoted by $h^{i}(M,V)$ or simply by $h^{i}(V)$ if it is clear over which space we are taking the sections.
-
-When tensoring several bundles we will omit the symbols $\ot$ unless confusion may result from other operators involved, for example
-\[ AB\ot \End(C) \text{ or } \Lambda^{2}A\ot BC. \]
+We usually follow the notation of \cite{hit87a}:
+\begin{itemize}
+    \item $M$: compact Riemann surface of genus $g$.
+    \item $O\to M$: trivial line bundle.
+    \item $K\to M$: canonical line bundle.
+    \item More generally, $O_{X}$ resp.~$K_{X}$ denote the trivial resp.~canonical line bundle on a complex manifold $X$.
+    \item For a vector bundle $V\to M$ we denote $\mu(V):=\deg{V}/\rk{V}$.
+\end{itemize}
 
 \section{Stability}
 
@@ -65,20 +63,20 @@ When tensoring several bundles we will omit the symbols $\ot$ unless confusion m
 %
 %From now on let $M$ be a compcat Riemann surface (of genus $g\geqslant 2$) and $K\to M$ its canonical line bundle.
 
-\begin{defn}[Higgs bundles]
-    A \textit{Higgs bundle} on $M$ is a pair $(V,\Phi)$, where $V$ is a rank $2$ vector bundle on $M$ and $\Phi$ is a global section of $\End{V}\ot K$, called a \textit{Higgs field} on $V$.
+\begin{defn}[Higgs bundle]
+    A \textit{Higgs bundle} on $M$ is a pair $(V,\Phi)$, where $V\to M$ is a rank $2$ vector bundle and $\Phi$ is a global section of $\End{V}\ot K$, called a \textit{Higgs field} on $V$.
 \end{defn}
 
 \begin{rem}
     Using the canonical isomorphisms
     \[ H^{0}(M,\End{V}\ot K)\cong \Hom(O,V\dual \ot V\ot K)\cong \Hom(V,V\ot K) \]
-    we will identify $\Phi$ with a morphism of vector bundles
+    we may identify $\Phi$ with a morphism
     \[ \Phi\colon V\to V\ot K. \]
 \end{rem}
 
-\begin{rem}
-    We are mainly interested in the subbundle of traceless endomorphisms, denoted $\End_{0}{V}$.
-\end{rem}
+%\begin{rem}
+%    We are mainly interested in the subbundle of traceless endomorphisms, denoted $\End_{0}{V}$.
+%\end{rem}
 
 \begin{exa}
     Assume $g\geqslant 2$.
@@ -94,35 +92,19 @@ When tensoring several bundles we will omit the symbols $\ot$ unless confusion m
     where $w\in \Hom(K^{-\frac{1}{2}},K^{\frac{1}{2}}\ot K)\cong H^{0}(M,K^{2})$ can be regarded as a quadratic differential.
 \end{exa}
 
-\begin{defn}[Stability of Higgs bundles]
-    A Higgs bundle $(V,\Phi)$ on $M$ is said to be \textit{stable} if for every $\Phi$-invariant\footnote{Meaning that $\Phi(L)\subseteq L\ot K$.} line bundle $L\subseteq V$ we have $\mu(L)<\mu(V)$.
+\begin{defn}[Stability]
+A Higgs bundle $(V,\Phi)$ is said to be \textit{stable} if for every $\Phi$-invariant\footnote{Meaning that $\Phi(L)\subseteq L\ot K$.} line bundle $L\subseteq V$ we have $\mu(L)<\mu(V)$.
 \end{defn}
 
 \begin{rem}
     $(V,0)$ is stable if and only if $V$ is stable in the usual sense.
 \end{rem}
 
-\begin{rem}
-
-\end{rem}
-
-\begin{exa}[Omit during the talk]
-    On $\P^{1}$, we can write every rank $2$ vector bundle as $V\cong O(a)\op O(b)$ for some integers $a\geqslant b$, where $O(-1)$ is the tautological line bundle on $\P^{1}$ and $O(a):=O(-1)^{-a}$.
-    Let $\Phi\in \Hom(V,V\ot K)$ be given by the matrix
-    \[
-	\begin{pmatrix}
-	    0 & \theta_{1} \\
-	    \theta_{2} & 0
-	\end{pmatrix}
-    \]
-    with $\theta_{1}\in \Hom(O(b),O(a)\ot K)$ and $\theta_{2}\in \Hom(O(a),O(b)\ot K)$.
-    Since $K\cong O(-2)$, we can also regard $\theta_{1}$ as a global section of $O(a-b-2)$ and $\theta_{2}$ as a global section of $O(b-a-2)$.
-    Since $a\geqslant b$, the line bundle $O(b-a-2)$ does not have any global sections.
-    Hence $\theta_{2}=0$ and $O(a)\subseteq V$ is $\Phi$-invariant.
-    But
-    \[ \deg{O(a)}=a\geqslant \frac{a+b}{2}=\frac{\deg{V}}{2}, \]
-    so $(V,\Phi)$ cannot be a stable Higgs bundle.
-\end{exa}
+\begin{exe}
+    There are no stable Higgs bundles on $\P^{1}$.
+    [Hint: Grothedieck's theorem allows us to write $\Phi$ as a matrix. What can we say about each entry?]
+    [Solution in \cite{hit87a}]
+\end{exe}
 
 \begin{exa}
     Assume $g\geqslant 2$ and consier $V=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ again.
@@ -131,18 +113,8 @@ When tensoring several bundles we will omit the symbols $\ot$ unless confusion m
 \end{exa}
 
 \begin{prop}
-    Assume $g\geqslant 2$.
-    A rank $2$ vector bundle $V$ occurs in a stable Higgs bundle $(V,\Phi)$ if and only if one of the following holds:
-    \begin{enumerate}[label=\roman*)]
-	\item $V$ is stable;
-	\item $V$ is semi-stable and $g>2$;
-	\item $V$ is semi-stgable, $g=2$ and $V\cong U\ot L$, where $U$ is either a direct sum of line bundles or an extension of the form
-	    \[ 0\to O\to U\to O\to 0. \]
-	\item $V$ is not semi-stable and $h^{0}(L_{V}^{-2}\ot K\ot \det{V})>1$, where $L_{V}\subseteq V$ is the unique rank 1 subbundle with $\mu(L_{V})\geqslant \mu(V)$;
-	\item $V$ is a direct sum of line bundles of the form
-	    \[ V\cong L_{V}\op (L_{V}^{-1}\ot \det{V}) \]
-	    and $h^{0}(L_{V}^{-2}\ot K\ot \det{V})=1$, where $L_{V}\subseteq V$ is again the unique rank 1 subbundle with $\mu(L_{V})\geqslant \mu(V)$.
-    \end{enumerate}
+    Assume $g\geqslant 2$ and let $V\to M$ be a rank $2$ vector bundle.
+Then there exists Higgs field $\Phi$ on $V$ such that $(V,\Phi)$ is stable if and only if there exists a dense Zariski open subset $U\subseteq H^{0}(M,\End{V}\ot K)$ such that all $\Phi'\in U$ have the property that no line bundle $L\subseteq V$ is $\Phi'$-invariant.
     \begin{proof}
 	Let $p\colon P(V)\to M$ be the projectivisation of our rank 2 vector bundle, which is the $\P^{1}$-bundle obtained by replacing each fibre $V_{x}$ by its projectivisation $(V_{x}\setminus \{0\})/\C^{\times}$.
 	Let $S\subseteq p^{*}V$ be the tautological line bundle on $P(V)$, whose fibre over a point $[v]\in p^{-1}(x)$ is given by the line $\{ \lambda v \mid \lambda \in \C \}\subseteq V_{x}$.
@@ -164,6 +136,24 @@ When tensoring several bundles we will omit the symbols $\ot$ unless confusion m
 	\[ \End_{0}(V)\ot K\cong p_{*}H^{2}K\ot \Lambda^{2}V. \]
 	Using again that $p_{*}p^{*}(-)\cong (-)$ for vector bundles we have a $\C$-linear isomorphism
 	\[ s\colon H^{0}(M,\End_{0}(V)\ot K)\cong H^{0}(P(V),H^{2}p^{*}(K\ot \Lambda^{2}V)). \]
+
+	Let now $\Phi$ be a traceless Higgs field on $V$, and assume it is non-zero.
+	By construction, a non-zero vector $v\in V$ is an eigenvector of the twisted endomorphism over the corresponding fibre if and only if the section $s(\Phi)$ vanishes at the point $[v]\in P(V)$, i.e.~if and only if $[v]$ is in the divisor of zeros of the section $s(\Phi)$, which we denote $\div(s(\Phi))$.
+	Let $L\subseteq V$ be a $\Phi$-invariant subbundle, which defines a section of $p\colon P(V)\to M$ by functoriality of projectivisation on injective morphisms of vector bundles:
+	\begin{center}
+	    \begin{tikzcd}
+		P(L)\arrow[equal]{d}\arrow{r}{\sigma} & P(L)\arrow{dl}{p} \\
+		M &
+	    \end{tikzcd}
+	\end{center}
+	Being $\Phi$-invariant means precisely that $\sigma(M)\subseteq \div(s(\Phi))$.
+	But then any non-zero $v\in L$ is a non-zero eigenvector of the endomorphism over the corresponding fibre.
+	Since $\Phi$ was non-zero, we can assume that the corresponding eigenvalue is non-zero as well.
+	Since $\Phi$ is traceless, the other eigenvalue must be different, and there must be some non-zero eigenvector outside of $L$, call it $u\in V$.
+	Since $u$ is a non-zero eigenvector, $[u]\in \div(s(\Phi))$.
+	And since $u\not\in L$, $[u]\not\in \sigma(M)$.
+	Therefore $\sigma(M)$ is a proper irreducible component of the divisor $\div(s(\Phi))$.
+	In conclusion: if $\div(s(\Phi))$ is irreducible, then no line bundle $L\subseteq V$ is $\Phi$-invariant.
     \end{proof}
 \end{prop}
 
