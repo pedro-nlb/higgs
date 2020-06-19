@@ -130,8 +130,8 @@ Then there exists Higgs field $\Phi$ on $V$ such that $(V,\Phi)$ is stable if an
 	Let $x\in M$.
 	Then every endomorphism $A\in \End(V_{x})$ defines a quadratic map $V_{x}\to \Lambda^{2}V_{x}$ sending $v$ to $Av\wedge v$.
 	Such a quadratic map can be naturally regarded as a degree $2$ homogeneous polynomial on the coordinates coordinates of $v$ with coefficients in $\Lambda^{2}V_{x}$.
-	Hence we have a vector bundle morphism $\End(V)\to S^{2}V\ot \Lambda^{2}V$.
-	Restricting to $\End_{0}(V)$ we get an injective morphism, because $A\in \End(V_{x})$ is sent to $0\in S^{2}V_{x}\ot \Lambda^{2}V_{x}$ if and only if $A$ is a multiple of the identity.
+	Hence we have a vector bundle morphism $\End(V)\to S^{2}V\ot \Lambda^{2}V$, which vanishes precisely along the trivial line subbundle of $\End(V)$ consisting over each fibre of scalar multiples of the identity.
+	Sending $A\mapsto A-\frac{\operatorname{tr}(A)}{2}\id_{V_{x}}$ on each fibre allows us to identify $\End_{0}(V)$ as the quotient of $\End(V)$ by this trivial line subbundle, so we obtain an injective morphism $\End_{0}(V)\to S^{2}V\ot \Lambda^{2}V$.
 	Counting dimensions we see that we have in fact an isomorphism of vector bundles $\End_{0}(V)\cong S^{2}V\ot \Lambda^{2}V$, and therefore
 	\[ \End_{0}(V)\ot K\cong p_{*}H^{2}K\ot \Lambda^{2}V. \]
 	Using again that $p_{*}p^{*}(-)\cong (-)$ for vector bundles we have a $\C$-linear isomorphism
@@ -154,6 +154,25 @@ Then there exists Higgs field $\Phi$ on $V$ such that $(V,\Phi)$ is stable if an
 	And since $u\not\in L$, $[u]\not\in \sigma(M)$.
 	Therefore $\sigma(M)$ is a proper irreducible component of the divisor $\div(s(\Phi))$.
 	In conclusion: if $\div(s(\Phi))$ is irreducible, then no line bundle $L\subseteq V$ is $\Phi$-invariant.
+
+	Our next goal is to show that $\div(s(\Phi))$ is irreducible for generic $\Phi$.
+	We will show that the linear system $H^{2}p^{*}(K\ot\Lambda^{2}V)$ has dimension $2$ and has no fixed component, and then irreducibility follows from Bertini's theorem \cite[Theorem 3.3.1]{laz04a}.
+
+	The dimension of the linear system is one less than the dimension of the vector space of global secitons.
+	Using the previous isomorphism it suffices to gain control over the dimension of the global sections of $\End_{0}{V}\ot K$ on $M$, for which we can apply Hirzebruch--Riemann--Roch \cite[Theorem A.4.1]{har77}.
+	From \cite[Example A.4.1.1]{har77} we get
+	\[ \operatorname{td}(K\dual)=1-\frac{c_{1}(K)}{2}. \]
+	Using the short exact sequence used earlier
+	\[ 0\to O\to \End(V) \to \End_{0}(V)\to 0 \]
+	we see that $c_{1}(\End_{0}{V})=c_{1}(\End{V})=0$.
+	Therefore
+	\[ \operatorname{ch}(\End_{0}{V}\ot K)=3+c_{1}(\End_{0}{V})+3c_{1}(K)=3+3c_{1}(K). \]
+	Multiplying the two expressions we obtain
+	\[ \operatorname{ch}(\End_{0}{V}\ot K)\operatorname{td}(K\dual)=3+\frac{3}{2}c_{1}(K), \]
+	whose codimension $1$ part has degree $3g-3\geqslant 3$.
+	So Hirzebruch--Riemann--Roch tells us that
+	\[ h^{0}(M,\End_{0}{V}\ot K)-h^{1}(M,\End_{0}{V}\ot K)=3g-3\geqslant 3, \]
+	which implies that $h^{0}(P(V),H^{2}p^{*}(K\ot \Lambda^{2}V))=h^{0}(M,\End_{0}{V}\ot K)\geqslant 3$, as we wanted to show.
     \end{proof}
 \end{prop}
 
