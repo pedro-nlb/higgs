@@ -8,6 +8,7 @@
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Pic}{Pic}
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\ad}{ad}
@@ -136,54 +137,75 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	Let $O(-1)$ denote the tautological line bundle on $\P(E)$, whose fibre over $[v]\in \P(E)$ is the line $\{\lambda v \mid \lambda\in \C\}\subseteq E_{p([v])}$.
 	Let $O(l):=O(1)^{\ot l}$ for all $l\in \Z$, and if $F\to \P(E)$ is another vector bundle, denote by $F(l)$ the tensor product $F\ot O(l)$.
 	We have then $p_{*}\O(l)=S^{l}(\E\dual)$ for all $l\geqslant 0$ \cite[Exercise III.8.4]{har77}.
-	Abusing slightly the notation we will write $p_{*}O(l)=S^{l}(E\dual)$ for all $l\geqslant 0$.
+	Abusing slightly the notation we will write $p_{*}O(l)=S^{l}E\dual$ for all $l\geqslant 0$.
 
 	Let $x\in M$.
-	Then every endomorphism $A\in \End(V_{x})$ defines a quadratic map $V_{x}\to \Lambda^{2}V_{x}$ sending $v$ to $Av\wedge v$.
-	Such a quadratic map can be naturally regarded as a degree $2$ homogeneous polynomial on the coordinates coordinates of $v$ with coefficients in $\Lambda^{2}V_{x}$.
-	Hence we have a vector bundle morphism $\End(V)\to S^{2}V\ot \Lambda^{2}V$, which vanishes precisely along the trivial line subbundle of $\End(V)$ consisting over each fibre of scalar multiples of the identity.
-	Sending $A\mapsto A-\frac{\operatorname{tr}(A)}{2}\id_{V_{x}}$ on each fibre allows us to identify $\End_{0}(V)$ as the quotient of $\End(V)$ by this trivial line subbundle, so we obtain an injective morphism $\End_{0}(V)\to S^{2}V\ot \Lambda^{2}V$.
-	Counting dimensions we see that we have in fact an isomorphism of vector bundles $\End_{0}(V)\cong S^{2}V\ot \Lambda^{2}V$, and therefore
-	\[ \End_{0}(V)\ot K\cong p_{*}H^{2}K\ot \Lambda^{2}V. \]
-	Using again that $p_{*}p^{*}(-)\cong (-)$ for vector bundles we have a $\C$-linear isomorphism
-	\[ s\colon H^{0}(M,\End_{0}(V)\ot K)\cong H^{0}(P(V),H^{2}p^{*}(K\ot \Lambda^{2}V)). \]
+	Then every endomorphism $A\in \End(E_{x})$ defines a quadratic map $E_{x}\to \Lambda^{2}E_{x}$ sending $v$ to $Av\wedge v$.
+	Such a quadratic map can be naturally regarded as a degree $2$ homogeneous polynomial on the coordinates of $e$ with coefficients in $\Lambda^{2}E_{x}$.
+	Hence we have a vector bundle morphism $\End(E)\to S^{2}E\dual \ot \Lambda^{2}E$, which vanishes precisely along the trivial line subbundle of $\End(E)$ consisting over each fibre of scalar multiples of the identity.
+	Sending $A\mapsto A-\frac{\operatorname{tr}(A)}{2}\id_{E_{x}}$ on each fibre allows us to identify $\End_{0}(E)$ as the quotient of $\End(E)$ by this trivial line subbundle, so we obtain an injective morphism $\End_{0}(E)\to S^{2}E\dual \ot \Lambda^{2}E$.
+	Counting ranks we see that we have in fact an isomorphism of vector bundles $\End_{0}(E)\cong S^{2}E\dual \ot \Lambda^{2}E$, and therefore
+	\[ \End_{0}(E)\ot K\cong p_{*}O(2)\ot K\ot \Lambda^{2}E. \]
+	Since $\O_{M}\cong p_{*}\O_{\P(E)}$, the projection formula implies that $p_{*}p^{*}(-)\cong (-)$ for vector bundles on $M$.
+	The adjunction $p^{*}\dashv p_{*}$ induces then a $\C$-linear isomorphism
+	\[ \alpha \colon H^{0}(M,\End_{0}(E)\ot K)\cong H^{0}(\P(E),p^{*}(K\ot \Lambda^{2}E)(2)). \]
 
-	Let now $\Phi$ be a traceless Higgs field on $V$, and assume it is non-zero.
-	By construction, a non-zero vector $v\in V$ is an eigenvector of the twisted endomorphism over the corresponding fibre if and only if the section $s(\Phi)$ vanishes at the point $[v]\in P(V)$, i.e.~if and only if $[v]$ is in the divisor of zeros of the section $s(\Phi)$, which we denote $\div(s(\Phi))$.
-	Let $L\subseteq V$ be a $\Phi$-invariant subbundle, which defines a section of $p\colon P(V)\to M$ by functoriality of projectivisation on injective morphisms of vector bundles:
+	Let now $\Phi$ be a traceless Higgs field on $E$, and assume it is non-zero.
+	By construction, a non-zero vector $e\in E$ is an eigenvector of the twisted endomorphism over the corresponding fibre if and only if the section $\alpha(\Phi)$ vanishes at the point $[e]\in \P(E)$, i.e.~if and only if $[e]$ is in the divisor of zeros of the section $\alpha(\Phi)$, which we denote $\div(\alpha(\Phi))$.
+	Let $L\subseteq E$ be a $\Phi$-invariant subbundle, which defines a section of $p\colon \P(E)\to M$ by functoriality of projectivisation on injective morphisms of vector bundles:
 	\begin{center}
 	    \begin{tikzcd}
-		P(L)\arrow[equal]{d}\arrow{r}{\sigma} & P(L)\arrow{dl}{p} \\
+		\P(L)\arrow[equal]{d}\arrow{r}{\sigma} & \P(E)\arrow{dl}{p} \\
 		M &
 	    \end{tikzcd}
 	\end{center}
 	Being $\Phi$-invariant means precisely that $\sigma(M)\subseteq \div(s(\Phi))$.
-	But then any non-zero $v\in L$ is a non-zero eigenvector of the endomorphism over the corresponding fibre.
-	Since $\Phi$ was non-zero, we can assume that the corresponding eigenvalue is non-zero as well.
-	Since $\Phi$ is traceless, the other eigenvalue must be different, and there must be some non-zero eigenvector outside of $L$, call it $u\in V$.
-	Since $u$ is a non-zero eigenvector, $[u]\in \div(s(\Phi))$.
-	And since $u\not\in L$, $[u]\not\in \sigma(M)$.
-	Therefore $\sigma(M)$ is a proper irreducible component of the divisor $\div(s(\Phi))$.
-	In conclusion: if $\div(s(\Phi))$ is irreducible, then no line bundle $L\subseteq V$ is $\Phi$-invariant.
+	But then any non-zero $v\in L$ is a non-zero eigenvector corresponding to some eigenvalue of the endomorphism over the corresponding fibre.
+	Since $\Phi$ is traceless and non-zero, the other eigenvalue must be different, and there must be some non-zero eigenvector outside of $L$, call it $v'\in V$.
+	Since $v'$ is a non-zero eigenvector, $[v']\in \div(\alpha(\Phi))$.
+	And since $v'\not\in L$, $[v']\not\in \sigma(M)$.
+	Therefore $\sigma(M)$ is a proper irreducible component of the divisor $\div(\alpha(\Phi))$.
+	So if $\div(\alpha(\Phi))$ is irreducible, then no line bundle $L\subseteq V$ is $\Phi$-invariant.
 
-	Our next goal is to show that $\div(s(\Phi))$ is irreducible for generic $\Phi$.
-	We will show that the linear system $H^{2}p^{*}(K\ot\Lambda^{2}V)$ has dimension $2$ and has no fixed component, and then irreducibility follows from Bertini's theorem \cite[Theorem 7.19]{iit82}.
+	Our next goal is to show that $\div(\alpha(\Phi))$ is irreducible for generic $\Phi$.
+	We will show that the linear system $|p^{*}(K\ot\Lambda^{2}E)(2)|$ has dimension $2$ and has no fixed component, and then irreducibility follows from Bertini's theorem \cite[Theorem 7.19]{iit82}.
 
 	The dimension of the linear system is one less than the dimension of the vector space of global secitons.
-	Using the previous isomorphism it suffices to gain control over the dimension of the global sections of $\End_{0}{V}\ot K$ on $M$, for which we can apply Hirzebruch--Riemann--Roch \cite[Theorem A.4.1]{har77}.
+	Using the previous isomorphism it suffices to gain control over the dimension of the global sections of $\End_{0}(E)\ot K$ on $M$, for which we can apply Hirzebruch--Riemann--Roch \cite[Theorem A.4.1]{har77}.
 	From \cite[Example A.4.1.1]{har77} we get
 	\[ \operatorname{td}(K\dual)=1-\frac{c_{1}(K)}{2}. \]
 	Using the short exact sequence used earlier
-	\[ 0\to O\to \End(V) \to \End_{0}(V)\to 0 \]
-	we see that $c_{1}(\End_{0}{V})=c_{1}(\End{V})=0$.
+	\[ 0\to O\to \End(E) \to \End_{0}(E)\to 0 \]
+	we see that $c_{1}(\End_{0}(E))=c_{1}(\End{E})=0$.
 	Therefore
-	\[ \operatorname{ch}(\End_{0}{V}\ot K)=3+c_{1}(\End_{0}{V})+3c_{1}(K)=3+3c_{1}(K). \]
+	\[ \operatorname{ch}(\End_{0}{E}\ot K)=3+c_{1}(\End_{0}{E})+3c_{1}(K)=3+3c_{1}(K). \]
 	Multiplying the two expressions we obtain
-	\[ \operatorname{ch}(\End_{0}{V}\ot K)\operatorname{td}(K\dual)=3+\frac{3}{2}c_{1}(K), \]
+	\[ \operatorname{ch}(\End_{0}{E}\ot K)\operatorname{td}(K\dual)=3+\frac{3}{2}c_{1}(K), \]
 	whose codimension $1$ part has degree $3g-3\geqslant 3$.
 	So Hirzebruch--Riemann--Roch tells us that
-	\[ h^{0}(M,\End_{0}{V}\ot K)-h^{1}(M,\End_{0}{V}\ot K)=3g-3\geqslant 3, \]
-	which implies that $h^{0}(P(V),H^{2}p^{*}(K\ot \Lambda^{2}V))=h^{0}(M,\End_{0}{V}\ot K)\geqslant 3$, as we wanted to show.
+	\[ h^{0}(M,\End_{0}(E)\ot K)-h^{1}(M,\End_{0}(E)\ot K)=3g-3\geqslant 3, \]
+	which implies that $h^{0}(\P(E),p^{*}(K\ot \Lambda^{2}E)(2))=h^{0}(M,\End_{0}(E)\ot K)\geqslant 3$, as we wanted to show.
+
+	So if $|p^{*}(K\ot \Lambda^{2}E)(2)|$ has no fixed component, then Bertini's theorem and the discussion above imply that a generic $\Phi\in H^{0}(M,\End_{0}(E)\ot K)$ leaves no line bundle invariant, making $(E,\Phi)$ automatically stable.
+	Let us see what happens if it does have some fixed divisor.
+
+	Write $H\subseteq \P(E)$ for an effective Cartier divisor corresponding to the line bundle $O(1)$ and $D_{0}\subseteq M$ for an effective Cartier divisor corresponding to the line bundle $K\ot \Lambda^{2}E$.
+	Since $\Pic(\P(E))\cong \{ \O(l)\ot p^{*}\L \mid l\in \Z, \L\in \Pic(M)\}$ \cite[Exercise II.7.9]{har77} and pullback of line bundles commutes with scheme-theoretic preimage of Cartier divisors, we can write the linear system $|p^{*}(K\ot \Lambda^{2}E)(2)|$ as
+	\[ \{ D\geqslant 0 \mid D\sim 2H+p^{-1}D_{0}\}. \]
+	Let $F\geqslant 0$ be a fixed divisor of this linear system, so that in particulat we have
+	\[ F\leqslant 2H+p^{-1}D_{0}. \]
+	Suppose first that $F\leqslant p^{-1}D_{0}$.
+	Then we can write $F$ as $\div(p^{*}s)$ with $s\in H^{0}(M,L)$ for some line bundle $L\to M$, so that divividing by $s$ on the left and by $p^{*}s$ on the right gives isomorphisms
+	\begin{center}
+	    \begin{tikzcd}
+		H^{0}(M,\End_{0}(E)\ot K)\arrow{r}{\cong}\arrow[swap]{d}{/s}[swap]{\cong} & H^{0}(\P(E),p^{*}(K\ot \Lambda^{2}E)(2))\arrow{d}{\cong}[swap]{/p^{*}s} \\
+		H^{0}(M,\End_{0}(E)\ot K\ot L\dual)\arrow{r}{\cong} & H^{0}(\P(E),p^{*}(L\dual \ot K\ot \Lambda^{2}E)(2))
+	    \end{tikzcd}
+	\end{center}
+	By definition, the new linear system does not have any fixed divisors, hence we can apply Bertini to conclude that a generic $\Phi'\in H^{0}(M,\End_{0}(E)\ot K\ot L\dual)$ does not have invariant line bundles.
+	The difference between a global section of $\End_{0}(E)\ot K$ and a global section of $\End_{0}(E)\ot K\ot L\dual$ is that our endomorphism has different coefficients, it is twisted by a different line bundle.
+	But our notion of invariance is the same in both cases, so $L\subseteq E$ is $\Phi'\in H^{0}(M,\End_{0}(E)\ot K\ot L\dual)$ invariant if and only if it is $s\Phi'\in H^{0}(M,\End_{0}(E)\ot K)$ invariant.
+	So if $F\leqslant p^{-1}D_{0}$, then it is still true that a generic $\Phi\in H^{0}(M,\End_{0}(E)\ot K)$ does not have invariant line bundles, again making $(E,\Phi)$ automatically stable in those cases.
     \end{proof}
 \end{prop}
 
