@@ -6,6 +6,8 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\ad}{ad}
@@ -48,7 +50,21 @@ We usually follow the notation of \cite{hit87a}:
     \item $O\to M$: trivial line bundle.
     \item $K\to M$: canonical line bundle.
     \item More generally, $O_{X}$ resp.~$K_{X}$ denote the trivial resp.~canonical line bundle on a complex manifold $X$.
-    \item For a vector bundle $V\to M$ we denote $\mu(V):=\deg{V}/\rk{V}$.
+    \item For a vector bundle $E\to M$ we denote $\mu(E):=\deg{E}/\rk{E}$.
+\end{itemize}
+Every now and then we will also use some other standard notation, for instance:
+\begin{itemize}
+    \item Let $X$ be a complex manifold and $E\to X$ a (holomorphic/algebraic) vector bundle.
+	Then we denote by $\E$ its sheaf of sections.
+	The assignement $E\mapsto \E$ defines an equivalence of categories between vector bundles on $X$ and locally free sheaves of $\O_{X}$-modules of finite rank.
+	We can recover $E$ from $\E$ either using cocycles \cite[Lemma 4.8]{voi02} or by using the relative spectrum \cite[Exercise II.5.18]{har77}.
+	Following the second approach we would write
+	\[ E=\Spec_{X}(S(\E\dual))=:\V(\E\dual), \]
+	where $S(-)$ denotes the symmetric algebra.
+    \item Let $E$ be again a vector bundle on a complex manifold $X$.
+	We will denote its projectivisation by $\P(E)$, which is obtained form $E$ without its zero section by quotienting out the fibre-wise multiplication by scalars.
+	Taking again the algebraic approach we can write
+	\[ \P(E)=\Proj_{X}(S(\E\dual))=:\P(\E\dual). \]
 \end{itemize}
 
 \section{Stability}
@@ -64,14 +80,14 @@ We usually follow the notation of \cite{hit87a}:
 %From now on let $M$ be a compcat Riemann surface (of genus $g\geqslant 2$) and $K\to M$ its canonical line bundle.
 
 \begin{defn}[Higgs bundle]
-    A \textit{Higgs bundle} on $M$ is a pair $(V,\Phi)$, where $V\to M$ is a rank $2$ vector bundle and $\Phi$ is a global section of $\End{V}\ot K$, called a \textit{Higgs field} on $V$.
+    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\to M$ is a rank $2$ vector bundle and $\Phi$ is a global section of $\End{E}\ot K$, called a \textit{Higgs field} on $E$.
 \end{defn}
 
 \begin{rem}
     Using the canonical isomorphisms
-    \[ H^{0}(M,\End{V}\ot K)\cong \Hom(O,V\dual \ot V\ot K)\cong \Hom(V,V\ot K) \]
+    \[ H^{0}(M,\End(E)\ot K)\cong \Hom(O,E\dual \ot E\ot K)\cong \Hom(E,E\ot K) \]
     we may identify $\Phi$ with a morphism
-    \[ \Phi\colon V\to V\ot K. \]
+    \[ \Phi\colon E\to E\ot K. \]
 \end{rem}
 
 %\begin{rem}
@@ -81,7 +97,7 @@ We usually follow the notation of \cite{hit87a}:
 \begin{exa}
     Assume $g\geqslant 2$.
     Then $\deg{K}=2g-2>0$, so we can find a line bundle $K^{\frac{1}{2}}$ such that $K^{\frac{1}{2}}\ot K^{\frac{1}{2}}\cong K$.
-    Let $V=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$, where $K^{-\frac{1}{2}}=(K^{\frac{1}{2}})^{-1}$.
+    Let $E=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$, where $K^{-\frac{1}{2}}=(K^{\frac{1}{2}})^{-1}$.
     We consider the Higgs field $\Phi_{w}\colon K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\to (K^{\frac{1}{2}}\op K^{-\frac{1}{2}})\ot K$ given by a matrix
     \[
 	\begin{pmatrix}
@@ -93,11 +109,11 @@ We usually follow the notation of \cite{hit87a}:
 \end{exa}
 
 \begin{defn}[Stability]
-A Higgs bundle $(V,\Phi)$ is said to be \textit{stable} if for every $\Phi$-invariant\footnote{Meaning that $\Phi(L)\subseteq L\ot K$.} line bundle $L\subseteq V$ we have $\mu(L)<\mu(V)$.
+A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-invariant\footnote{Meaning that $\Phi(L)\subseteq L\ot K$.} line bundle $L\subseteq E$ we have $\mu(L)<\mu(E)$.
 \end{defn}
 
 \begin{rem}
-    $(V,0)$ is stable if and only if $V$ is stable in the usual sense.
+    $(E,0)$ is stable if and only if $E$ is stable in the usual sense.
 \end{rem}
 
 \begin{exe}
@@ -107,25 +123,20 @@ A Higgs bundle $(V,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 \end{exe}
 
 \begin{exa}
-    Assume $g\geqslant 2$ and consier $V=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ again.
+    Assume $g\geqslant 2$ and consier $E=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ again.
     Then $\Phi_{0}$ is stable, because $K^{-\frac{1}{2}}$ is the only $\Phi_{0}$-invariant line bundle and
-    \[ \deg{K^{-\frac{1}{2}}}=1-g<0=\frac{\deg{V}}{2}. \]
+    \[ \deg{K^{-\frac{1}{2}}}=1-g<0=\frac{\deg{E}}{2}. \]
 \end{exa}
 
 \begin{prop}
-    Assume $g\geqslant 2$ and let $V\to M$ be a rank $2$ vector bundle.
-Then there exists Higgs field $\Phi$ on $V$ such that $(V,\Phi)$ is stable if and only if there exists a dense Zariski open subset $U\subseteq H^{0}(M,\End{V}\ot K)$ such that all $\Phi'\in U$ have the property that no line bundle $L\subseteq V$ is $\Phi'$-invariant.
+    Assume $g\geqslant 2$ and let $E\to M$ be a rank $2$ vector bundle.
+    Then there exists Higgs field $\Phi$ on $E$ such that $(E,\Phi)$ is stable if and only if there exists a dense Zariski open subset $U\subseteq H^{0}(M,\End(E)\ot K)$ such that all $\Phi'\in U$ have the property that no line bundle $L\subseteq E$ is $\Phi'$-invariant.
     \begin{proof}
-	Let $p\colon P(V)\to M$ be the projectivisation of our rank 2 vector bundle, which is the $\P^{1}$-bundle obtained by replacing each fibre $V_{x}$ by its projectivisation $(V_{x}\setminus \{0\})/\C^{\times}$.
-	Let $S\subseteq p^{*}V$ be the tautological line bundle on $P(V)$, whose fibre over a point $[v]\in p^{-1}(x)$ is given by the line $\{ \lambda v \mid \lambda \in \C \}\subseteq V_{x}$.
-	Let $H:=S\dual$ be its dual, which fits into a short exact sequence
-	\[ 0\to Q\dual \to p^{*}V\dual \to H \to 0. \]
-	Let $U\subseteq M$ be an open subset trivialising $V$.
-	Then the quotient map $p^{*}V\dual \to H$ in the previous short exact sequence induces an isomorphism
-	\[ H^{0}(p^{-1}(U),p^{*}V\dual)\cong H^{0}(p^{-1}(U),H), \]
-	so the pushforward of the sheaf of sections of $p^{*}V\dual$ is isomorphic to the pushforward of the sheaf of sections of $H$.
-	Since $p$ has connected fibres we have $p_{*}\O_{P(V)}\cong \O_{M}$, so applying the projection formula \cite[Exercise II.5.1.d]{har77} we deduce that the pushforward of the sheaf of sections of $H$ is isomorphic to the sheaf of sections of $V\dual$.
-	Abusing slightly the notation we will express this as $V\dual \cong p_{*}H$, and similarly we have $\Sym^{2}V\dual\cong p_{*}H^{2}$.
+	Let $p\colon \P(E)\to M$ be the projectivisation of our rank 2 vector bundle, which is a ruled surface in the sense of \cite[\S V.2]{har77}.
+	Let $O(-1)$ denote the tautological line bundle on $\P(E)$, whose fibre over $[v]\in \P(E)$ is the line $\{\lambda v \mid \lambda\in \C\}\subseteq E_{p([v])}$.
+	Let $O(l):=O(1)^{\ot l}$ for all $l\in \Z$, and if $F\to \P(E)$ is another vector bundle, denote by $F(l)$ the tensor product $F\ot O(l)$.
+	We have then $p_{*}\O(l)=S^{l}(\E\dual)$ for all $l\geqslant 0$ \cite[Exercise III.8.4]{har77}.
+	Abusing slightly the notation we will write $p_{*}O(l)=S^{l}(E\dual)$ for all $l\geqslant 0$.
 
 	Let $x\in M$.
 	Then every endomorphism $A\in \End(V_{x})$ defines a quadratic map $V_{x}\to \Lambda^{2}V_{x}$ sending $v$ to $Av\wedge v$.
@@ -156,7 +167,7 @@ Then there exists Higgs field $\Phi$ on $V$ such that $(V,\Phi)$ is stable if an
 	In conclusion: if $\div(s(\Phi))$ is irreducible, then no line bundle $L\subseteq V$ is $\Phi$-invariant.
 
 	Our next goal is to show that $\div(s(\Phi))$ is irreducible for generic $\Phi$.
-	We will show that the linear system $H^{2}p^{*}(K\ot\Lambda^{2}V)$ has dimension $2$ and has no fixed component, and then irreducibility follows from Bertini's theorem \cite[Theorem 3.3.1]{laz04a}.
+	We will show that the linear system $H^{2}p^{*}(K\ot\Lambda^{2}V)$ has dimension $2$ and has no fixed component, and then irreducibility follows from Bertini's theorem \cite[Theorem 7.19]{iit82}.
 
 	The dimension of the linear system is one less than the dimension of the vector space of global secitons.
 	Using the previous isomorphism it suffices to gain control over the dimension of the global sections of $\End_{0}{V}\ot K$ on $M$, for which we can apply Hirzebruch--Riemann--Roch \cite[Theorem A.4.1]{har77}.
