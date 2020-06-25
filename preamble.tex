@@ -55,6 +55,9 @@
 \usepackage{manfnt}
 % To draw dangerous bent symbol.
 
+\usepackage[mathscr]{euscript}
+% For mathscr font family.
+
 \usepackage{float}
 % Improved interface for floating objects such as figures and tables, introducing for example the H modifier to force the position of a float in the page or the boxed float. Should be loaded before hyperref.
 
@@ -82,42 +85,36 @@
 
 %%%%%%%%%% FONT DEFINITIONS %%%%%%%%%%
 
-% Script Font used for sheaves
-\DeclareFontFamily{OMS}{rsfs}{\skewchar\font'60}
-\DeclareFontShape{OMS}{rsfs}{m}{n}{<-5>rsfs5 <5-7>rsfs7 <7->rsfs10 }{}
-\DeclareSymbolFont{rsfs}{OMS}{rsfs}{m}{n}
-\DeclareSymbolFontAlphabet{\scr}{rsfs}
-\DeclareSymbolFontAlphabet{\scr}{rsfs}
-
 % Sheaves
-\newcommand{\sA}{\scr{A}}
-\newcommand{\sB}{\scr{B}}
-\newcommand{\sC}{\scr{C}}
-\newcommand{\sD}{\scr{D}}
-\newcommand{\E}{\scr{E}} % Exception (Vector bundles)
-\newcommand{\F}{\scr{F}} % Exception (Coherent sheaves)
-\newcommand{\G}{\scr{G}} % Exception (Coherent sheaves)
-\newcommand{\sH}{\scr{H}}
-\renewcommand{\hom}{\scr{H}\negthinspace om} % Exception (Hom-sheaf)
-\newcommand{\I}{\scr{I}} % Exception (Ideal sheaves)
-\newcommand{\sJ}{\scr{J}}
-\newcommand{\sK}{\scr{K}}
-\renewcommand{\L}{\scr{L}} % Exception (Line bundles)
-\newcommand{\M}{\scr{M}} % Exception (Line bundles)
-\newcommand{\sN}{\scr{N}}
-\renewcommand{\O}{\scr{O}} % Exception (Structure sheaf)
-\newcommand{\sP}{\scr{P}}
-\newcommand{\sQ}{\scr{Q}}
-\newcommand{\sR}{\scr{R}}
-\newcommand{\sS}{\scr{S}}
-\newcommand{\sT}{\scr{T}}
-\newcommand{\sU}{\scr{U}}
-\newcommand{\sV}{\scr{V}}
-\newcommand{\sW}{\scr{W}}
+\newcommand{\sA}{\mathscr{A}}
+\newcommand{\sB}{\mathscr{B}}
+\newcommand{\sC}{\mathscr{C}}
+\newcommand{\sD}{\mathscr{D}}
+\newcommand{\E}{\mathscr{E}} % Exception (Vector bundles)
+\newcommand{\F}{\mathscr{F}} % Exception (Coherent sheaves)
+\newcommand{\G}{\mathscr{G}} % Exception (Coherent sheaves)
+\newcommand{\sH}{\mathscr{H}}
+\renewcommand{\hom}{\mathscr{H}\negthinspace om} % Exception (Hom-sheaf)
+\newcommand{\sEnd}{\mathscr{E}\negthinspace nd}
+\newcommand{\I}{\mathscr{I}} % Exception (Ideal sheaves)
+\newcommand{\sJ}{\mathscr{J}}
+\newcommand{\sK}{\mathscr{K}}
+\renewcommand{\L}{\mathscr{L}} % Exception (Line bundles)
+\newcommand{\M}{\mathscr{M}} % Exception (Line bundles)
+\newcommand{\sN}{\mathscr{N}}
+\renewcommand{\O}{\mathscr{O}} % Exception (Structure sheaf)
+\newcommand{\sP}{\mathscr{P}}
+\newcommand{\sQ}{\mathscr{Q}}
+\newcommand{\sR}{\mathscr{R}}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\sT}{\mathscr{T}}
+\newcommand{\sU}{\mathscr{U}}
+\newcommand{\sV}{\mathscr{V}}
+\newcommand{\sW}{\mathscr{W}}
 \newcommand{\w}{\omega} % Addition (Canonical sheaf)
-\newcommand{\sX}{\scr{X}}
-\newcommand{\sY}{\scr{Y}}
-\newcommand{\sZ}{\scr{Z}}
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+\newcommand{\sZ}{\mathscr{Z}}
 
 % Mathcal fonts
 \newcommand{\calA}{\mathcal{A}}
@@ -252,7 +249,7 @@
 % Numbered theorems
 \theoremstyle{plain}
 % \theoremstyle{darkgreentheorem}
-\newtheorem{thm}{Theorem}
+\newtheorem{thm}{Theorem}[section]
 \newtheorem{lm}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
@@ -261,13 +258,14 @@
 \theoremstyle{definition}
 % \theoremstyle{darkbluedefinition}
 \newtheorem{defn}[thm]{Definition}
+\newtheorem{defnlm}[thm]{Definition-Lemma}
 % \theoremstyle{darkredexample}
 \newtheorem{exa}[thm]{Example}
-\newtheorem{exe}{Exercise}
 \theoremstyle{remark}
 \newtheorem{rem}[thm]{Remark}
 \newtheorem{nota}[thm]{Notation}
 \newtheorem{q}[thm]{Question}
+\newtheorem{exe}[thm]{Exercise}
 
 % Custom numbered theorems
 \theoremstyle{plain}
@@ -303,6 +301,10 @@
 \newenvironment{cdefn}[1]
     {\renewcommand\theinnercustomdefn{#1}\innercustomdefn}
     {\endinnercustomdefn}
+\newtheorem{innercustomdefnlm}{Definition-Lemma}
+\newenvironment{cdefnlm}[1]
+    {\renewcommand\theinnercustomdefnlm{#1}\innercustomdefnlm}
+    {\endinnercustomdefnlm}
 % \theoremstyle{darkredexample}
 \newtheorem{innercustomexa}{Example}
 \newenvironment{cexa}[1]
@@ -338,6 +340,7 @@
 \theoremstyle{definition}
 % \theoremstyle{darkbluedefinition}
 \newtheorem*{udefn}{Definition}
+\newtheorem*{udefnlm}{Definition-Lemma}
 % \theoremstyle{darkredexample}
 \newtheorem*{uexa}{Example}
 \theoremstyle{remark}
@@ -361,6 +364,8 @@
 \Crefname{fact}{Fact}{Facts}
 \crefname{defn}{definition}{definitions}
 \Crefname{defn}{Definition}{Definitions}
+\crefname{defnlm}{defition-lemma}{definition-lemmas}
+\Crefname{defnlm}{Definition-Lemma}{Definition-Lemmas}
 \crefname{exa}{example}{examples}
 \Crefname{exa}{Example}{Examples}
 \crefname{rem}{remark}{remarks}
@@ -386,6 +391,8 @@
 \Crefname{cfact}{Fact}{Facts}
 \crefname{cdefn}{definition}{definitions}
 \Crefname{cdefn}{Definition}{Definitions}
+\crefname{cdefnlm}{definition-lemma}{definition-lemmas}
+\Crefname{cdefnlm}{Definition-Lemma}{Definition-Lemmas}
 \crefname{cexa}{example}{examples}
 \Crefname{cexa}{Example}{Examples}
 \crefname{crem}{remark}{remarks}
@@ -431,7 +438,7 @@ mark = at position 0.5 with
 %\keywords{...}
 %\subjclass[...]{...}
 \title[Higgs Bundles --- Existence of Solutions]{Higgs Bundles --- Existence of Solutions}
-\date{\today}
+\date{15 July 2020}
 
 % Links and pdf options
 \makeatletter
