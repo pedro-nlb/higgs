@@ -83,7 +83,7 @@ Every now and then we will also use some other standard notation, for instance:
 %From now on let $M$ be a compcat Riemann surface (of genus $g\geqslant 2$) and $K\to M$ its canonical line bundle.
 
 \begin{defn}[Higgs bundle]
-    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\to M$ is a rank $2$ vector bundle and $\Phi$ is a global section of $\End{E}\ot K$, called a \textit{Higgs field} on $E$.
+    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\to M$ is a rank $2$ vector bundle and $\Phi$ is a global section of $\End(E)\ot K$, called a \textit{Higgs field} on $E$.
 \end{defn}
 
 \begin{rem}
@@ -233,7 +233,15 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 
 	We move on to case $b)$.
 	Assume that the fixed divisor corresponds to a non-zero global section $s\in H^{0}(\P(E),p^{*}\L(1))$.
-	This corresponds to a non-zero morphism $\E\to \L$, whose kernel $\sN\subseteq \E$ must then be an invertible sheaf because it is torsion-free of rank $1$ over the algebraic curve $M$.
+	This corresponds to a non-zero morphism $\E\to \L$.
+	Let $\sN\subseteq \E$ be its kernel, which is a torsion-free coherent sheaf over the algebraic curve $M$, hence locally free.
+	Since $E\to L$ is non-zero, there is some $x\in M$ such that $E_{x}\twoheadrightarrow L_{x}$ is surjective.
+	By Nakayama's lemma this implies that $\E_{x}\twoheadrightarrow \L_{x}$ is surjective.
+	From the short exact sequence
+	\[ 0\to \sN_{x}\to \E_{x}\to \L_{x} \to 0 \]
+	we see that the rank of $\sN$ at $x$ is $1$.
+	But the rank is a constant function \cite[Exercise II.5.8]{har77}, so $\sN$ is an invertible sheaf, corresponding to a line bundle $N\subseteq E$.
+	By construction, this line bundle has the property that any $v\in N$ satisfies $s(v)=0$, where $s\colon E\to L$ is the morphism of vector bundles corresponding to $s\in H^{0}(\P(E),p^{*}\L(1))$.
     \end{proof}
 \end{prop}
 
