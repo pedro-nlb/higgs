@@ -18,6 +18,9 @@
 \DeclareMathOperator{\SO}{SO}
 \let\hom\relax
 \DeclareMathOperator{\hom}{hom}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Ker}{Ker}
 
 % Other commands
 \newcommand{\ot}{\otimes}
@@ -97,19 +100,19 @@ Every now and then we will also use some other standard notation, for instance:
 %    We are mainly interested in the subbundle of traceless endomorphisms, denoted $\End_{0}{V}$.
 %\end{rem}
 
-\begin{exa}
-    Assume $g\geqslant 2$.
-    Then $\deg{K}=2g-2>0$, so we can find a line bundle $K^{\frac{1}{2}}$ such that $K^{\frac{1}{2}}\ot K^{\frac{1}{2}}\cong K$.
-    Let $E=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$, where $K^{-\frac{1}{2}}=(K^{\frac{1}{2}})^{-1}$.
-    We consider the Higgs field $\Phi_{w}\colon K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\to (K^{\frac{1}{2}}\op K^{-\frac{1}{2}})\ot K$ given by a matrix
-    \[
-	\begin{pmatrix}
-	    0 & w \\
-	    1 & 0
-	\end{pmatrix},
-    \]
-    where $w\in \Hom(K^{-\frac{1}{2}},K^{\frac{1}{2}}\ot K)\cong H^{0}(M,K^{2})$ can be regarded as a quadratic differential.
-\end{exa}
+%\begin{exa}
+%    Assume $g\geqslant 2$.
+%    Then $\deg{K}=2g-2>0$, so we can find a line bundle $K^{\frac{1}{2}}$ such that $K^{\frac{1}{2}}\ot K^{\frac{1}{2}}\cong K$.
+%    Let $E=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$, where $K^{-\frac{1}{2}}=(K^{\frac{1}{2}})^{-1}$.
+%    We consider the Higgs field $\Phi_{w}\colon K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\to (K^{\frac{1}{2}}\op K^{-\frac{1}{2}})\ot K$ given by a matrix
+%    \[
+%	\begin{pmatrix}
+%	    0 & w \\
+%	    1 & 0
+%	\end{pmatrix},
+%    \]
+%    where $w\in \Hom(K^{-\frac{1}{2}},K^{\frac{1}{2}}\ot K)\cong H^{0}(M,K^{2})$ can be regarded as a quadratic differential.
+%\end{exa}
 
 \begin{defn}[Stability]
 A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-invariant\footnote{Meaning that $\Phi(L)\subseteq L\ot K$.} line bundle $L\subseteq E$ we have $\mu(L)<\mu(E)$.
@@ -121,15 +124,30 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 
 \begin{exe}
     There are no stable Higgs bundles on $\P^{1}$.
-    [Hint: Grothedieck's theorem allows us to write $\Phi$ as a matrix. What can we say about each entry?]
-    [Solution in \cite{hit87a}]
+    [Hint: Grothedieck's theorem allows us to write $\Phi$ as a matrix.
+    What can we say about each entry?
+    Solution in \cite{hit87a}]
 \end{exe}
 
-\begin{exa}
-    Assume $g\geqslant 2$ and consier $E=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ again.
-    Then $\Phi_{0}$ is stable, because $K^{-\frac{1}{2}}$ is the only $\Phi_{0}$-invariant line bundle and
-    \[ \deg{K^{-\frac{1}{2}}}=1-g<0=\frac{\deg{E}}{2}. \]
-\end{exa}
+%\begin{exa}
+%    Assume $g\geqslant 2$ and consier $E=K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ again.
+%    Then $\Phi_{0}$ is stable, because $K^{-\frac{1}{2}}$ is the only $\Phi_{0}$-invariant line bundle and
+%    \[ \deg{K^{-\frac{1}{2}}}=1-g<0=\frac{\deg{E}}{2}. \]
+%\end{exa}
+
+\begin{prop}
+    Let $(E_{1},\Phi_{1})$ and $(E_{2},\Phi_{2})$ be stable pairs with $\Lambda^{2}E_{1}\cong \Lambda^{2}E_{2}$.
+    Let $\Psi\colon E_{1}\to E_{2}$ be a non-zero morphism such that $(\Psi\ot \id_{\w}) \circ \Phi_{1}=\Phi_{2}\circ \Psi$.
+    Then $\Psi$ is an isomorphism.
+    \begin{proof}
+	We prove the result by contradiction.
+	Suppose $\Psi\colon \E_{1}\to \E_{2}$ is not an isomorphism.
+	Since we are on an algebraic curve and $\Ker(\Psi)$ is a torsion-free coherent sheaf, it is a locally free sheaf of rank $1$ or $2$.
+	Hence we can find an invertible sheaf $\L_{1}\subseteq \Ker(\Psi)\subseteq \E_{1}$.
+	Similarly, we can find an invertible sheaf $\Im(\Psi)\subseteq \L_{2}\subseteq \E_{2}$.
+	Since $\Psi\circ \Phi_{1}=\Phi_{2}\circ \Psi$, $\L_{i}$ is $\Phi_{i}$-invariant for each $i\in \{1,2\}$.
+    \end{proof}
+\end{prop}
 
 \begin{prop}
     Assume $g\geqslant 2$ and let $E\to M$ be a rank $2$ vector bundle.
