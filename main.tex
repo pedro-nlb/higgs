@@ -198,7 +198,7 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 
 	Let $p\colon \P(E)\to M$ be the projectivisation of our rank 2 vector bundle, which is a ruled surface in the sense of \cite[\S V.2]{har77}.
 	Let $O(-1)$ denote the tautological line bundle on $\P(E)$, whose fibre over $[v]\in \P(E)$ is the line $\{\lambda v \mid \lambda\in \C\}\subseteq E_{p([v])}$.
-	Let $O(l):=O(1)^{\ot l}$ for all $l\in \Z$, and if $F\to \P(E)$ is another vector bundle, denote by $F(l)$ the tensor product $F\ot O(l)$.
+	Let $O(l):=O(-1)^{\ot (-l)}$ for all $l\in \Z$, and if $F\to \P(E)$ is another vector bundle, denote by $F(l)$ the tensor product $F\ot O(l)$.
 	We have then $p_{*}\O(l)=S^{l}(\E\dual)$ for all $l\geqslant 0$ \cite[Exercise III.8.4]{har77}.
 
 	Let $x\in M$.
@@ -223,7 +223,8 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	\end{center}
 	Being $\Phi$-invariant means precisely that $\sigma(M)\subseteq \div(s(\Phi))$.
 	But then any non-zero $v\in L$ is a non-zero eigenvector corresponding to some eigenvalue of the endomorphism over the corresponding fibre.
-	Since $\Phi$ is traceless and non-zero, the other eigenvalue must be different, and there must be some non-zero eigenvector outside of $L$, call it $v'\in V$.
+	There must be some non-zero eigenvector outside of $L$, call it $v'\in V$.
+	\todo{Make this precise. We could have some nilpotent matrix, for example. Can we avoid this?}
 	Since $v'$ is a non-zero eigenvector, $[v']\in \div(\alpha(\Phi))$.
 	And since $v'\not\in L$, $[v']\not\in \sigma(M)$.
 	Therefore $\sigma(M)$ is a proper irreducible component of the divisor $\div(\alpha(\Phi))$.
@@ -253,7 +254,7 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	By definition, a fixed divisor corresponds to a non-zero global section $s_{0}\in H^{0}(\P(E),\M_{1})$ for some invertible sheaf $\M_{1}$ such that there exists another invertible sheaf $\M_{2}$ with $\M_{1}\ot \M_{2}\cong p^{*}(\w\ot\Lambda^{2}\E)(2)$.
 	Being a fixed divisor translates into saying that every global section $s\in H^{0}(\P(E),p^{*}(\w\ot \Lambda^{2}\E)(2))$ can be written as $ts_{0}$ for some $t\in H^{0}(\P(E),\M_{2})$.
 	In particular, both $H^{0}(\P(E),\M_{1})$ and $H^{0}(\P(E),\M_{2})$ have to be non-zero.
-	By \cite[Exercise II.7.4]{har77} we can write $\M_{i}\cong p^{*}\L_{i}(l_{i})$ with $l_{1}+l_{2}=2$.
+	By \cite[Exercise II.7.9]{har77} we can write $\M_{i}\cong p^{*}\L_{i}(l_{i})$ with $l_{1}+l_{2}=2$.
 	In fact, we must have $0\leqslant l_{i}\leqslant 2$, because using again the projection formula we have
 	\[ H^{0}(\P(E),p^{*}\L_{i}(l_{i}))\cong H^{0}(M,\L_{i}\ot p_{*}\O(l_{i})) \]
 	and $p_{*}\O(l)=0$ for all $l<0$ \cite[Exercise III.8.4]{har77}.
@@ -335,16 +336,16 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	Writing it as a matrix with respect to our basis we obtain
 	\[
 	    \begin{pmatrix}
-		\mu\lambda_{e_{1}}^{\beta}l_{1} & \mu\lambda_{e_{2}}^{\beta}l_{2} \\
+		\mu\lambda_{e_{1}}^{\beta}l_{1} & \mu\lambda_{e_{2}}^{\beta}l_{1} \\
 		\mu\lambda_{e_{1}}^{\beta}l_{2} & \mu\lambda_{e_{2}}^{\beta}l_{2}
-	    \end{pmatrix}
+	    \end{pmatrix}.
 	\]
 	Therefore we have to show that $\lambda_{e_{1}}^{\beta}l_{1}+\lambda_{e_{2}}^{\beta}l_{2}=0$.
 	But we have $\lambda_{e_{1}}^{\beta}l_{1}+\lambda_{e_{2}}^{\beta}l_{2}=\lambda_{l_{1}e_{1}+l_{2}e_{2}}^{\beta}=\lambda_{l}^{\beta}$, which must be zero for all $\beta$ because $\alpha_{l}(l)=l_{1}l_{2}-l_{2}l_{1}=0$ and therefore $\overline{\alpha_{l}}\ot (e_{1}\wedge e_{2})=0$.
 
 	So we have an inclusion
 	\[ K\ot L^{2}\ot \Lambda^{2}E\dual \subseteq \End_{0}(E)\ot K. \]
-	A non-zero Higgs field in this subbundle leaves only $L$ invariant, because the inclusion $L^{2}\ot \Lambda^{2}E\dual \subseteq \Hom(E,E)$ factors through $\Hom(E,L)\subseteq \Hom(E,E)$, as we have seen a moment ago.
+	A non-zero global section of this subbundle leaves only $L$ invariant, because the inclusion $L^{2}\ot \Lambda^{2}E\dual \subseteq \Hom(E,E)$ factors through $\Hom(E,L)\subseteq \Hom(E,E)$, as we have seen a moment ago.
     \end{proof}
 \end{prop}
 
