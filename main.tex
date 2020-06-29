@@ -192,9 +192,7 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	Our goal is to show that $\bfS=\bfA$.
 	If $\Phi$ has no invariant $L$, then $(E,\Phi)$ is automatically stable.
 	Hence $\bfA\subseteq \bfS$.
-	The plan to show the other inclusion is to see that
-	\[ \Vec_{2}(M)=\bfA\sqcup \bfB \]
-	and that $\bfB\subseteq \Vec_{2}(M)\setminus \bfS$.
+	The plan to show the other inclusion is to see that $\Vec_{2}(M)=\bfA\sqcup \bfB$ and that $\bfB\subseteq \Vec_{2}(M)\setminus \bfS$.
 	
 	Let us start by showing that $\Vec_{2}(M)=\bfA\sqcup \bfB$.
 
@@ -285,6 +283,34 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	Hence we can find a line bundle $N\subseteq \Ker(s)\subseteq E$, which can be described as the largest line subbundle of $E$ contained in the kernel of $s$.
 	If $v\in N$ is a non-zero vector, then $s(v)=0$ and so $[v]\in \div(s)\subseteq \div(\alpha(\Phi))$.
 	Thus the corresponding section $\sigma(M)\subseteq \P(E)$ is contained in $\div(\alpha(\Phi))$ for all $\Phi$ and $N$ is $\Phi$-invariant for all $\Phi$.
+
+	In case $c)$, the fixed divisor corresponds to a non-zero global section of $p^{*}\L(2)$.
+	We have
+	\[ H^{0}(\P(E),p^{*}\L(2))\cong H^{0}(M,\L\ot S^{2}\E\dual)\cong H^{0}(M,\sEnd_{0}(\E)\ot \L\ot \Lambda^{2}\E\dual). \]
+	So we can think of the fixed global section $s$ as a traceless endomorphism of $E$ with coefficients in $L\ot \Lambda^{2}E\dual$.
+	With this point of view, $s$-invariance of a line bundle $N\subseteq E$ translates into $s\Phi'$-invariance of $N\subseteq E$ as before, where $s\Phi'$ is a Higgs field.
+	Let us see that the fixed section $s$ has some non-trivial kernel, hence defining a line bundle invariant under all Higgs fields as in the previous case.
+	To show that there is some non-trivial kernel, it suffices to check that $\det(s)=0$.
+	Since $s$ is traceless, it suffices in turn to check that $\operatorname{tr}(s^{2})=0$.
+	Suppose on the contrary that $\operatorname{tr}(s^{2})\neq 0$.
+	Fix some non-zero $s_{1}\in H^{0}(M,\L\dual\ot \w\ot \Lambda^{2}\E)$ and consider the linear map
+	\begin{align*}
+	    \beta\colon H^{0}(M,\L\dual\ot\w\ot \Lambda^{2}\E) & \longrightarrow H^{0}(M,\w^{2}) \\
+	    \Phi' & \longmapsto \operatorname{tr}(s^{2})s_{1}\Phi'
+	\end{align*}
+	Since $\operatorname{tr}(s^{2})s_{1}$ can only vanish at finitely many points, the image of a non-zero $\Phi'$ can only vanish at finitely many points, hence $\beta$ is injective.
+	But from the previous Riemann--Roch computation we know that
+	\[ h^{0}(M,\L\dual\ot\w\ot \Lambda^{2}\E)\geqslant 3g-3=h^{0}(M,\w^{2}), \]
+	so we have a contradiction.
+	This shows that $s$ has non-trivial kernel and thus defines a line bundle $N\subseteq E$ invariant by all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \w)$.
+
+	This concludes the first part of the proof.
+	We have shown that
+	\[ \Vec_{2}(M)=\bfA\sqcup \bfB. \]
+
+	The next step is to show that if $E\in \Vec_{2}(M)$ is stable, then it is in $\bfA$.
+	By the previous step of the proof it suffices to show that it is not in $\bfB$.
+	So let $E$ be a stable rank $2$ vector bundle on $M$ and assume $L\subseteq E$ is a line bundle which is $\Phi$-invariant for all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \w)$.
     \end{proof}
 \end{prop}
 
