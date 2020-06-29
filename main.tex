@@ -270,17 +270,21 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	Dividing all global sections by $s$ and by $p^{*}s$ respectively we obtain the following commutative diagram:
 	\begin{center}
 	    \begin{tikzcd}
-		H^{0}(M,\End_{0}(E)\ot K)\arrow{r}{\cong}\arrow[swap]{d}{/s}[swap]{\cong} & H^{0}(\P(E),p^{*}(K\ot \Lambda^{2}E)(2))\arrow{d}{\cong}[swap]{/p^{*}s} \\
-		H^{0}(M,\End_{0}(E)\ot K\ot L\dual)\arrow{r}{\cong} & H^{0}(\P(E),p^{*}(L\dual \ot K\ot \Lambda^{2}E)(2))
+		H^{0}(M,\sEnd_{0}(\E)\ot \w)\arrow{r}{\cong}\arrow[swap]{d}{/s}[swap]{\cong} & H^{0}(\P(E),p^{*}(\w\ot \Lambda^{2}\E)(2))\arrow{d}{\cong}[swap]{/p^{*}s} \\
+		H^{0}(M,\sEnd_{0}(\E)\ot \w\ot \L\dual)\arrow{r}{\cong} & H^{0}(\P(E),p^{*}(\L\dual \ot \w\ot \Lambda^{2}\E)(2))
 	    \end{tikzcd}
 	\end{center}
 	By definition, the new linear system does not have any fixed divisors and has the same dimension.
-	Hence we can apply Bertini to conclude that a generic $\Phi'\in H^{0}(M,\End_{0}(E)\ot K\ot L\dual)$ does not have invariant line bundles, which in this case are defined as line bundles $N\subseteq E$ such that $\Phi'(N)\subseteq N\ot K\ot L\dual$.
+	Hence we can apply Bertini to conclude that a generic $\Phi'\in H^{0}(M,\sEnd_{0}(\E)\ot \w\ot \L\dual)$ does not have invariant line bundles, which in this case are defined as line bundles $N\subseteq E$ such that $\Phi'(N)\subseteq N\ot K\ot L\dual$.
 	But a line bundle $N\subseteq E$ is $\Phi'$-invariant if and only if it is $s\Phi'$-invariant, so we have $E\in \bfA$ in this case.
 
 	We move on to case $b)$.
 	Assume that the fixed divisor corresponds to a non-zero global section $s\in H^{0}(\P(E),p^{*}\L(1))$.
-	This corresponds to a non-zero morphism $\E\to \L$, whose kernel $\sN\subseteq \E$ must then be an invertible sheaf because it is torsion-free of rank $1$ over the algebraic curve $M$.
+	This corresponds to a non-zero morphism $E\to L$.
+	The fibre-wise kernel has then dimension $1$ generically and $2$ at special points by upper semi-continuity \cite[Proposition 1.3.2]{ati89}.
+	Hence we can find a line bundle $N\subseteq \Ker(s)\subseteq E$, which can be described as the largest line subbundle of $E$ contained in the kernel of $s$.
+	If $v\in N$ is a non-zero vector, then $s(v)=0$ and so $[v]\in \div(s)\subseteq \div(\alpha(\Phi))$.
+	Thus the corresponding section $\sigma(M)\subseteq \P(E)$ is contained in $\div(\alpha(\Phi))$ for all $\Phi$ and $N$ is $\Phi$-invariant for all $\Phi$.
     \end{proof}
 \end{prop}
 
