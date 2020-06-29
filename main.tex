@@ -311,6 +311,40 @@ A Higgs bundle $(E,\Phi)$ is said to be \textit{stable} if for every $\Phi$-inva
 	The next step is to show that if $E\in \Vec_{2}(M)$ is stable, then it is in $\bfA$.
 	By the previous step of the proof it suffices to show that it is not in $\bfB$.
 	So let $E$ be a stable rank $2$ vector bundle on $M$ and assume $L\subseteq E$ is a line bundle which is $\Phi$-invariant for all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \w)$.
+	Under the isomorphism $E\cong E\dual \ot \Lambda^{2}E$ \cite[Exercise II.5.16]{har77}, the line bundle $L$ is sent to linear forms with coefficients in $\Lambda^{2}E$ vanishing along $L$, hence we have a short exact sequence
+	\[ 0\to \L\to \E\to \L\dual \ot \Lambda^{2}\E\to 0. \]
+	Dualizing this short exact sequence we obtain an inclusion $L\ot \Lambda^{2}E\dual \subseteq E\dual$.
+	Tensoring with $L$ and composing with the inclusion $E\dual\ot L\subseteq E\dual \ot E$ we obtain an inclusion $L^{2}\ot \Lambda^{2}E\dual \subseteq \End(E)$.
+	Choosing a basis on each fibre and chasing all the identifications we have made so far, we can see that the image of $L^{2}\ot \Lambda^{2}E\dual$ lies actually in $\End_{0}(E)$.
+	Indeed, let $V$ be a two dimensional $\C$-vector space and let $e_{1}$ and $e_{2}$ be a basis.
+	Let $L$ be the line spanned by a non-zero vector $l=l_{1}e_{1}+l_{2}e_{2}$.
+	The first identification we have is $V\cong \Hom(V,\Lambda^{2}V)$, sending $v$ to the homomorphism $v'\mapsto v'\wedge v$.
+	This corresponds to $\alpha_{v}\ot (e_{1}\wedge e_{2})\in V\dual\ot\Lambda^{2}V$, where $\alpha_{v}\in V\dual$ is the linear form sending $e_{1}\mapsto v_{2}$ and $e_{2}\mapsto -v_{1}$.
+	Denoting by $\overline{\alpha_{v}}$ its image in $L\dual$, we can describe the morphism corresponding to the right hand side of the previous short exact sequence as
+	\begin{align*}
+	    V &\longrightarrow L\dual \ot \Lambda^{2}V \\
+	    v &\longmapsto \overline{\alpha_{v}}\ot (e_{1}\wedge e_{2})
+	\end{align*}
+	Let now $\beta\in (L\dual \ot \Lambda^{2}V)\dual$ and denote by $\lambda_{v}^{\beta}$ the complex number such that
+	\[ \beta\colon \overline{\alpha_{v}}\ot (e_{1}\wedge e_{2})\mapsto \lambda_{v}^{\beta}. \]
+	A point $\mu l\ot \beta\in L\ot (L\dual\ot \Lambda^{2}V)\dual$ corresponds then to the endomorphism
+	\begin{align*}
+	    V &\longrightarrow V \\
+	    v &\longmapsto \mu \lambda_{v}^{\beta}l
+	\end{align*}
+	Writing it as a matrix with respect to our basis we obtain
+	\[
+	    \begin{pmatrix}
+		\mu\lambda_{e_{1}}^{\beta}l_{1} & \mu\lambda_{e_{2}}^{\beta}l_{2} \\
+		\mu\lambda_{e_{1}}^{\beta}l_{2} & \mu\lambda_{e_{2}}^{\beta}l_{2}
+	    \end{pmatrix}
+	\]
+	Therefore we have to show that $\lambda_{e_{1}}^{\beta}l_{1}+\lambda_{e_{2}}^{\beta}l_{2}=0$.
+	But we have $\lambda_{e_{1}}^{\beta}l_{1}+\lambda_{e_{2}}^{\beta}l_{2}=\lambda_{l_{1}e_{1}+l_{2}e_{2}}^{\beta}=\lambda_{l}^{\beta}$, which must be zero for all $\beta$ because $\alpha_{l}(l)=l_{1}l_{2}-l_{2}l_{1}=0$ and therefore $\overline{\alpha_{l}}\ot (e_{1}\wedge e_{2})=0$.
+
+	So we have an inclusion
+	\[ K\ot L^{2}\ot \Lambda^{2}E\dual \subseteq \End_{0}(E)\ot K. \]
+	A non-zero Higgs field in this subbundle leaves only $L$ invariant, because the inclusion $L^{2}\ot \Lambda^{2}E\dual \subseteq \Hom(E,E)$ factors through $\Hom(E,L)\subseteq \Hom(E,E)$, as we have seen a moment ago.
     \end{proof}
 \end{prop}
 
