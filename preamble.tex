@@ -55,6 +55,8 @@
 \usepackage{manfnt}
 % To draw dangerous bent symbol.
 
+\usepackage{libertine,libertinust1math}
+
 \usepackage[mathscr]{euscript}
 % For mathscr font family.
 
@@ -94,8 +96,8 @@
 \newcommand{\F}{\mathscr{F}} % Exception (Coherent sheaves)
 \newcommand{\G}{\mathscr{G}} % Exception (Coherent sheaves)
 \newcommand{\sH}{\mathscr{H}}
-\renewcommand{\hom}{\mathscr{H}\negthinspace om} % Exception (Hom-sheaf)
-\newcommand{\sEnd}{\mathscr{E}\negthinspace nd}
+\newcommand{\sHom}{\mathscr{H}\hspace{-0.2mm} om} % Exception (Hom-sheaf)
+\newcommand{\sEnd}{\mathscr{E}\hspace{-0.2mm} nd} % Exception (End-sheaf)
 \newcommand{\I}{\mathscr{I}} % Exception (Ideal sheaves)
 \newcommand{\sJ}{\mathscr{J}}
 \newcommand{\sK}{\mathscr{K}}
@@ -249,7 +251,7 @@
 % Numbered theorems
 \theoremstyle{plain}
 % \theoremstyle{darkgreentheorem}
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
 \newtheorem{lm}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
@@ -305,6 +307,10 @@
 \newenvironment{cdefnlm}[1]
     {\renewcommand\theinnercustomdefnlm{#1}\innercustomdefnlm}
     {\endinnercustomdefnlm}
+\newtheorem{innercustomexe}{Exercise}
+\newenvironment{cexe}[1]
+    {\renewcommand\theinnercustomexe{#1}\innercustomexe}
+    {\endinnercustomexe}
 % \theoremstyle{darkredexample}
 \newtheorem{innercustomexa}{Example}
 \newenvironment{cexa}[1]
@@ -323,10 +329,6 @@
 \newenvironment{cq}[1]
     {\renewcommand\theinnercustomq{#1}\innercustomq}
     {\endinnercustomq}
-\newtheorem{innercustomexe}{Exercise}
-\newenvironment{cexe}[1]
-    {\renewcommand\theinnercustomexe{#1}\innercustomexe}
-    {\endinnercustomexe}
 
 % Unnumbered theorems
 \theoremstyle{plain}
