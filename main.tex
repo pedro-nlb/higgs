@@ -304,23 +304,11 @@ Every now and then we will also use some other standard notation, for instance:
     Assume $g\geqslant 2$.
     Let $K^{\frac{1}{2}}$ be a line bundle whose square is $K$ and let $K^{-\frac{1}{2}}$ be its inverse.
     Does $K^{\frac{1}{2}}\op K^{-\frac{1}{2}}$ belong to $\bfA$ or to $\bfB$?
-    [\textit{Hints below}
-    \footnote{
-	Consider the family of traceless endomorphisms given by
-    \[
-	\Phi_{\alpha}:=
-	\begin{pmatrix}
-	    0 & \alpha \\
-	    1 & 0
-	\end{pmatrix},
-	\]
-	parametrized by quadratic differentials $\alpha\in H^{0}(M,K^{2})$.
-	Use without proof the fact that an invariant line bundle exists if and only if the characteristic polynomial
-	\[ \lambda^{2}-\alpha \]
-	has a root in $H^{0}(M,K)$, i.e.~if and only if the quadratic differential $\alpha$ can be written as a square $\alpha=\beta^{2}$ for some differential form $\beta\in H^{0}(M,K)$.
-	If $\alpha$ was a square, its zeros would all have multiplicity at least two.
-	Conclude that $K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\in \bfA$ using Bertini's theorem.
-    }]
+    [\textit{Hints below}\footnote{Consider the family of traceless endomorphisms given by 
+    $$\Phi_{\alpha}:=\begin{pmatrix} 0 & \alpha \\ 1 & 0 \end{pmatrix},$$
+	parametrized by quadratic differentials $\alpha\in H^{0}(M,K^{2})$. Use without proof the fact that an invariant line bundle exists if and only if the characteristic polynomial
+	$$\lambda^{2}-\alpha$$
+	has a root in $H^{0}(M,K)$, i.e.~if and only if the quadratic differential $\alpha$ can be written as a square $\alpha=\beta^{2}$ for some differential form $\beta\in H^{0}(M,K)$. If $\alpha$ was a square, its zeros would all have multiplicity at least two. Conclude that $K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\in \bfA$ using Bertini's theorem.}]
 \end{cexe}
 
 \begin{lm}
@@ -334,9 +322,9 @@ Every now and then we will also use some other standard notation, for instance:
 	\[ 0\to \L\to \E\to \L\dual \ot \Lambda^{2}\E\to 0. \]
 	Dualizing this short exact sequence we obtain an inclusion $L\ot \Lambda^{2}E\dual \subseteq E\dual$.
 	Tensoring with $L$ and composing with the inclusion $E\dual\ot L\subseteq E\dual \ot E$ we obtain an inclusion $L^{2}\ot \Lambda^{2}E\dual \subseteq \End(E)$.
-	Choosing a basis on each fibre and chasing all the identifications we have made so far, we can see that the image of $L^{2}\ot \Lambda^{2}E\dual$ lies actually in $\End_{0}(E)$.
+	Choosing a basis on each fibre and chasing all the identifications we have made so far, we see that the image of $L^{2}\ot \Lambda^{2}E\dual$ lies actually in $\End_{0}(E)$.
 	Indeed, let $V$ be a two dimensional $\C$-vector space and let $e_{1}$ and $e_{2}$ be a basis.
-	Let $L$ be the line spanned by a non-zero vector $l=l_{1}e_{1}+l_{2}e_{2}$.
+	Let $L$ be the line spanned by a non-zero vector $l$, which we may assume to be $e_{1}$.
 	The first identification we have is $V\cong \Hom(V,\Lambda^{2}V)$, sending $v$ to the homomorphism $v'\mapsto v'\wedge v$.
 	This corresponds to $\alpha_{v}\ot (e_{1}\wedge e_{2})\in V\dual\ot\Lambda^{2}V$, where $\alpha_{v}\in V\dual$ is the linear form sending $e_{1}\mapsto v_{2}$ and $e_{2}\mapsto -v_{1}$.
 	Denoting by $\overline{\alpha_{v}}$ its image in $L\dual$, we can describe the morphism corresponding to the right hand side of the previous short exact sequence as
@@ -345,25 +333,78 @@ Every now and then we will also use some other standard notation, for instance:
 	    v &\longmapsto \overline{\alpha_{v}}\ot (e_{1}\wedge e_{2})
 	\end{align*}
 	Let now $\beta\in (L\dual \ot \Lambda^{2}V)\dual$ and denote by $\lambda_{v}^{\beta}$ the complex number such that
-	\[ \beta\colon \overline{\alpha_{v}}\ot (e_{1}\wedge e_{2})\mapsto \lambda_{v}^{\beta}. \]
+	\[ \overline{\alpha_{v}}\ot (e_{1}\wedge e_{2})\overset{\beta}{\longmapsto} \lambda_{v}^{\beta}. \]
 	A point $\mu l\ot \beta\in L\ot (L\dual\ot \Lambda^{2}V)\dual$ corresponds then to the endomorphism
 	\begin{align*}
 	    V &\longrightarrow V \\
 	    v &\longmapsto \mu \lambda_{v}^{\beta}l
 	\end{align*}
-	Writing it as a matrix with respect to our basis we obtain
+	A basis for $L$ is $e_{1}$, a basis for $L\dual \ot \Lambda^{2}V$ is $\overline{\alpha_{e_{2}}}\ot (e_{1}\wedge e_{2})$ and a basis for $L\ot (L\dual\ot \Lambda^{2})\dual$ is $e_{1}\ot \beta_{0}$, where $\beta_{0}\in (L\dual \ot \Lambda^{2}V)\dual$ is such that $\lambda_{e_{2}}^{\beta_{0}}=1$.
+	Writing the image of the basis $e_{1}\ot \beta_{0}$ under the map $L\ot (L\dual\ot \Lambda^{2}V)\dual\to \End(V)$ as a matrix with respect to our bases we obtain
 	\[
 	    \begin{pmatrix}
-		\mu\lambda_{e_{1}}^{\beta}l_{1} & \mu\lambda_{e_{2}}^{\beta}l_{1} \\
-		\mu\lambda_{e_{1}}^{\beta}l_{2} & \mu\lambda_{e_{2}}^{\beta}l_{2}
+		0 & 1 \\
+		0 & 0
+	    \end{pmatrix},
+	\]
+	because $\overline{\alpha_{e_{1}}}=0$ and therefore $\lambda_{e_{1}}^{\beta}=0$ for any $\beta$.
+	We have thus an injective homomorphism
+	\[ L^{2}\ot \Lambda^{2}V\dual\hookrightarrow \End_{0}(V) \]
+	whose image are the traceless endomorphisms which preserve only $L$.
+	We regard this as a homomorphism into $\End(V)$ for a moment and use the basis $e_{11},e_{12},e_{21},e_{22}$ of $\End(V)$, where $e_{ij}$ denotes the endomorphism which, represented as a matrix in terms of our basis, has zeros everywhere except for a $1$ in the $ij$-th position.
+	Then our homomorphism is given by
+	\[ 
+	    \begin{pmatrix}
+		0 \\
+		1 \\
+		0 \\
+		0
+	    \end{pmatrix}
+	\]
+	Dualizing it we obtain a surjection
+	\[ \End_{0}(V\dual)\twoheadrightarrow L^{-2}\ot \Lambda^{2}V \]
+	given with respect to the dual bases by
+	\[
+	    \begin{pmatrix}
+		0 & 1 & 0 & 0
+	    \end{pmatrix}
+	\]
+	whose kernel are the endomorphisms of $V\dual$ represented with respect to the dual basis by a matrix of the form
+	\[
+	    \begin{pmatrix}
+		a & 0 \\
+		b & -a
 	    \end{pmatrix}.
 	\]
-	Therefore we have to show that $\lambda_{e_{1}}^{\beta}l_{1}+\lambda_{e_{2}}^{\beta}l_{2}=0$.
-	But we have $\lambda_{e_{1}}^{\beta}l_{1}+\lambda_{e_{2}}^{\beta}l_{2}=\lambda_{l_{1}e_{1}+l_{2}e_{2}}^{\beta}=\lambda_{l}^{\beta}$, which must be zero for all $\beta$ because $\alpha_{l}(l)=l_{1}l_{2}-l_{2}l_{1}=0$ and therefore $\overline{\alpha_{l}}\ot (e_{1}\wedge e_{2})=0$.
-
-	So we have an inclusion
-	\[ K\ot L^{2}\ot \Lambda^{2}E\dual \subseteq \End_{0}(E)\ot K. \]
-	A non-zero global section of this subbundle leaves only $L$ invariant, because the inclusion $L^{2}\ot \Lambda^{2}E\dual \subseteq \Hom(E,E)$ factors through $\Hom(E,L)\subseteq \Hom(E,E)$, as we have seen a moment ago.
+	Hence, under the isomorphism $\End(V)\cong \End(V\dual)$ given in coordinates by sending a matrix to its transpose, we obtain a surjection
+	\[ \End_{0}(V)\twoheadrightarrow L^{-2}\ot \Lambda^{2}V \]
+	whose kernel are the matrices of the form
+	\[
+	    \begin{pmatrix}
+		a & b \\
+		0 & -a
+	    \end{pmatrix}.
+	\]
+	Therefore the kernel of this surjection consists precisely of the traceless endomorphisms of $V$ that leave at least $L$ invariant.
+	The inclusion of this kernel can be naturally regarded as the composition of the inclusion $\Hom(V,L)\subseteq \Hom(V,V)$ and the projection $\pr_{0}\colon \Hom(V,V)\to \End_{0}(V)$, which writing every homomorphism as a matrix with respect to the bases above has the form
+	\[ 
+	\begin{pmatrix}
+	    a & b
+	\end{pmatrix}
+	\mapsto
+	\begin{pmatrix}
+	    a & b \\
+	    0 & 0
+	\end{pmatrix}
+	\mapsto
+	\begin{pmatrix}
+	    \frac{a}{2} & b \\
+	    0 & -\frac{a}{2}
+	\end{pmatrix}.
+	\]
+	This gives us the short exact sequence
+	\[ 0\to \E\dual\ot \L\ot \w\to \sEnd_{0}(\E)\ot \w\to \L^{-2}\ot \w\ot \Lambda^{2}\E\to 0, \]
+	in which the global sections of $\E\dual \ot \L\ot \w$ correspond to Higgs fields which leave at least $L$ invariant.
     \end{proof}
 \end{lm}
 
