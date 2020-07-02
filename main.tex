@@ -311,13 +311,18 @@ Every now and then we will also use some other standard notation, for instance:
 	has a root in $H^{0}(M,K)$, i.e.~if and only if the quadratic differential $\alpha$ can be written as a square $\alpha=\beta^{2}$ for some differential form $\beta\in H^{0}(M,K)$. If $\alpha$ was a square, its zeros would all have multiplicity at least two. Conclude that $K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\in \bfA$ using Bertini's theorem.}]
 \end{cexe}
 
-\begin{lm}
-    If $g\geqslant 2$, then
-    \[ \bfS\subseteq \bfA. \]
-    \begin{proof}
-	We want to show that if $E\in \Vec_{2}(M)$ is stable, then it is in $\bfA$.
-	By \Cref{lm:twocases} it suffices to show that it is not in $\bfB$.
-	So let $E$ be a stable rank $2$ vector bundle on $M$ and assume $L\subseteq E$ is a line bundle which is $\Phi$-invariant for all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \w)$.
+\begin{lm}\label{lm:linearalgebra}
+    Let $E\to M$ be a rank $2$ vector bundle and denote by $\End_{0}(E)$ the vector bundle of traceless endomorphisms.
+    Let $L\subseteq E$ be a line bundle.
+    Then there is an injective morphism
+    \[ L^{2}\ot \Lambda^{2}E\hookrightarrow \End_{0}(E) \]
+    whose image are the traceless endomorphisms which preserve only the line bundle $L$.
+    Dualizing this we obtain a surjection
+    \[ \End_{0}(E)\cong \End_{0}(E\dual)\twoheadrightarrow L^{-2}\ot \Lambda^{2}E \]
+    whose kernel are the traceless endomorphisms which preserve at least the line bundle $L$.
+    We can realize this kernel as the inclusion $\Hom(E,L)\subseteq \Hom(E,E)$ followed by the projection $\pr_{0}\colon \Hom(E,E)\to \End_{0}(E)$, yielding a short exact sequence
+    \[ 0\to \E\dual\ot \L\to \sEnd_{0}(\E)\to \L^{-2}\ot \Lambda^{2}\E \to 0. \]
+    \begin{proof}	
 	Under the isomorphism $E\cong E\dual \ot \Lambda^{2}E$ \cite[Exercise II.5.16]{har77}, the line bundle $L$ is sent to linear forms with coefficients in $\Lambda^{2}E$ vanishing along $L$, hence we have a short exact sequence
 	\[ 0\to \L\to \E\to \L\dual \ot \Lambda^{2}\E\to 0. \]
 	Dualizing this short exact sequence we obtain an inclusion $L\ot \Lambda^{2}E\dual \subseteq E\dual$.
@@ -348,9 +353,10 @@ Every now and then we will also use some other standard notation, for instance:
 	    \end{pmatrix},
 	\]
 	because $\overline{\alpha_{e_{1}}}=0$ and therefore $\lambda_{e_{1}}^{\beta}=0$ for any $\beta$.
-	We have thus an injective homomorphism
+	We have thus the desired injective homomorphism
 	\[ L^{2}\ot \Lambda^{2}V\dual\hookrightarrow \End_{0}(V) \]
 	whose image are the traceless endomorphisms which preserve only $L$.
+
 	We regard this as a homomorphism into $\End(V)$ for a moment and use the basis $e_{11},e_{12},e_{21},e_{22}$ of $\End(V)$, where $e_{ij}$ denotes the endomorphism which, represented as a matrix in terms of our basis, has zeros everywhere except for a $1$ in the $ij$-th position.
 	Then our homomorphism is given by
 	\[ 
@@ -367,9 +373,9 @@ Every now and then we will also use some other standard notation, for instance:
 	\[
 	    \begin{pmatrix}
 		0 & 1 & 0 & 0
-	    \end{pmatrix}
+	    \end{pmatrix}.
 	\]
-	whose kernel are the endomorphisms of $V\dual$ represented with respect to the dual basis by a matrix of the form
+	Its kernel are the endomorphisms of $V\dual$ represented with respect to the dual basis by a matrix of the form
 	\[
 	    \begin{pmatrix}
 		a & 0 \\
@@ -378,7 +384,7 @@ Every now and then we will also use some other standard notation, for instance:
 	\]
 	Hence, under the isomorphism $\End(V)\cong \End(V\dual)$ given in coordinates by sending a matrix to its transpose, we obtain a surjection
 	\[ \End_{0}(V)\twoheadrightarrow L^{-2}\ot \Lambda^{2}V \]
-	whose kernel are the matrices of the form
+	whose kernel are endomorphisms represented with respect to our basis by matrices of the form
 	\[
 	    \begin{pmatrix}
 		a & b \\
@@ -402,9 +408,34 @@ Every now and then we will also use some other standard notation, for instance:
 	    0 & -\frac{a}{2}
 	\end{pmatrix}.
 	\]
-	This gives us the short exact sequence
+	This gives us the desired short exact sequence
 	\[ 0\to \E\dual\ot \L\ot \w\to \sEnd_{0}(\E)\ot \w\to \L^{-2}\ot \w\ot \Lambda^{2}\E\to 0, \]
 	in which the global sections of $\E\dual \ot \L\ot \w$ correspond to Higgs fields which leave at least $L$ invariant.
+    \end{proof}
+\end{lm}
+
+\begin{lm}\label{lm:stable}
+    If $g\geqslant 2$, then
+    \[ \bfS\subseteq \bfA. \]
+    \begin{proof}
+	We want to show that if $E\in \Vec_{2}(M)$ is stable, then it is in $\bfA$.
+	By \Cref{lm:twocases} it suffices to show that it is not in $\bfB$.
+	So let $E$ be a stable rank $2$ vector bundle on $M$ and assume $L\subseteq E$ is a line bundle which is $\Phi$-invariant for all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \w)$.
+	Consider the short exact sequence from \Cref{lm:linearalgebra}
+	\[ 0\to \E\dual\ot \L\ot\w\to \sEnd_{0}(\E)\ot \w \to \L^{-2}\ot \w\ot \Lambda^{2}\E\to 0. \]
+	Since all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot\w)$ leave $L$ invariant, we get an induced isomorphism on global sections $H^{0}(M,\E\dual\ot\L\ot\w)\cong H^{0}(M,\sEnd_{0}(\E)\ot \w)$.
+	We consider now the short exact sequence
+	\[ 0\to \L^{2}\ot \w\ot \Lambda^{2}\E\dual \to \E\dual \ot \L\ot \w\to \w\to 0, \]
+	more or less implicit in the proof of \Cref{lm:linearalgebra}.
+	Since $E$ is stable, we have $\deg(\L^{2}\ot \Lambda^{2}\E\dual)<0$, and since the complete linear system corresponding to $\w$ is base-point free\footnote{Suppose that $P\in M$ was a base-point of $|\w|$.
+	This would mean that $h^{0}(\w)=h^{0}(\w\ot \O(-P))=g$, so by Riemann--Roch we would have $h^{0}(\O(P))=2$.
+	For any other $Q\in M$ we would have that $\O(P-Q)$ is a degree $0$ line bundle with $h^{0}(\O(P-Q))\in \{1,2\}$ \cite[Proof of Proposition IV.3.1]{har77}, hence the trivial line bundle.
+	This would imply that any two points in $M$ are linearly equivalent, hence $M=\P^{1}$ \cite[Example II.6.10.1]{har77}, a contradiction.} 
+	    we have
+	\[ h^{0}(M,\w\ot \Lambda^{2}\E\dual)<g \]
+	by \cite[Proposition IV.3.1]{har77}.
+	The long exact sequence of the previous short exact sequence gives then
+	\[ h^{0}(M,\w\ot \L\ot \E\dual)\leqslant 2g-1. \]
     \end{proof}
 \end{lm}
 
