@@ -431,11 +431,22 @@ Every now and then we will also use some other standard notation, for instance:
 	This would mean that $h^{0}(\w)=h^{0}(\w\ot \O(-P))=g$, so by Riemann--Roch we would have $h^{0}(\O(P))=2$.
 	For any other $Q\in M$ we would have that $\O(P-Q)$ is a degree $0$ line bundle with $h^{0}(\O(P-Q))\in \{1,2\}$ \cite[Proof of Proposition IV.3.1]{har77}, hence the trivial line bundle.
 	This would imply that any two points in $M$ are linearly equivalent, hence $M=\P^{1}$ \cite[Example II.6.10.1]{har77}, a contradiction.} 
-	    we have
-	\[ h^{0}(M,\w\ot \Lambda^{2}\E\dual)<g \]
-	by \cite[Proposition IV.3.1]{har77}.
+	    we have $h^{0}(M,\w\ot \L^{2}\ot\Lambda^{2}\E\dual)<g$ by \cite[Proposition IV.3.1]{har77}.
 	The long exact sequence of the previous short exact sequence gives then
 	\[ h^{0}(M,\w\ot \L\ot \E\dual)\leqslant 2g-1. \]
+	The earlier Hirzebruch--Riemann--Roch computation showed that
+	\[ h^{0}(M,\sEnd_{0}(\E)\ot \w)\geqslant 3g-3. \]
+	If we want the two dimensions to be equal we must have $g=2$ and $h^{0}(M,\w\ot\L\ot\E\dual)=3$.
+	From the same long exact sequence as before we deduce, using that $h^{0}(M,\w\ot\L^{2}\ot \Lambda^{2}\E\dual)<g=2$, that $h^{0}(M,\w\ot\L^{2}\ot\Lambda^{2}\E\dual)=1$.
+	In particular, $\deg(\w\ot\L^{2}\ot\Lambda^{2}\E\dual)\geqslant 0$.
+	We have $\deg(\w)=2$ and by stability we had $\deg(\L^{2}\ot \Lambda^{2}\E\dual)<0$, so we must have
+	\[ \deg(\w\ot\L^{2}\ot \Lambda^{2}\E\dual)\in \{0,1\}. \]
+	If it is $0$, then the existence of global sections implieis that it is the trivial line bundle, hence the previous short exact sequence becomes
+	\[ 0\to \O\to \E\dual\ot\L\ot\w\to \w\to 0. \]
+	Split short exact sequences are preserved by dualizing and tensoring with line bundles, so if this sequence was split then $\E$ would be decomposable as a direct sum of line bundles.
+	But this would give more endomorphisms of $\E$ than there should be, since stable vector bundles are simple.
+	So the previous short exact sequence is a non-trivial extension and the coboundary map $H^{0}(M,\w)\to H^{1}(M,\O)$ is non-zero.
+	The long exact sequence implies then that $h^{0}(M,\E\dual\ot \w\ot\L)\leqslant 2$, contradicting our previous conclusion that this dimension was $2$.
     \end{proof}
 \end{lm}
 
