@@ -430,9 +430,22 @@ Let $M$ be a compact Riemann surface.
 
 \section{An existence theorem}
 
+If $(A,\Phi)$ is an irreducible solution of the $\SO(3)$ self-duality equations on $M$, then the associated pair $(V,\Phi)$ is stable by \cite[Theorem 2.1]{hit87a}.
+In this section we prove the converse:
+
+\begin{thm}
+    Let $A$ be a connection on a principal $\SO(3)$-bundle $P$ on the compact Riemann surface $M$ of genus $g\geqslant 2$.
+    Let $\Phi\in \Omega^{1,0}(M,\ad(P)\ot \C)$ be such that $d_{A}''\Phi=0$ and $V$ an associated rank $2$ complex vector bundle with the holomorphic structure determined by $A$.
+    If $(V,\Phi)$ is a stable Higgs bundle, then there exists an automorphism of $V$ with determinant $1$ which takes $(A,\Phi)$ to a solution of the equation $F(A)+[\Phi,\Phi^{*}]=0$.
+    Moreover, this automorphism is unique up to gauge transformation.
+\end{thm}
+
+\appendix
+
+\section{The self-duality equations}
+
 From now on, every space, morphism and action will be assumed to be smooth without explicitly saying so.
 
-\subsection{Recall the self-duality equations}
 Let $G=\SO(3)$ be the Lie group of rotations in $\R^{3}$.
 Endow our Riemannian surface $M$ with the trivial right action by $G$, making it a right $G$-manifold.
 Let $\pi\colon P\to M$ be a principal $G$-bundle over $M$, which is a right $G$-manifold over $M$ which, locally on $M$, looks lilke the projection from a product $M\times G\to M$.
@@ -490,6 +503,12 @@ We consider $\Phi\in \Omega^{1,0}(M,\ad(P)\ot \C)$, which can be regarded as a $
 Let us denote by $\Phi^{*}$ the composition of $\Phi$ with the anti-involution of the complexified Lie algebra $\g_{\C}$.
 Similarly as before, we use the Lie bracket on $\g_{\C}$ to define a bracket on $\g_{\C}$-valued forms:
 \[ [\Phi,\Phi^{*}](X,Y)=[\Phi(X),\Phi^{*}(Y)]+[\Phi^{*}(X),\Phi(Y)] \text{ for all }X,Y\in \X(M). \]
+We can now state the first of the two equations for which we want to produce solutions:
+\[ F(A)=-[\Phi,\Phi^{*}]. \]
+That is, for all $X,Y\in \X(M)$ we want
+\[ d\w(X,Y)+[\w(X),\w(Y)]+[\Phi(X),\Phi^{*}(Y)]+[\Phi^{*}(X),\Phi(Y)]=0. \]
+
+For the second equation we need to recall the curvature induced by $A$ in the associated vector bundle $\ad(P)\ot \C$.
 
 \input{notation}
 
