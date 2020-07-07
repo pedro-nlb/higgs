@@ -430,22 +430,16 @@ Let $M$ be a compact Riemann surface.
 
 \section{An existence theorem}
 
-Recall from \cite[\S 1]{hit87a} the \textit{self-duality equations}.
-Let $M$ be a compact Riemann surface of genus $g\geqslant 0$ and let $P$ be a principal $\SO(3)$-bundle on $M$.
-We want to find a connection $A$ on $P$ and a smooth $(1,0)$-form with values in the complexified adjoint vector bundle $\Phi\in \Omega^{1,0}(M,\ad(P)\ot \C)$ such that $d_{A}''\Phi=0$ and
-\[ F(A)+[\Phi,\Phi^{*}]=0, \]
-where $F(A)\in \Omega^{2}(M,\ad(P))$ is the curvature of the connection and
-\[ [\Phi,\Phi^{*}](X,Y)=[\Phi(X),\Phi^{*}(Y)]+[\Phi^{*}(X),\Phi(Y)] \]
-for all $X,Y\in \X(M)$.
-After some reductions we end up considering a rank $2$ smooth complex vector bundle $E\to M$ with a fixed connection on $\Lambda^{2}E$ given by a projective embedding of $M$.
-The complex vector bundle $\ad(P)\ot \C)$ is then the vector bundle of traceless endomorphisms of $E$ twisted by the canonical bundle $K$, hence $\Phi\in \Omega^{1,0}(M,\End_{0}(E)\ot K)$.
-The condition that $d_{A}''\Phi=0$ says then that $\Phi$ is a holomorphic section with respect to the holomorphic structure induced by the connection $A$.
-
-\begin{thm}
-    In the previous set up, assume that $(E,\Phi)$ is a stable Higgs bundle.
-    Then we can find an automorphism of $E$ with constant determinant $1$ which takes $(A,\Phi)$ to a solution of the equation $F(A)+[\Phi,\Phi^{*}]=0$.
-    Moreover, this automorphism is unique up to gauge equivalence.
-\end{thm}
+Let $E$ be a smooth complex vector bundle on a compact Riemann surface $M$ of genus $g\geqslant 2$.
+Assume $E$ has rank $2$, so that it is determined up to smooth isomorphism by its degree $d=\deg(\Lambda^{2}E)$.
+Let $h$ be a Hermitian metric on $E$, that is, a smooth choice of Hermitian inner product $\langle-,-\rangle$ on each fibre $E_{x}$.
+Let $\sA_{h}$ be the set of $h$-unitary connections on $E$, that is, the set of connections $\nabla\colon \Gamma(E)\to \Omega^{1}(M,E)$ such that
+\[ d\langle s_{1},s_{2}\rangle=\langle \nabla(s_{1}),s_{2}\rangle + \langle s_{1},\nabla(s_{2})\rangle. \]
+Let $F=\nabla\circ \nabla \colon \Gamma(E)\to \Omega^{2}(M,E)$ be the curvature of the connection, where we interpret the second $\nabla$ as the extension of the induced $\C$-linear map $\nabla\colon \Omega^{1}(E)\to \Omega^{2}(E)$ defined as
+\[ \nabla(\sigma\cdot \varphi):=\nabla(\sigma)\wedge \varphi +\sigma \cdot d\varphi. \]
+We may regard $F\in \Omega^{2}(M,\End(E))$, and possibly after normalizing to obtain an integer cohomology class we have then an equality
+\[ [\tr(F)]=[F_{\Lambda^{2}E}]=-2\pi i c_{1}(E) \in H^{2}(M,\Z), \]
+where $F_{\Lambda^{2}E}$ is the curvature of the induced connection on $\Lambda^{2}E$.
 
 \input{notation}
 
