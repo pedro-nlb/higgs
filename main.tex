@@ -47,27 +47,34 @@
 \maketitle
 
 \begin{abstract}
-    In this talk we introduce the stability condition for Higgs bundles and discuss the Hitchin--Kobayashi correspondence.
-    The main result is \cite[Theorem 4.3]{hit87a}.
-    Relevant literature is \cite[\S 3 and \S 4]{hit87a} and \cite{wen14}.
+    We introduce the stability condition for Higgs bundles and discuss the Hitchin--Kobayashi correspondence \cite[\S 3 and \S 4]{hit87a}.
 \end{abstract}
 
 \tableofcontents
 
+\begin{center}
+\textcolor{gray}{---parts in gray will be omitted during the talk---}
+\end{center}
+
 \section{Stability of Higgs bundles}
 
-Let $M$ be a compact Riemann surface.
-In this first section, all vector bundles, morphisms and sections are assumed to be holomorphic.
+\begin{unota}
+    In this first section, all vector bundles, morphisms and sections are assumed to be holomorphic.
+    We will often go back and forth between vector bundles $E$ and their sheaves of sections $\E$.
+\end{unota}
+
+Let $M$ be a compact Riemann surface and $K$ its canonical line bundle.
+We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 
 \begin{udefn}[Higgs bundle]
-    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\to M$ is a rank $2$ vector bundle and $\Phi$ is a global section of $\End(E)\ot K$, called a \textit{Higgs field} on $E$.
+    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\in \Vec_{2}(M)$ and $\Phi\in H^{0}(M,\sEnd(\E)\ot \K)$.
+    We call $\Phi$ a \textit{Higgs field} on $E$.
 \end{udefn}
 
 \begin{urem}
     Using the canonical isomorphisms
     \[ H^{0}(M,\sEnd(\E)\ot \sK)\cong \Hom(\O,\E\dual \ot \E\ot \sK)\cong \Hom(\E,\E\ot \sK) \]
-    we may identify $\Phi$ with a morphism
-    \[ \Phi\colon E\to E\ot K. \]
+    we may identify $\Phi$ with a morphism $\Phi\colon E\to E\ot K$.
 \end{urem}
 
 \begin{udefn}[Stability]
@@ -85,17 +92,20 @@ In this first section, all vector bundles, morphisms and sections are assumed to
     The solution can be found in \cite[Remark (3.2) (iii)]{hit87a}}]
 \end{cexe}
 
+\begin{unota}
+    For $E\in \Vec_{2}(M)$, denote by $\End_{0}(E)$ the vector bundle of traceless endomorphisms.
+\end{unota}
+
 \begin{lm}\label{lm:traceless}
-    Let $E\to M$ be a rank $2$ vector bundle and denote by $\End_{0}(E)$ the vector bundle of traceless endomorphisms.
+    Let $E\in \Vec_{2}(E)$.
     Then there is a natural projection $\pr_{0}\colon \End(E)\to \End_{0}(E)$ whose kernel is the trivial line bundle of multiples of the identity, yielding a short exact sequence
     \[ 0\to \O\to \sEnd(\E)\to \sEnd_{0}(\E)\to 0. \]
     In particular, $\deg(\ch(\sEnd_{0}(\E)\ot \sK)\td(\sK\dual))_{1}=3g-3$.
     \begin{proof}
 	Over $x\in M$, the map $\pr_{0,x}\colon \End(E_{x})\to \End_{0}(E_{x})$ is given by
-	\[ A\mapsto A-\frac{\tr(A)}{2}\id_{E_{x}}. \]
-	The endomorphisms in the kernel are precisely the multiples of the identity.
-	This fibre-wise description globalizes to the desired short exact sequence.
-
+	\[ \phi\mapsto \phi-\frac{\tr(\phi)}{2}\id_{E_{x}}. \]
+	The endomorphisms in the kernel are precisely the multiples of the identity, and this fibre-wise description globalizes to the desired short exact sequence.	
+	\textcolor{gray}{%
 	For the Chern class computation we use the axioms in \cite[Appendix A]{har77}.
 	We have
 	\[ c_{1}(\sEnd_{0}(\E))=c_{1}(\sEnd(\E))=c_{1}(\E\dual\ot\E)=0, \]
@@ -106,12 +116,12 @@ In this first section, all vector bundles, morphisms and sections are assumed to
 	so multiplying the two expressions we obtain
 	\[ \ch(\sEnd_{0}(\E)\ot \sK)\td(\sK\dual)=3+\frac{3}{2}c_{1}(\sK). \]
 	Since $\deg(c_{1}(\sK))=2g-2$, the result follows.
+	}
     \end{proof}
 \end{lm}
 
 \begin{unota}
-    Let us denote by $\Vec_{2}(M)$ the set of rank $2$ vector bundles on $M$.
-    We define the following subsets:
+    We define the following subsets of $\Vec_{2}(M)$:
     \begin{itemize}
 	\item $\bfS:=\{ E\in \Vec_{2}(M)\mid \exists \Phi \text{ such that }(E,\Phi)\text{ is stable}\}$.
 	\item $\bfA:=\{ E\in \Vec_{2}(M)\mid \text{a general }\Phi\text{ has no invariant }L \}$.
@@ -126,7 +136,11 @@ In this first section, all vector bundles, morphisms and sections are assumed to
 	Let $\pi\colon \P(E)\to M$ be the projectivization of our rank $2$ vector bundle and let $O(-1)\to \P(E)$ denote the tautological line bundle, whose fiber over $[v]\in \P(E)$ is the line $\{\lambda v\mid \lambda\in \C\}\subseteq E_{\pi([v])}$ spanned by $v$.
 	Denote also $O(l):=O(-1)^{\ot (-l)}$.
 	If $\F$ is a sheaf on $\P(E)$, we denote $\F(l):=\F\ot \O(l)$, where $\O(l)$ denotes the sheaf of sections of $O(l)$.
-	We have $\pi_{*}\O(l)=S^{l}(\E\dual)$ for all $l\geqslant 0$ and $\pi_{*}\O(l)=0$ for all $l<0$ \cite[Exercise III.8.4]{har77}.
+	Using the relative $\Proj$ construction we can write $\P(E)=\P(\E\dual):=\Proj_{M}(S(\E\dual))$, so \cite[Exercise III.8.4]{har77} implies that
+	\[ \pi_{*}\O(l)=\begin{cases} S^{l}(\E\dual) & \text{ if } l\geqslant 0, \\
+	    0 & \text{ if }l<0.
+	\end{cases}
+	\]
 
 	Let $x\in M$.
 	Given $A\in \End(E_{x})$, we define the quadratic form $v\mapsto Av\wedge v$ with values in $\Lambda^{2}E_{x}$, which can then be naturally regarded as an element in $S^{2}(E_{x}\dual)\ot\Lambda^{2}E_{x}$.
@@ -163,6 +177,12 @@ In this first section, all vector bundles, morphisms and sections are assumed to
 	    \item $l=1$;
 	    \item $l=2$.
 	\end{enumerate}
+	We analyze each case separately to conclude that
+	\[ E\in \begin{cases} \bfA & \text{ if }l=0, \\
+	    \bfB & \text{ if }l\in \{1,2\}.
+	\end{cases} \]
+
+	\color{gray}
 	Let us start with case $a)$.
 	Let $\pi^{*}s\in H^{0}(\P(E),\pi^{*}\L)\cong H^{0}(M,\L)$ be a global section corresponding to the fixed component of our linear system.
 	Dividing all global sections by $s$ and by $\pi^{*}s$ respectively we obtain the following commutative diagram:
@@ -225,9 +245,8 @@ In this first section, all vector bundles, morphisms and sections are assumed to
 \end{cexe}
 
 \begin{lm}\label{lm:linearalgebra}
-    Let $E\to M$ be a rank $2$ vector bundle and denote by $\End_{0}(E)$ the vector bundle of traceless endomorphisms.
-    Let $L\subseteq E$ be a line bundle.
-    We have the following short exact sequences of vector bundles:
+    Let $E\in \Vec_{2}(M)$ and $L\subseteq E$ a line bundle.
+    We have the following short exact sequences:
     \begin{enumerate}[label=\alph*)]
 	\item $0\to \L^{2}\ot (\Lambda^{2}\E)\dual \ot \sK \to \sEnd_{0}(\E)\ot \sK\to \E\ot \L^{-1}\ot \sK\to 0$.
 	\item $0\to \E\dual \ot \L\ot \sK\to \sEnd_{0}(\E)\ot \sK \to \L^{-2}\ot (\Lambda^{2}\E)\ot \sK\to 0$.
@@ -337,10 +356,7 @@ In this first section, all vector bundles, morphisms and sections are assumed to
 	\[ 0\to \L^{2}\ot (\Lambda^{2}\E)\dual\ot\sK \to \E\dual \ot \L\ot \sK\to \sQ\ot\sK\to 0, \]
 	where $\deg(\sQ)$ can be seen to be $0$ by computing first Chern classes.
 	Riemann--Roch says then that $h^{0}(\sQ\ot\sK)\in \{g-1,g\}$.
-	Since $E$ is stable, we have $\deg(\L^{2}\ot \Lambda^{2}\E\dual)<0$, and since the complete linear system corresponding to $\sK$ is base-point free\footnote{Suppose that $x\in M$ was a base-point of $|\sK|$.
-	This would mean that $h^{0}(\sK)=h^{0}(\sK\ot \O(-x))=g$, so by Riemann--Roch we would have $h^{0}(\O(x))=2$.
-	For any other $x'\in M$ we would have that $\O(x-x')$ is a degree $0$ line bundle with $h^{0}(\O(x-x'))\in \{1,2\}$ \cite[Proof of Proposition IV.3.1]{har77}, hence the trivial line bundle.
-	This would imply that any two points in $M$ are linearly equivalent, hence $M=\P^{1}$ \cite[Example II.6.10.1]{har77}, a contradiction.} 
+	Since $E$ is stable, we have $\deg(\L^{2}\ot \Lambda^{2}\E\dual)<0$, and since the complete linear system corresponding to $\sK$ is base-point free \cite[Lemma IV.5.1]{har77}
 	    we have $h^{0}(M,\L^{2}\ot(\Lambda^{2}\E)\dual\ot\sK)\leqslant g-1$ by \cite[Proposition IV.3.1]{har77}.
 	The long exact sequence of the previous short exact sequence gives then
 	\[ h^{0}(M,\E\dual\ot\L\ot\sK)\leqslant 2g-1. \]
@@ -425,9 +441,6 @@ for $(\nabla,\Phi)\in \sB_{E}'$.
 If we fix a holomorphic structure on $E$, we can think of the gauge group acting on the hermitian metric
 \[ (g\cdot h)(s_{1},s_{2})=h(g\cdot s_{1},g\cdot s_{2}). \]
 From this perspective, we need to find a Higgs field $\Phi\in H^{0}(M,\End(E)\ot K)$ and a hermitian metric $h$ on $E$ such that the the Chern connection $\nabla$ corresponding to the hermitian metric and the fixed holomorphic structure satisfies $\mu(\nabla,\Phi)=0$.
-
-
-\input{notation}
 
 \bibliographystyle{alpha}
 \bibliography{main}
