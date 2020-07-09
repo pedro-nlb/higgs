@@ -405,7 +405,11 @@ We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 \begin{unota}
     In this second section, all vector bundles, morphisms and sections are only assumed to be smooth unless otherwise stated.
     We denote by $A^{p,q}(E)$ the globally defined $(p,q)$-forms with values in a vector bundle $E$.
+
     We normalize the Kähler form $\w_{M}$, which in our case agrees with the Riemannian volume form \cite[Lemma 3.8]{voi02}, so that $\operatorname{Vol}(M)=1$.
+
+    If $\alpha\in A^{p}(M)$, then $*\alpha\in A^{2-p}(M)$ is defined to be the unique form such that
+    \[ \alpha\wedge *\alpha=g(\alpha,\alpha)\w_{M}. \]
 \end{unota}
 
 Let $E\to M$ be a complex rank $2$ vector bundle and fix an hermitian metric $h$ on $E$ \cite[Proposition 4.1.4]{huy05}.
@@ -419,7 +423,7 @@ Let $E\to M$ be a complex rank $2$ vector bundle and fix an hermitian metric $h$
     Its complexification, which we denote by $\G^{c}$, is then the group $\GL(E)$ of automorphisms of $E$.
 \end{udefn}
 
-The space $\sA$ is then an affine space over the infinite-dimensional real vector space $A^{1}(\u_{h}(E))$ \cite[Corollary 4.2.11]{huy05}, where $\u_{h}(E)$ is the Lie algebra of $U_{h}(E)$, consisting of skew-hermitian endomorphisms.
+The space $\sA$ is then affine space over the infinite-dimensional real vector space $A^{1}(\u_{h}(E))$ \cite[Corollary 4.2.11]{huy05}, where $\u_{h}(E)$ is the Lie algebra of $U_{h}(E)$, consisting of skew-hermitian endomorphisms.
 The tangent space at each $\nabla\in \sA$ is then the vector space $A^{1}(\u_{h}(E))$.
 Recall from Tanuj's talk that $\sA$ admits a symplectic form
 \[ \w(a,b)=\int_{M}\tr(a\wedge b), \]
@@ -431,6 +435,7 @@ This action has a moment map given by
 where we think of $A^{2}(\u_{h}(E))$ as the dual of $A^{0}(\u_{h}(E))$ by the pairing
 \[ \langle a,b\rangle=\int_{M}\tr(ab). \]
 A detailed proof using opposite first Chern class sign convention can be found in \cite[Proposition II.4.1]{gal19}.
+
 
 
 \bibliographystyle{alpha}
