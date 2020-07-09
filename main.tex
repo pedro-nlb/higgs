@@ -252,6 +252,7 @@ We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 	\item $0\to \E\dual \ot \L\ot \sK\to \sEnd_{0}(\E)\ot \sK \to \L^{-2}\ot (\Lambda^{2}\E)\ot \sK\to 0$.
     \end{enumerate}
     Moreover, the sections of the image of $\sK\ot \L\ot \Lambda^{2}\E\dual$ in $a)$ leave only $L$ invariant; and the sections of the image of $\E\dual\ot \sK\ot\L$ in $b)$ are those which leave $L$ invariant.
+    \color{gray}
     \begin{proof}
 	All the short exact sequences are the result of tensoring another short exact sequence with $\sK$, so let us find the necessary short exact sequences without $\sK$.
 	Under the isomorphism $E\cong E\dual \ot \Lambda^{2}E$ \cite[Exercise II.5.16]{har77}, the line bundle $L$ is sent to linear forms with coefficients in $\Lambda^{2}E$ vanishing along $L$, hence we have a short exact sequence
@@ -367,6 +368,9 @@ We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 	In particular, $\deg(\L^{2}\ot(\Lambda^{2}\E)\dual\ot\sK)\geqslant 0$.
 	We have $\deg(\sK)=2$ and by stability we had $\deg(\L^{2}\ot \Lambda^{2}\E\dual)<0$, so we must have
 	\[ \deg(\L^{2}\ot (\Lambda^{2}\E)\dual\ot\sK)\in \{0,1\}. \]
+	We treat each case separately, showing that both of them lead to contradiction.
+
+	\color{gray}
 	If it is $0$, then the existence of global sections implieis that it is the trivial line bundle, hence the previous short exact sequence becomes
 	\[ 0\to \O\to \E\dual\ot\L\ot\sK\to \sK\to 0. \]
 	Split short exact sequences are preserved by dualizing and tensoring with line bundles, so if this sequence was split then $\E$ would be decomposable as a direct sum of line bundles.
@@ -398,49 +402,36 @@ We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 
 \section{Idea of the existence theorem}
 
-We take a step back from the algebraic/holomorphic realm into the smooth setting, following the discussion in \cite[\S 2.1.1]{wen14}.
-Let $E\to M$ be a smooth complex rank $2$ vector bundle over a compact Riemann surface $M$ of genus $g\geqslant 2$.
-A holomorphic structure structure on $E$ is equivalent to the choice of a $\bar{\partial}$-operator \cite[Theorem 2.6.26]{huy05} satisfying the Leibniz rule and an integrability condition, which in our case is trivially verified because $d\bar{z}\wedge d\bar{z}=0$.
-Let $h$ be a hermitian structure on $E$, which can be glued from standard ones using a partition of unity \cite[Proposition 4.1.4]{huy05}.
-Then there is a unique hermitian connection compatible with the holomorphic structure \cite[Proposition 4.2.14]{huy05}, which we called the Chern connection.
+\begin{unota}
+    In this second section, all vector bundles, morphisms and sections are only assumed to be smooth unless otherwise stated.
+    We denote by $A^{p,q}(E)$ the globally defined $(p,q)$-forms with values in a vector bundle $E$.
+    We normalize the Kähler form $\w_{M}$, which in our case agrees with the Riemannian volume form \cite[Lemma 3.8]{voi02}, so that $\operatorname{Vol}(M)=1$.
+\end{unota}
 
-Let now $\calA_{E}$ be the space of hermitian connections on the hermitian bundle $(E,h)$, which is an affine space over the infinite-dimensional real vector subspace $A^{1}(\u_{h}(E))\subseteq A^{1}(\End(E))$ consisting of $1$-forms with values in skew-hermitian endomorphisms \cite[Corollary 4.2.11]{huy05}.
-Chern connections allow us to identify $\calA_{E}$ with the space of holomorphic structures on $E$.
+Let $E\to M$ be a complex rank $2$ vector bundle and fix an hermitian metric $h$ on $E$ \cite[Proposition 4.1.4]{huy05}.
 
-\begin{udefn}
-    We consider the \textit{gauge group}
-    \[ \G_{E}=A^{0}(\U_{h}(E))=\{ g\in A^{0}(\End(E)) \mid gg^{*}=\id_{E}\}, \]
-    where $g^{*}$ is the $h$-adjoint endomorphism of $g$.
+\begin{udefn}[Space of unitary connections]
+    We denote by $\sA$ the space of $h$-unitary connections on $E$.
 \end{udefn}
 
-We will be mainly interested in the special unitary subgroup of gauge transformations, whose complexification is the group $A^{0}(\Aut_{0}(E))$ of automorphisms of $E$ with constant determinant $1$, because $\SU(2)^{\C}=\SL(2,\C)$ \cite[p.~376]{kna02}.
-
-\begin{udefn}
-    We consider now the Banach manifold
-    \[ \sB_{E}=\sA_{E}\times A^{1,0}(\End(E)) \]
-    with the symplectic structure given by
-    \[ \sK((A_{1},\Phi_{1}),(A_{2},\Phi_{2}))=-\int_{M}\tr(A_{1}\wedge A_{2})+2i\Im(\tr(\Phi_{1}\Phi_{2}^{*})), \]
-    for $A_{1},A_{2}\in A^{1}(\u_{h}(E))$, $\Phi_{1},\Phi_{2}\in A^{1,0}(\End(E))$ and $\Phi^{*}$ denoting the $h$-adjoint of $\Phi$.
+\begin{udefn}[Gauge group]
+    The group $U_{h}(E)$ of $h$-unitary endomorphisms of $E$ is called the \textit{gauge group}, denoted $\G$.
+    Its complexification, which we denote by $\G^{c}$, is then the group $\GL(E)$ of automorphisms of $E$.
 \end{udefn}
 
-\begin{fact}
-    The gauge group $\G_{E}$ acts nicely on both factors of $\sB_{E}$ by conjugation, and this action admits a momentum map
-    \[ \mu(\nabla,\Phi)=-F-[\Phi,\Phi^{*}]-2\pi i \mu(E)\id_{E}\sK_{M}, \]
-    where $F$ denotes the curvature of $\nabla$.
-    \begin{proof}[References for this fact]
-	This is briefly discussed in \cite[\S 4]{hit87a}.
-	A more detailed account can be found in \cite[Proposition III.3.2]{gal19}.
-    \end{proof}
-\end{fact}
+The space $\sA$ is then an affine space over the infinite-dimensional real vector space $A^{1}(\u_{h}(E))$ \cite[Corollary 4.2.11]{huy05}, where $\u_{h}(E)$ is the Lie algebra of $U_{h}(E)$, consisting of skew-hermitian endomorphisms.
+The tangent space at each $\nabla\in \sA$ is then the vector space $A^{1}(\u_{h}(E))$.
+Recall from Tanuj's talk that $\sA$ admits a symplectic form
+\[ \w(a,b)=\int_{M}\tr(a\wedge b), \]
+turning it into a symplectic Banach manifold.
+The gauge group $\G$ acts on $\sA$ by conjugation:
+\[ g\cdot \nabla=A^{1}(g)\circ \nabla\circ A^{0}(g^{-1}). \]
+This action has a moment map given by
+\[ \mu(\nabla)=F-2\pi i\mu(E)\id_{E}\w_{M}\in A^{2}(\u_{h}(E)), \]
+where we think of $A^{2}(\u_{h}(E))$ as the dual of $A^{0}(\u_{h}(E))$ by the pairing
+\[ \langle a,b\rangle=\int_{M}\tr(ab). \]
+A detailed proof using opposite first Chern class sign convention can be found in \cite[Proposition II.4.1]{gal19}.
 
-
-We also restrict our attention to the subspace of $\sB_{E}'\subseteq \sB_{E}$ consisting of pairs $(\nabla,\Phi)$ such that $\nabla^{0,1}\Phi=0$, i.e.~$\Phi\in H^{0}(M,\End(E)\ot K)$ is holomorphic with respect to the holomorphic structure defined by $\nabla$.
-We want to solve the self-duality equation
-\[ \mu(\nabla,\Phi)=0 \]
-for $(\nabla,\Phi)\in \sB_{E}'$.
-If we fix a holomorphic structure on $E$, we can think of the gauge group acting on the hermitian metric
-\[ (g\cdot h)(s_{1},s_{2})=h(g\cdot s_{1},g\cdot s_{2}). \]
-From this perspective, we need to find a Higgs field $\Phi\in H^{0}(M,\End(E)\ot K)$ and a hermitian metric $h$ on $E$ such that the the Chern connection $\nabla$ corresponding to the hermitian metric and the fixed holomorphic structure satisfies $\mu(\nabla,\Phi)=0$.
 
 \bibliographystyle{alpha}
 \bibliography{main}
