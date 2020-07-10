@@ -90,22 +90,10 @@ Since $d\bar{z}\wedge d\bar{z}=0$, the integrability condition is automatic on a
 The condition $\nabla^{0,1}\Phi=0$ then translates into $\Phi$ being a holomorphic section of $\End(E)\ot K$, which can then be regarded as a holomorphic morphism $E\to E\ot K$.
 Moreover:
 
-\begin{prop}
-    Let $(E,\Phi)$ be an irreducible solution to \Cref{eqn:hitchin}, with $E$ an holomorphic vector bundle of rank $2$ and $\Phi\in H^{0}(M,\End(E)\ot K)$.
-    Let $L\subseteq E$ be a holomorphic line subbundle such that $\Phi(L)\subseteq L\ot K$.
-    If $\mu(L)\geqslant \mu(E)$, then the sequence $0\to L\to E \to E/L\to 0$ has a holomorphic splitting and we can write $\Phi=\Phi_{L}\op \Phi_{E/L}$.
-    \begin{proof}
-	The Hermitian metric gives us a orthogonal projection $P\in \Hom(E,L)\subseteq \End(E)$ such that $P^{2}=P$ and $P^{*}=P$, hence a smooth splitting $E\cong L\op L\prp$.
-	From \cite[p.~141]{gh78} we have
-	\[ \deg(L)=\frac{i}{2\pi}\int_{M}F_{L}, \]
-	where $F_{L}$ is the curvature of the connection induced by $\nabla$ on $L$.
-	The curvature decreases along holomorphic subbundles \cite[p.~79]{gh78}, and stays the same only if the splitting $E\cong L\op L\prp$ is holomorphic \cite[Proposition 1.6.14]{kob87}.
-	By indecomposability, we deduce that
-	
-
-	Since $L$ is $\Phi$-invariant, we have $P\Phi P=\Phi P$.
-	Using the cyclic property of the trace and the properties of $P$, it follows that $\tr(P[\Phi,\Phi^{*}])=|P\Phi(\mathbbm{1}_{E}-P)|^{2}$ \cite[(4.20)]{wen16}, where $|-|$ is the norm induced by the Hermitian product of complex matrices $\langle A,B\rangle=\tr(AB^{*})$.
-    \end{proof}
+\begin{prop}[{\cite[Proposition 4.2.16]{wen16}}]
+    Let $(E,\Phi)$ be a solution to \Cref{eqn:hitchin}, with $E$ an holomorphic vector bundle of rank $2$ and $\Phi\in H^{0}(M,\End(E)\ot K)$.
+    Suppose we cannot write $E$ holomorphically as a direct sum of line bundles $L_{1}\op L_{2}$ such that $\Phi=\Phi_{1}\op \Phi_{2}$ for some $\Phi_{i}\in H^{0}(M,\End(L_{i})\ot K)$, $i\in \{1,2\}$.
+    Then every holomorphic line subbundle $L\subseteq E$ such that $\Phi(L)\subseteq L\ot K$ verifies $\mu(L)<\mu(E)$. 
 \end{prop}
 
 \section{Stability of Higgs bundles}
