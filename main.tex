@@ -5,6 +5,7 @@
 % Math operators
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Spec}{Spec}
@@ -41,6 +42,7 @@
 \renewcommand{\X}{\mathfrak{X}}
 \newcommand{\g}{\mathfrak{g}}
 \renewcommand{\u}{\mathfrak{u}}
+\newcommand{\prp}{^{\perp}}
 
 \begin{document}
 
@@ -55,6 +57,56 @@
 \begin{center}
 \textcolor{gray}{---parts in gray will be omitted during the talk---}
 \end{center}
+
+\section{Introduction}
+
+Let $M$ be a compact Riemann surface.
+Fix a Hermitian metric on $M$ such that
+\[ \operatorname{Vol}(M)=\int_{M}\w_{M}=1, \]
+where $\w_{M}\in A^{1,1}(M)$ is the corresponding Kähler form \cite[Beginning of \S 3.3]{voi02} and $\operatorname{Vol}(M)$ is the Riemannian volume \cite[Lemma 3.8]{voi02}.
+
+Hitchin's equations \cite[(1.3)]{hit87a} were originally stated for principal $G$-bundles over $M$, but for $G=\SO(3)$ they reduce to the study of rank $2$ complex vector bundles on $M$ \cite[Beginning of \S 2]{hit87a}.
+So let $E$ be a rank $2$ complex vector bundle on $M$ and fix a Hermitian metric $h$ on $E$ \cite[Proposition 4.1.4]{huy05}.
+A solution to Hitchin's equations in this set up consists of a unitary connection $\nabla \colon A^{0}(E)\to A^{1}(E)$ and an endomorphism $\Phi\in A^{0}(\End(E)\ot K)$ twisted by the canonical line bundle $K\to M$ such that
+\begin{equation}\label{eqn:hitchin}
+    \begin{cases}
+	F+[\Phi,\Phi^{*}]=-2\pi i \mu(E)\mathbbm{1}_{E}\w_{M}, \\
+	\nabla^{0,1}\Phi=0.
+    \end{cases}
+\end{equation}
+About the notation:
+\begin{itemize}
+    \item $F\colon A^{0}(E)\to A^{2}(E)$ is the curvature of the connection $\nabla$.
+    \item $\Phi$ can be locally written as $\phi dz$, where $\phi$ is a local section of $\End(E)$ and $z$ is a local holomorphic coordinate.
+	Then $\Phi^{*}$ can be locally written as $\phi^{*} d\bar{z}$, where $\phi^{*}$ is the $h$-adjoint of $\phi$; and $[\Phi,\Phi^{*}]$ can be locally written as $[\phi,\phi^{*}]dz\wedge d\bar{z}$.
+    \item $\mu(E)$ is the slope of the vector bundle $E$, defined as $\frac{1}{2}\deg(\Lambda^{2}E)$.
+    \item $\mathbbm{1}_{E}\in A^{0}(\End(E))$ denotes the identity endomorphism.
+    \item $\nabla^{0,1}\colon A^{0}(E)\to A^{0,1}(E)$ denotes the $(0,1)$-part of $\nabla$.
+    \item We followed the sign convention in \cite[(4.17)]{wen16}.
+	Other references, such as \cite[p.~38]{tho05}, follow the opposite sign convention.
+\end{itemize}
+
+Since $d\bar{z}\wedge d\bar{z}=0$, the integrability condition is automatic on a Riemann surface, so $\nabla^{0,1}$ defines a holomorphic structure on $E$ \cite[Theorem 2.6.26]{huy05}.
+The condition $\nabla^{0,1}\Phi=0$ then translates into $\Phi$ being a holomorphic section of $\End(E)\ot K$, which can then be regarded as a holomorphic morphism $E\to E\ot K$.
+Moreover:
+
+\begin{prop}
+    Let $(E,\Phi)$ be an irreducible solution to \Cref{eqn:hitchin}, with $E$ an holomorphic vector bundle of rank $2$ and $\Phi\in H^{0}(M,\End(E)\ot K)$.
+    Let $L\subseteq E$ be a holomorphic line subbundle such that $\Phi(L)\subseteq L\ot K$.
+    If $\mu(L)\geqslant \mu(E)$, then the sequence $0\to L\to E \to E/L\to 0$ has a holomorphic splitting and we can write $\Phi=\Phi_{L}\op \Phi_{E/L}$.
+    \begin{proof}
+	The Hermitian metric gives us a orthogonal projection $P\in \Hom(E,L)\subseteq \End(E)$ such that $P^{2}=P$ and $P^{*}=P$, hence a smooth splitting $E\cong L\op L\prp$.
+	From \cite[p.~141]{gh78} we have
+	\[ \deg(L)=\frac{i}{2\pi}\int_{M}F_{L}, \]
+	where $F_{L}$ is the curvature of the connection induced by $\nabla$ on $L$.
+	The curvature decreases along holomorphic subbundles \cite[p.~79]{gh78}, and stays the same only if the splitting $E\cong L\op L\prp$ is holomorphic \cite[Proposition 1.6.14]{kob87}.
+	By indecomposability, we deduce that
+	
+
+	Since $L$ is $\Phi$-invariant, we have $P\Phi P=\Phi P$.
+	Using the cyclic property of the trace and the properties of $P$, it follows that $\tr(P[\Phi,\Phi^{*}])=|P\Phi(\mathbbm{1}_{E}-P)|^{2}$ \cite[(4.20)]{wen16}, where $|-|$ is the norm induced by the Hermitian product of complex matrices $\langle A,B\rangle=\tr(AB^{*})$.
+    \end{proof}
+\end{prop}
 
 \section{Stability of Higgs bundles}
 
@@ -375,7 +427,9 @@ We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 	\[ 0\to \O\to \E\dual\ot\L\ot\sK\to \sK\to 0. \]
 	Split short exact sequences are preserved by dualizing and tensoring with line bundles, so if this sequence was split then $\E$ would be decomposable as a direct sum of line bundles.
 	But this would give more endomorphisms of $\E$ than there should be, since stable vector bundles are simple.
-	So the previous short exact sequence is a non-trivial extension and the coboundary map $H^{0}(M,\sK)\to H^{1}(M,\O)$ is non-zero.
+	So the previous short exact sequence is a non-trivial extension, hence its extension class $\xi$, defined as the image of $\id_{\sK}$ under the coboundary map $\delta\colon \Hom(\sK,\sK)\to \Ext^{1}(\sK,\O)$, is non-zero \cite[Exercise III.6.1]{har77}.
+	\todo{finish: coboundary given by cup with extension class, then use duality}
+	The coboundary map $H^{0}(M,\sK)\to H^{1}(M,\O)$ is non-zero.
 	The long exact sequence implies then that $h^{0}(M,\E\dual\ot \sK\ot\L)\leqslant 2$, contradicting our previous conclusion that this dimension was $2$.
 
 	If it is $1$, again by the existence of a non-zero global secction we deduce that it is the line bundle corresponding to some point $x\in M$.
@@ -399,6 +453,22 @@ We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 	Since $\mu(L)\geqslant \mu(E)$, this contradicts the assumption that $E\in \bfS$.
     \end{proof}
 \end{lm}
+
+Let us summarize what we have seen in this section in a single statement:
+
+\begin{thm}
+    Let $M$ be a compact Riemann surface of genus $g\geqslant 2$.
+    Then
+    \[ \Vec_{2}(M)=\bfA\sqcup \bfB, \]
+    that is, for a rank $2$ vector bundle on $M$ we have two mutually exclusive possibilities:
+    \begin{itemize}
+	\item A general section $\Phi\in H^{0}(M,\sEnd(\E)\ot \sK)$ leaves no line bundle $L\subseteq E$ invariant.
+	\item There exists a line bundle $L\subseteq E$ which is invariant under all sections $\Phi\in H^{0}(M,\sEnd(\E)\ot \sK)$.
+    \end{itemize}
+    Moreover, $E$ appears in a stable pair $(E,\Phi)$ if and only if a general section $\Phi\in H^{0}(M,\sEnd(\E)\ot\sK)$ leaves no line bundle $L\subseteq E$ invariant.
+\end{thm}
+
+Note in particular that if $E$ appears in a stable pair $(E,\Phi_{0})$, then $(E,\Phi)$ is trivially stable for a general $\Phi\in H^{0}(M,\sEnd(\E)\ot\sK)$.
 
 \section{Idea of the existence theorem}
 
