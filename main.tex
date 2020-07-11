@@ -67,7 +67,7 @@ where $\w_{M}\in A^{1,1}(M)$ is the corresponding Kähler form \cite[Beginning o
 
 Hitchin's equations \cite[(1.3)]{hit87a} were originally stated for principal $G$-bundles over $M$, but for $G=\SO(3)$ they reduce to the study of rank $2$ complex vector bundles on $M$ \cite[Beginning of \S 2]{hit87a}.
 So let $E$ be a rank $2$ complex vector bundle on $M$ and fix a Hermitian metric $h$ on $E$ \cite[Proposition 4.1.4]{huy05}.
-A solution to Hitchin's equations in this set up consists of a unitary connection $\nabla \colon A^{0}(E)\to A^{1}(E)$ and an endomorphism $\Phi\in A^{0}(\End(E)\ot K)$ twisted by the canonical line bundle $K\to M$ such that
+A solution to Hitchin's equations in this set up consists of a unitary connection $\nabla \colon A^{0}(E)\to A^{1}(E)$ and a traceless endomorphism valued $(1,0)$-form $\Phi\in A^{1,0}(\End_{0}(E))$ such that
 \begin{equation}\label{eqn:hitchin}
     \begin{cases}
 	F+[\Phi,\Phi^{*}]=-2\pi i \mu(E)\1_{E}\w_{M}, \\
@@ -78,7 +78,7 @@ A solution to Hitchin's equations in this set up consists of a unitary connectio
 About the notation:
 \begin{itemize}
     \item $F\colon A^{0}(E)\to A^{2}(E)$ is the curvature of the connection $\nabla$.
-    \item $\Phi$ can be locally written as $\phi dz$, where $\phi$ is a local section of $\End(E)$ and $z$ is a local holomorphic coordinate.
+    \item $\Phi$ can be locally written as $\phi dz$, where $\phi$ is a local section of $\End_{0}(E)$ and $z$ is a local holomorphic coordinate.
 	Then $\Phi^{*}$ can be locally written as $\phi^{*} d\bar{z}$, where $\phi^{*}$ is the $h$-adjoint of $\phi$; and $[\Phi,\Phi^{*}]$ can be locally written as $[\phi,\phi^{*}]dz\wedge d\bar{z}$.
     \item $\mu(E)$ is the slope of the vector bundle $E$, defined as $\frac{1}{2}\deg(\Lambda^{2}E)$.
     \item $\1_{E}\in A^{0}(\End(E))$ denotes the identity endomorphism.
@@ -89,7 +89,9 @@ About the notation:
 }
 
 Since $d\bar{z}\wedge d\bar{z}=0$, the integrability condition is automatic on a Riemann surface, so $\nabla^{0,1}$ defines a holomorphic structure on $E$ \cite[Theorem 2.6.26]{huy05}.
-The condition $\nabla^{0,1}\Phi=0$ then translates into $\Phi$ being a holomorphic section of $\End(E)\ot K$, which can be regarded as a holomorphic morphism $E\to E\ot K$.
+We can regard $\Phi$ as a smooth section of $\End_{0}(E)\ot K$.
+The condition $\nabla^{0,1}\Phi=0$ then translates into $\Phi$ being a holomorphic section of $\End_{0}(E)\ot K$.
+This in turn can be regarded as a holomorphic morphism $E\to E\ot K$.
 Moreover, if $(E,\Phi)$ is a solution which does not degenerate into a direct sum of line bundles, then every line bundle $L\subseteq $ such that $\Phi(L)\subseteq L\ot K$ verifies $\mu(L)<\mu(E)$ \cite[Proposition 4.2.16]{wen16}.
 This condition is what we will call \textit{stability} of the Higgs bundle $(E,\Phi)$.
 
@@ -105,9 +107,8 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
     We denote the set of rank $2$ vector bundles on $M$ by $\Vec_{2}(M)$.
 \end{unota}
 
-
 \begin{udefn}[Higgs bundle]
-    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\in \Vec_{2}(M)$ and $\Phi\in H^{0}(M,\sEnd(\E)\ot \sK)$.
+    A \textit{Higgs bundle} on $M$ is a pair $(E,\Phi)$, where $E\in \Vec_{2}(M)$ and $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$.
     We call $\Phi$ a \textit{Higgs field} on $E$.
 \end{udefn}
 
@@ -131,10 +132,6 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
     What can we say about each entry?
     The solution can be found in \cite[(3.2) (iii)]{hit87a}}]
 \end{cexe}
-
-\begin{unota}
-    For $E\in \Vec_{2}(M)$, denote by $\End_{0}(E)$ the vector bundle of traceless endomorphisms of $E$.
-\end{unota}
 
 \begin{lm}\label{lm:traceless}
     For every $E\in \Vec_{2}(E)$ there is a short exact sequence
@@ -428,7 +425,7 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
     \end{proof}
 \end{lm}
 
-\begin{lm}
+\begin{prop}
     If $g\geqslant 2$, then
     \[ \bfS=\bfA. \]
     \begin{proof}
@@ -441,37 +438,50 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
 	So if $E\in \bfB$, then this $L$ is a line bundle invariant by all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$.
 	Since $\mu(L)\geqslant \mu(E)$, this contradicts the assumption that $E\in \bfS$.
     \end{proof}
-\end{lm}
+\end{prop}
 
 Summarizing what we have seen in this first section, if $M$ is a compact Riemann surface of genus $g\geqslant 2$ and $E$ is a rank $2$ vector bundle on $M$, then there are only two mutually exclusive possibilities:
     \begin{itemize}
-	\item A general section $\Phi\in H^{0}(M,\sEnd(\E)\ot \sK)$ leaves no line bundle $L\subseteq E$ invariant.
-	\item There exists a line bundle $L\subseteq E$ which is invariant under all sections $\Phi\in H^{0}(M,\sEnd(\E)\ot \sK)$.
+	\item A general section $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$ leaves no line bundle $L\subseteq E$ invariant.
+	\item There exists a line bundle $L\subseteq E$ which is invariant under all sections $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$.
     \end{itemize}
-    Moreover, $E$ appears in a stable pair $(E,\Phi)$ if and only if a general section $\Phi\in H^{0}(M,\sEnd(\E)\ot\sK)$ leaves no line bundle $L\subseteq E$ invariant.
+    Moreover, $E$ appears in a stable pair $(E,\Phi)$ if and only if a general section $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot\sK)$ leaves no line bundle $L\subseteq E$ invariant.
 
 \section{Idea of the existence theorem}
 
 \begin{unota}
-    In this second section, all vector bundles, morphisms and sections are only assumed to be smooth unless otherwise stated.
-    We denote by $A^{p,q}(E)$ the globally defined $(p,q)$-forms with values in a vector bundle $E$.
-
-    We normalize the Kähler form $\w_{M}$, which in our case agrees with the Riemannian volume form \cite[Lemma 3.8]{voi02}, so that $\operatorname{Vol}(M)=1$.
-
-    If $\alpha\in A^{p}(M)$, then $*\alpha\in A^{2-p}(M)$ is defined to be the unique form such that
-    \[ \alpha\wedge *\alpha=g(\alpha,\alpha)\w_{M}. \]
+    From now on, all vector bundles, morphisms and sections are only assumed to be smooth unless otherwise stated.
+    We follow the notation in \cite{kob87} for differential forms, e.g.~$A^{p,q}(E)$ denotes the space of $(p,q)$-forms over $M$ with values in $E$.
 \end{unota}
 
-Let $E\to M$ be a complex rank $2$ vector bundle and fix an hermitian metric $h$ on $E$ \cite[Proposition 4.1.4]{huy05}.
+Let $E\to M$ be a complex vector bundle of rank $2$ and let $h$ be a Hermitian metric on $E$.
+Let $\sA_{E}$ denote the space of unitary connections on $E$.
+Our goal is to find a solution $(\nabla,\Phi)\in \sA_{E}\times A^{1,0}(\End_{0}(E))$ to \Cref{eqn:hitchin} starting from a stable Higgs bundle $(E,\Phi)$.
+This means in particular that we are given a holomorphic structure $\bar{\partial}_{E}$ on $E$ and a holomorphic Higgs field $\Phi\colon E\to E\ot K$.
+The metric $h$ and the holomorphic structure $\bar{\partial}_{E}$ determine a unique element $\nabla_{0}\in \sA_{E}$ compatible with both of them, which we called the Chern connection.
+We wish to modify $(\nabla_{0},\Phi)$ to produce a solution of \Cref{eqn:hitchin}, and to do this we have now two options:
+\begin{itemize}
+    \item Modify the holomorphic structure $\bar{\partial}_{E}$ and the Higgs field $\Phi$.
+    \item Modify the Hermitian metric $h$.
+\end{itemize}
 
-\begin{udefn}[Space of unitary connections]
-    We denote by $\sA$ the space of $h$-unitary connections on $E$.
-\end{udefn}
+The metric $h$ induces an affine-linear isomorphism from $\sA_{E}$ onto the space of holomorphic structures on $E$, and from now on we identify these two spaces under this isomorphism.
+The \textit{complex gauge group} $\sG^{c}$, defined as the space $A^{0}(\Aut_{0}(E))$ of determinant $1$ automorphisms of $E$, acts on $\sA_{E}$ as follows:
+\begin{itemize}
+    \item Thinking of $\sA_{E}$ as the space
 
-\begin{udefn}[Gauge group]
-    The group $U_{h}(E)$ of $h$-unitary endomorphisms of $E$ is called the \textit{gauge group}, denoted $\G$.
-    Its complexification, which we denote by $\G^{c}$, is then the group $\GL(E)$ of automorphisms of $E$.
-\end{udefn}
+
+
+
+
+
+
+
+
+
+
+
+
 
 The space $\sA$ is then affine space over the infinite-dimensional real vector space $A^{1}(\u_{h}(E))$ \cite[Corollary 4.2.11]{huy05}, where $\u_{h}(E)$ is the Lie algebra of $U_{h}(E)$, consisting of skew-hermitian endomorphisms.
 The tangent space at each $\nabla\in \sA$ is then the vector space $A^{1}(\u_{h}(E))$.
