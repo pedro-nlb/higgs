@@ -416,14 +416,21 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
 	Split short exact sequences are preserved by dualizing and tensoring with line bundles, so if this sequence was split then $\E$ would be decomposable as a direct sum of line bundles.
 	But this would give more endomorphisms of $\E$ than there should be, since stable vector bundles are simple.
 	So the previous short exact sequence is a non-trivial extension, hence its extension class $\xi$, defined as the image of $\1_{\sK}$ under the coboundary map $\delta\colon \Hom(\sK,\sK)\to \Ext^{1}(\sK,\O)$, is non-zero \cite[Exercise III.6.1]{har77}.
-	\todo{finish: coboundary given by cup with extension class, then use duality}
-	The coboundary map $H^{0}(M,\sK)\to H^{1}(M,\O)$ is non-zero.
-	The long exact sequence implies then that $h^{0}(M,\E\dual\ot \sK\ot\L)\leqslant 2$, contradicting our previous conclusion that this dimension was $2$.
+	The coboundary map $H^{0}(M,\sK)\to H^{1}(M,\O)$ is given by cup product with $\xi\in H^{1}(M,\sT_{M})$ \cite[Theorem II.7.1]{bre97}.
+	Hence it is non-zero, and the long exact sequence implies then that $h^{0}(M,\E\dual\ot \sK\ot\L)\leqslant 2$, contradicting our previous conclusion that this dimension was $3$.
 
 	If it is $1$, again by the existence of a non-zero global secction we deduce that it is the line bundle corresponding to some point $x\in M$.
 	The short exact sequence becomes
 	\[ 0\to \O(x)\to \E\dual\ot\L\ot\sK\to \sK\to 0, \]
-	and the coboundary map is again non-zero, yielding the same contradiction as before.
+	and the extension class $\xi\in H^{1}(M,\sK^{-1}(x))$ is again non-zero.
+	Let $s\in H^{0}(M,\sK(-x))$ be a non-zero global section, which exists because subtracting a point makes the dimension of the space of global sections go down at most by one, and in this case precisely by one by base point freeness.
+	Since $h^{0}(M,\sK)=h^{0}(M,\sK^{2}(-x))$, we can write every section in $H^{0}(M,\sK^{2}(-x))$ as $st$ for some $t\in H^{0}(M,\sK)$.
+	By Serre duality, the cup product gives us a perfect pairing
+	\[ H^{0}(M,\sK^{2}(-x))\times H^{1}(M,\sK^{-1}(x))\to H^{1}(M,\sK)\cong \C. \]
+	Since $\xi\neq 0$, we can find some $st\in H^{0}(M,\sK^{2}(-x))$ such that $st\cup \xi\neq 0$.
+	But the cup product is associative \cite[Proposition II.7.3]{bre97} and the product of section $st$ is by definition their cup product, so we must have $t\cup \xi\neq 0$.
+	Therefore the coboundary map $\delta\colon H^{0}(M,\sK)\to H^{1}(M,\O)$ is non-zero, because it is given by cup product with $\xi$ \cite[Theorem II.7.1]{bre97} and so $\delta(t)=t\cup \xi \neq 0$.
+	This contradicts again our previous conclusion that $h^{0}(M,\E\dual\ot \L\ot \sK)=3$.
     \end{proof}
 \end{lm}
 
@@ -442,12 +449,14 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
     \end{proof}
 \end{prop}
 
+\textcolor{gray}{%
 Summarizing what we have seen in this first section, if $M$ is a compact Riemann surface of genus $g\geqslant 2$ and $E$ is a rank $2$ vector bundle on $M$, then there are only two mutually exclusive possibilities:
     \begin{itemize}
 	\item A general section $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$ leaves no line bundle $L\subseteq E$ invariant.
 	\item There exists a line bundle $L\subseteq E$ which is invariant under all sections $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$.
     \end{itemize}
     Moreover, $E$ appears in a stable pair $(E,\Phi)$ if and only if a general section $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot\sK)$ leaves no line bundle $L\subseteq E$ invariant.
+}
 
 \section{Idea of the existence theorem}
 
