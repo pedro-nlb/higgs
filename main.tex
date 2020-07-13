@@ -88,12 +88,14 @@ About the notation:
 \end{itemize}
 }
 
+\textcolor{gray}{%
 Since $d\bar{z}\wedge d\bar{z}=0$, the integrability condition is automatic on a Riemann surface, so $\nabla^{0,1}$ defines a holomorphic structure on $E$ \cite[Theorem 2.6.26]{huy05}.
 We can regard $\Phi$ as a smooth section of $\End_{0}(E)\ot K$.
 The condition $\nabla^{0,1}\Phi=0$ then translates into $\Phi$ being a holomorphic section of $\End_{0}(E)\ot K$.
 This in turn can be regarded as a holomorphic morphism $E\to E\ot K$.
 Moreover, if $(E,\Phi)$ is a solution which does not degenerate into a direct sum of line bundles, then every line bundle $L\subseteq $ such that $\Phi(L)\subseteq L\ot K$ verifies $\mu(L)<\mu(E)$ \cite[Proposition 4.2.16]{wen16}.
 This condition is what we will call \textit{stability} of the Higgs bundle $(E,\Phi)$.
+}
 
 The existence proof in \cite[(4.3)]{hit87a} is based on Donaldson's proof of the existence of connections with constant central curvature on stable vector bundles \cite{don83}, which was discussed in Tanuj's talk.
 The difference between the two settings is the introduction of the Higgs field $\Phi$, so the main goal of this talk will be to understand stability of such pairs $(E,\Phi)$.
@@ -434,7 +436,7 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
     \end{proof}
 \end{lm}
 
-\begin{prop}
+\begin{prop}\label{prop:general}
     If $g\geqslant 2$, then
     \[ \bfS=\bfA. \]
     \begin{proof}
@@ -467,48 +469,52 @@ Summarizing what we have seen in this first section, if $M$ is a compact Riemann
 
 Let $E\to M$ be a complex vector bundle of rank $2$ and let $h$ be a Hermitian metric on $E$.
 Let $\sA_{E}$ denote the space of unitary connections on $E$.
-Our goal is to find a solution $(\nabla,\Phi)\in \sA_{E}\times A^{1,0}(\End_{0}(E))$ to \Cref{eqn:hitchin} starting from a stable Higgs bundle $(E,\Phi)$.
-This means in particular that we are given a holomorphic structure $\bar{\partial}_{E}$ on $E$ and a holomorphic Higgs field $\Phi\colon E\to E\ot K$.
-The metric $h$ and the holomorphic structure $\bar{\partial}_{E}$ determine a unique element $\nabla_{0}\in \sA_{E}$ compatible with both of them, which we called the Chern connection.
-We wish to modify $(\nabla_{0},\Phi)$ to produce a solution of \Cref{eqn:hitchin}, and to do this we have now two options:
+Our goal is to find a solution $(\nabla,\Phi)\in N:=\sA_{E}\times A^{1,0}(\End_{0}(E))$ to \Cref{eqn:hitchin} starting from a stable Higgs bundle $(E,\Phi)$.
+
+\textcolor{gray}{%
+We can endow $N$ with a Kähler structure given by
+\[ \w((A_{1},\Phi_{1}),(A_{2},\Phi_{2}))=-\int_{M}\tr(A_{1}\wedge A_{2})+2i\Im(\tr(\Phi_{1}\Phi_{2}^{*})) \]
+for $A_{1},A_{2}\in A^{1}(\u_{h}(E))$ and $\Phi_{1},\Phi_{2}\in A^{1,0}(\End_{0}(E))$, where $\u_{h}(E)$ is the vector bundle of skew-hermitian endomorphisms of $E$ \cite[Corollary 4.2.11]{huy05}.
+}
+
+The gauge group $\G=A^{0}(\U_{h}(E))$ of unitary automorphisms of $E$ acts on $N$ by conjugation on each factor, and this action admits a moment map
+\[ \mu(\nabla,\Phi)=-F-[\Phi,\Phi^{*}]-2\pi i \mu(E)\1_{E}\w_{M}. \]
+
+Let then $(\nabla_{0},\Phi_{0})\in N$ be a stable Higgs bundle, where $\nabla_{0}=\nabla(\bar{\partial}_{E})$ is the Chern connection of the given holomorphic structure $\bar{\partial}_{E}$ on $E$.
+The complex gauge group $\G^{c}_{0}$ of automorphisms of $E$ with determinant $1$ acts on $N$ as well, sending $(\nabla,\Phi)$ to $(\nabla(g\nabla^{0,1}g^{-1}),g\Phi g^{-1})$.
+In particular, $\Phi$ remains a holomorphic section with respect to the new $\bar{\partial}_{E}=\nabla^{0,1}$.
+Moreover, $\G^{c}_{0}$ acts freely on the orbit of the stable Higgs bundle $(\nabla_{0},\Phi_{0})$ by proposition \cite[(3.15)]{hit87a} from Jin's talk.
+It follows from this and the discussion in \cite[\S 4]{hit87a} or in \cite[\S 8]{ab82} that if we manage to find a minimum of for
+\[ f(\nabla,\Phi):=\int_{M}||\mu(\nabla,\Phi)||^{2} \]
+in the orbit of $(\nabla_{0},\Phi_{0})$, we will have solved \Cref{eqn:hitchin}.
+
+To do this, we pick a minimizing sequence $(\nabla_{n},\Phi_{n})$ for $f$ in the orbit of $(\nabla_{0},\Phi_{0})$.
+This is always possible by definition of infimum and convexity of $f$ \cite[\S 8]{ab82}.
+After some analysis we can apply Uhlenbeck's theorem, which allows us to assume that $(\nabla_{n},\Phi_{n})$ has a weakly convergent subsequent.
+We have to show that its limit $(\nabla,\Phi)$ is still in the same $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$.
+Let $\psi_{n}\in \G^{c}_{0}$ map $(\nabla_{n},\Phi_{n})$ to $(\nabla_{0},\Phi_{0})$.
+Doing some more analysis, we may assume that the sequence $\psi_{n}$ is weakly convergent, having then a non-zero limit $\psi$ \cite[p.~82]{hit87a}.
+By definition we have identities
+\[ \nabla_{(n,0)}^{0,1}\psi_{n}=0 \text{ and } \Phi_{0}\psi_{n}=\psi_{n}\Phi_{n}, \]
+where $\nabla_{(n,0)}$ denotes the connection induced by $\nabla_{n}$ and $\nabla_{1}$ on $\End(E)$ \cite[Example 4.2.6 iii)]{huy05}.
+These remain true in the limit, so $\psi$ is a holomorphic morphism from $(E,\nabla^{0,1})$ to $(E,\nabla^{0,1}_{0})$ such that $\Phi_{0}\psi=\psi\Phi$.
+But $\psi$ is non-zero, so we have the following two possibilities:
 \begin{itemize}
-    \item Modify the holomorphic structure $\bar{\partial}_{E}$ and the Higgs field $\Phi$.
-    \item Modify the Hermitian metric $h$.
+    \item $\psi$ is an isomorphism, in which case it is in $\G^{c}_{0}$ and $(\nabla,\Phi)$ is in the same orbit as $(\nabla_{0},\Phi_{0})$, yielding the desired solution.
+    \item The image of $\psi$ has generically rank $1$, going down to $0$ only at special points by upper-semicontinuity \cite[Proposition 1.3.2]{ati89}.
 \end{itemize}
 
-The metric $h$ induces an affine-linear isomorphism from $\sA_{E}$ onto the space of holomorphic structures on $E$, and from now on we identify these two spaces under this isomorphism.
-The \textit{complex gauge group} $\G^{c}$, defined as the space $A^{0}(\Aut_{0}(E))$ of determinant $1$ automorphisms of $E$, acts on $\sA_{E}$ as follows:
-\begin{itemize}
-    \item Thinking of $\sA_{E}$ as the space
-\end{itemize}
+Assume then that we are in the second case.
+Since $\psi$ is holomorphic, the saturation of $\psi(E)$ in $E$ defines a line bundle $L\subseteq E$ holomorphic with respect to $\nabla_{0}^{0,1}$.
+But $\Phi_{0}\psi=\psi\Phi$, so $L$ is $\Phi_{0}$-invariant.
+\textcolor{gray}{%
+Indeed, it suffices to check this generically, so let $x\in M$ such that $L_{x}=\psi(E_{x})$ and let $v=\psi(v')\in L_{x}$.
+Then $\phi_{0}(v)=\phi_{0}(\psi(v'))=\psi(\phi(v'))\in \psi(E_{x})$.
+}
+By \Cref{prop:general}, since $(\nabla_{0},\Phi_{0})$ is stable, this is impossible for $\Phi_{0}$ on a non-empty Zariski open subset.
+So for a general $\Phi_{0}$, the limit $\psi$ had to be an isomorphism.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-The space $\sA$ is then affine space over the infinite-dimensional real vector space $A^{1}(\u_{h}(E))$ \cite[Corollary 4.2.11]{huy05}, where $\u_{h}(E)$ is the Lie algebra of $U_{h}(E)$, consisting of skew-hermitian endomorphisms.
-The tangent space at each $\nabla\in \sA$ is then the vector space $A^{1}(\u_{h}(E))$.
-Recall from Tanuj's talk that $\sA$ admits a symplectic form
-\[ \w(a,b)=\int_{M}\tr(a\wedge b), \]
-turning it into a symplectic Banach manifold.
-The gauge group $\G$ acts on $\sA$ by conjugation:
-\[ g\cdot \nabla=A^{1}(g)\circ \nabla\circ A^{0}(g^{-1}). \]
-This action has a moment map given by
-\[ \mu(\nabla)=F-2\pi i\mu(E)\1_{E}\w_{M}\in A^{2}(\u_{h}(E)), \]
-where we think of $A^{2}(\u_{h}(E))$ as the dual of $A^{0}(\u_{h}(E))$ by the pairing
-\[ \langle a,b\rangle=\int_{M}\tr(ab). \]
-A detailed proof using opposite first Chern class sign convention can be found in \cite[Proposition II.4.1]{gal19}.
-
-
+The general non-general case will follow from a further application of Uhlenbeck's theorem.
 
 \bibliographystyle{alpha}
 \bibliography{main}
