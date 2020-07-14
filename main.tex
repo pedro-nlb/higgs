@@ -499,10 +499,10 @@ Define a smooth function $f\colon N\to \R_{\geqslant 0}$ by
 \[ f(\nabla,\Phi):=\int_{M}||\mu(\nabla,\Phi)||^{2} \]
 and restrict it to the $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$ we have a smooth function $f_{0}\colon \G^{c}_{0}\to \R_{\geqslant 0}$ given by $f_{0}(\psi)=f(\psi\cdot (\nabla_{0},\Phi_{0}))$.
 Suppose that we manage to find a minimum $\psi\cdot (\nabla_{0},\Phi_{0})$ of $f_{0}$, so that the differential $df_{0}$ vanishes at $\psi$ \cite[Exercise 11.24]{lee13}.
-Since $f_{0}$ is the composition $f\circ (-\cdot (\nabla_{0},\Phi_{0}))$, the chain rule tells us that $df_{\psi\cdot (\nabla_{0},\Phi_{0})}\circ d(-\cdot (\nabla_{0},\Phi_{0}))_{\psi}=0$.
-
-\[ \grad(f_{0})(\psi)=2g(\mu_{\psi},\grad(\mu))... \]
-Since $\grad(\mu)(x)=I\xi_{N}(x)\neq 0$, so we must have $\mu(x)=0$.
+But since
+\[ d(\langle \mu,\mu\rangle)=\langle d\mu,\mu\rangle+\langle \mu,d\mu\rangle =2\langle \mu, d\mu\rangle \]
+and $\grad(\mu)(\psi\cdot (\nabla_{0},\Phi_{0}))\neq 0$, we must have $\mu(\psi\cdot (\nabla_{0},\Phi_{0}))=0$.
+Therefore $\psi \cdot (\nabla_{0},\Phi_{0})$ would be a solution to \Cref{eqn:hitchin} in the $\G^{c}_{0}$-orbit of our original stable pair $(\nabla_{0},\Phi_{0})$.
 
 Let then $(\nabla_{0},\Phi_{0})\in N$ be a stable Higgs bundle, where $\nabla_{0}=\nabla(\bar{\partial}_{E})$ is the Chern connection of the given holomorphic structure $\bar{\partial}_{E}$ on $E$.
 The complex gauge group $\G^{c}_{0}$ of automorphisms of $E$ with determinant $1$ acts on $N$ as well, sending $(\nabla,\Phi)$ to $(\nabla(g\nabla^{0,1}g^{-1}),g\Phi g^{-1})$.
