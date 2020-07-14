@@ -555,9 +555,10 @@ By definition we have identities
 \[ \nabla_{(n,0)}^{0,1}\psi_{n}=0 \text{ and } \Phi_{0}\psi_{n}=\psi_{n}\Phi_{n}, \]
 where $\nabla_{(n,0)}$ denotes the connection induced by $\nabla_{n}$ and $\nabla_{0}$ on $\End(E)$ \cite[Example 4.2.6 iii)]{huy05}.
 These remain true in the limit, so $\psi$ is a holomorphic morphism from $E$ with the holomorphic structure $\nabla^{0,1}$ to $E$ with the holomorphic structure $\nabla^{0,1}_{0}$ such that $\Phi_{0}\psi=\psi\Phi$.
-But $\psi$ is non-zero, so we have the following two possibilities:
+But $\psi$ is non-zero and its determinant is constant along the fibers of $E$, so we only have the following two possibilities:
 \begin{itemize}
-    \item $\psi$ is an isomorphism, in which case it is in $G^{c}$ and $(\nabla,\Phi)$ is in the same orbit as $(\nabla_{0},\Phi_{0})$, yielding the desired solution.
+    \item $\psi$ is an isomorphism, yielding an element in $G^{c}$ that sends $(\nabla,\Phi)$ to $(\nabla_{0},\Phi_{0})$.
+	In this case $(\nabla,\Phi)$ is in the same $G^{c}$-orbit as $(\nabla_{0},\Phi_{0})$, so we have found a solution to \Cref{eqn:hitchin}.
     \item The image of $\psi$ has generically rank $1$, going down to $0$ only at special points by upper-semicontinuity \cite[Proposition 1.3.2]{ati89}.
 \end{itemize}
 
@@ -576,7 +577,7 @@ This can be done with a similar argument, applying Uhlenbeck's theorem again and
 Let again $(\nabla_{n},\Phi_{n})$ be a minimizing sequence in the orbit of $(\nabla_{0},\Phi_{0})$ such that $\Phi_{n}\in U$ for all $n\in \N$, which we may assume after applying unitary gauge transformations to be weakly convergent to $(\nabla,\Phi)$.
 The equation $\mu=0$ is preserved under weak limits, so $\mu(\nabla,\Phi)$ is a solution to \Cref{eqn:hitchin}, hence stable by \cite[(2.1]{hit87a}.
 The same argument as above shows that we have a holomorphic morphism $\psi\colon E\to E$ with respect to the holomorphic structures $\nabla^{0,1}$ and $\nabla_{0}^{0,1}$ respectively.
-By \cite[(3.15)]{hit87a} from Jin's talk it must be an isomorphism, so $\psi$ is in $G^{c}$ and $(\nabla,\Phi)$ is in the same orbit as $(\nabla_{0},\Phi_{0})$.
+By \cite[(3.15)]{hit87a} from Jin's talk it must be an isomorphism, so $\psi$ yields an element in $G^{c}$ taking $(\nabla,\Phi)$ to $(\nabla_{0},\Phi_{0})$.
 }
 
 Combining the discussion above with \cite[(2.7)]{hit87a} from Jin's talk, we have the following:
@@ -584,7 +585,7 @@ Combining the discussion above with \cite[(2.7)]{hit87a} from Jin's talk, we hav
 \begin{thm}
     Let $M$ be a compact Riemann surface of genus $g\geqslant 2$ and let $(E,\Phi)$ be a stable Higgs bundle.
     Then there is an automorphism of $E$ with determinant $1$ which takes $(\nabla(h;\bar{\partial}_{E}),\Phi)$ to a solution of \Cref{eqn:hitchin}.
-    Moreover, this automorphism is unique up to gaguge equivalence.
+    Moreover, this automorphism is unique up to gauge equivalence.
 \end{thm}
 
 \bibliographystyle{alpha}
