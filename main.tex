@@ -287,6 +287,7 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
 	has a root in $H^{0}(M,K)$, i.e.~if and only if the quadratic differential $\alpha$ can be written as a square $\alpha=\beta^{2}$ for some differential form $\beta\in H^{0}(M,K)$. If $\alpha$ was a square, its zeros would all have multiplicity at least two. Conclude that $K^{\frac{1}{2}}\op K^{-\frac{1}{2}}\in \bfA$ using Bertini's theorem.}]
 \end{cexe}
 
+{\color{gray}
 \begin{lm}\label{lm:linearalgebra}
     Let $E\in \Vec_{2}(M)$ and $L\subseteq E$ a line bundle.
     We have the following short exact sequences:
@@ -295,7 +296,6 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
 	\item $0\to \E\dual \ot \L\ot \sK\to \sEnd_{0}(\E)\ot \sK \to \L^{-2}\ot (\Lambda^{2}\E)\ot \sK\to 0$.
     \end{enumerate}
     Moreover, the non-zero sections of the image of $\L\ot (\Lambda^{2}\E\dual)\ot \sK$ in $a)$ leave only $L$ invariant; and the sections of the image of $\E\dual\ot \L\ot \sK$ in $b)$ are those which leave at least $L$ invariant.
-    \color{gray}
     \begin{proof}
 	All the short exact sequences are the result of tensoring another short exact sequence with $\sK$, so let us find the necessary short exact sequences without $\sK$.
 	Under the isomorphism $E\cong E\dual \ot \Lambda^{2}E$ \cite[Exercise II.5.16]{har77}, the line bundle $L$ is sent to linear forms with coefficients in $\Lambda^{2}E$ vanishing along $L$, hence we have a short exact sequence
@@ -387,9 +387,11 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
 	This gives us the short exact sequence in $b)$ and the right hand side of the short exact sequence in $a)$.
     \end{proof}
 \end{lm}
+}
 
 \begin{lm}\label{lm:stable}
     If $g\geqslant 2$ and $E$ is a stable rank $2$ vector bundle, then $E\in \bfA$.
+    \color{gray}
     \begin{proof}
 	By \Cref{lm:twocases} it suffices to show that it is not in $\bfB$.
 	So let $E$ be a stable rank $2$ vector bundle on $M$ and assume $L\subseteq E$ is a line bundle which is $\Phi$-invariant for all $\Phi\in H^{0}(M,\sEnd_{0}(\E)\ot \sK)$.
@@ -413,7 +415,6 @@ At the end of the talk we will see how to modify Donaldson's proof to produce so
 	\[ \deg(\L^{2}\ot (\Lambda^{2}\E)\dual\ot\sK)\in \{0,1\}. \]
 	We treat each case separately, showing that both of them lead to contradiction.
 
-	\color{gray}
 	If it is $0$, then the existence of global sections implieis that it is the trivial line bundle, hence the previous short exact sequence becomes
 	\[ 0\to \O\to \E\dual\ot\L\ot\sK\to \sK\to 0. \]
 	Split short exact sequences are preserved by dualizing and tensoring with line bundles, so if this sequence was split then $\E$ would be decomposable as a direct sum of line bundles.
@@ -478,9 +479,12 @@ We can endow $N$ with a Kähler structure given by
 \[ \w_{N}((A_{1},\Phi_{1}),(A_{2},\Phi_{2}))=-\int_{M}\tr(A_{1}\wedge A_{2})+2i\Im(\tr(\Phi_{1}\Phi_{2}^{*})) \]
 for $A_{1},A_{2}\in A^{1}(\u_{h}(E))$ and $\Phi_{1},\Phi_{2}\in A^{1,0}(\End_{0}(E))$, where $\u_{h}(E)$ is the vector bundle of skew-hermitian endomorphisms of $E$ \cite[Corollary 4.2.11]{huy05}.
 
-The gauge group $\G=A^{0}(\U_{h}(E))$ of unitary automorphisms of $E$ acts on $N$ by conjugation on each factor, and this action admits a moment map
+The gauge group $G=A^{0}(\U_{h}(E))$ of unitary automorphisms of $E$ acts on $N$ by conjugation on each factor, and this action admits a moment map
 \[ \mu(\nabla,\Phi)=-F-[\Phi,\Phi^{*}]-2\pi i \mu(E)\1_{E}\w_{M}. \]
-Strictly speaking, we have given an element in $A^{2}(\u_{h}(E))$ rather than in the dual of the Lie algebra $A^{0}(\u_{h}(E))\dual$, but we identify these two spaces via the integration pairing.
+The Lie algebra $\g=A^{0}(\u_{h}(E))$ of $G$ consists of skew-hermitian endomorphisms of $E$, and strictly speaking we have given an element in $A^{2}(\u_{h}(E))$ rather than in $\g\dual$.
+But we can define on $\g$ an invariant inner product
+\[ \langle\alpha,\beta\rangle:=\int_{M}\tr(\alpha\beta)\w_{M}, \]
+and under the analogous pairing between $\g$ and $A^{2}(\u_{h}(E))$ we may identify $\mu(\nabla,\Phi)$ with an element in $\g\dual$.
 If $\xi\in A^{0}(\u_{h}(E))$ is a skew-hermitian endomorphism of $E$, then we denote by $\mu_{\xi}\in A^{0}(N)$ the smooth function obtained from composing the moment map with evaluation at $\xi$ via this integration pairing.
 
 Recall from Vincent's talk that being a moment map means that we have an equality
@@ -497,8 +501,8 @@ Therefore the vector field $I\xi_{N}=(i \xi)_{N}$ obtained from the complex infi
 
 Define a smooth function $f\colon N\to \R_{\geqslant 0}$ by
 \[ f(\nabla,\Phi):=\int_{M}||\mu(\nabla,\Phi)||^{2} \]
-and restrict it to the $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$ we have a smooth function $f_{0}\colon \G^{c}_{0}\to \R_{\geqslant 0}$ given by $f_{0}(\psi)=f(\psi\cdot (\nabla_{0},\Phi_{0}))$.
-Suppose that we manage to find a minimum $\psi\cdot (\nabla_{0},\Phi_{0})$ of $f_{0}$, so that the differential $df_{0}$ vanishes at $\psi$ \cite[Exercise 11.24]{lee13}.
+and restrict it to the $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$.
+Suppose that we manage to find a minimum $x_{0}:=\psi\cdot (\nabla_{0},\Phi_{0})$ along this orbit, so that the differential $df$ at $x_{0}$ vanishes on vector fields.
 But since
 \[ d(\langle \mu,\mu\rangle)=\langle d\mu,\mu\rangle+\langle \mu,d\mu\rangle =2\langle \mu, d\mu\rangle \]
 and $\grad(\mu)(\psi\cdot (\nabla_{0},\Phi_{0}))\neq 0$, we must have $\mu(\psi\cdot (\nabla_{0},\Phi_{0}))=0$.
@@ -512,7 +516,7 @@ It follows from this and the discussion in \cite[\S 4]{hit87a} or in \cite[\S 8]
 in the orbit of $(\nabla_{0},\Phi_{0})$, we will have solved \Cref{eqn:hitchin}.
 
 To do this, we pick a minimizing sequence $(\nabla_{n},\Phi_{n})$ for $f$ in the orbit of $(\nabla_{0},\Phi_{0})$.
-This is always possible by definition of infimum and convexity of $f$ \cite[\S 8]{ab83}.
+This is always possible by definition of infimum, becuase our function $f$ takes values in $\R_{\geqslant 0}$.
 After some analysis we can apply Uhlenbeck's theorem, which allows us to assume that $(\nabla_{n},\Phi_{n})$ has a weakly convergent subsequent.
 We have to show that its limit $(\nabla,\Phi)$ is still in the same $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$.
 Let $\psi_{n}\in \G^{c}_{0}$ map $(\nabla_{n},\Phi_{n})$ to $(\nabla_{0},\Phi_{0})$.
