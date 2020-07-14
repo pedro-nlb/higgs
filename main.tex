@@ -470,6 +470,61 @@ Summarizing what we have seen in this first section, if $M$ is a compact Riemann
     If $h$ is a Hermitian metric on $E$ and $\bar{\partial}_{E}\colon A^{0}(E)\to A^{0,1}(E)$ is holomorphic structure on $E$, we will denote by $\nabla(h;\bar{\partial}_{E})$ the corresopnding Chern connection \cite[Proposition 4.2.14]{huy05}.
 \end{unota}
 
+The plan is to reformulate \Cref{eqn:hitchin} in terms of a moment map and then apply the following:
+
+\begin{metalm}
+    Let $(N,\w)$ be a Kähler mainfold and $G$ a real Lie group acting on $N$ symplectically.
+    Assume we are in the following situation:
+    \begin{itemize}
+	\item The $G$ action admits a $G$-equivariant moment map
+	    \[ \mu\colon N\to \g\dual. \]
+	\item The Lie algebra $\g$ admits an invariant inner product $\langle \cdot,\cdot \rangle$ under which we can identify $\g$ and $\g\dual$.
+	\item The $G$ action extends to a complex group $G^{C}$ of holomorphic transformations.
+    \end{itemize}
+    Consider the smooth function $||\mu||^{2}\colon N\to \R_{\geqslant 0}$ given by
+    \[ x\mapsto \langle \mu(x),\mu(x)\rangle. \]
+    Assume moreover that we can find some $x_{0}\in N$ such that
+    \begin{enumerate}[label=\alph*)]
+	\item $G^{c}$ acts freely on the orbit of $x_{0}$;
+	\item and $x_{0}$ minimizes $||\mu||^{2}$ in its $G^{c}$-orbit.
+    \end{enumerate}
+    Then $\mu(x_{0})=0$.
+    \begin{proof}[Sketch of the argument]
+	For $\xi\in \g$ we denote by $\mu_{\xi}\colon N\to \R$ the smooth function
+	\[ x\mapsto \langle \mu(x),\xi \rangle \]
+	and by $\xi_{N}\in \X(N)$ the vector field given by the infinitesimal action
+	\[ \xi_{N}(p)=\frac{d}{dt}\big\rvert_{t=0}\exp(t\xi)\cdot p. \]
+	Recall from Vincent's talk that $\mu$ being a moment map means that
+	\[ d\mu_{\xi}(-)=\w(\xi_{N},-). \]
+	But since we are on a Kähler manifold we can also write
+	\[ d\mu_{\xi}(-)=g(I\xi_{N},-). \]
+	By definition of the gradient, this last equation can be reformulated as
+	\[ \grad(\mu_{\xi})=I\xi_{N}. \]
+	Using that $G^{c}$ acts freely on the orbit of $x_{0}$ we have that
+	\[ I\xi_{N}(x_{0})=(i\xi)_{N}(x_{0})=\frac{d}{dt}\big\rvert_{t=0}\exp(ti\xi)\cdot x_{0}\neq 0 \]
+	for all $0\neq \xi\in \g$, because the exponential is invertible near $0\in \g$.
+	Since $x_{0}$ minimizes $||\mu||^{2}$ along its $G^{c}$-orbit and $\grad(||\mu||^{2})$ is tangential to the $G^{c}$-orbit \cite[(8.12)]{ab83}, we have
+	\[ \grad(||\mu||^{2})(x_{0})=0. \]
+	Next we compute this gradient.
+	On the one hand, since we are on a real Lie group, our inner product is symmetric, so that
+	\[ d(\langle\mu,\mu\rangle)=\langle d\mu,\mu\rangle+\langle \mu,d\mu\rangle=2\langle \mu,d\mu\rangle. \]
+	On the other hand, since $\mu_{\mu(x_{0})}=\langle -,\mu(x_{0})\rangle\circ \mu$, the chain rule implies that
+	\[ \langle -,\mu(x_{0})\rangle\circ d\mu_{x_{0}}=d(\langle-,\mu(x_{0})\rangle)_{\mu(x_{0})}\circ d\mu_{x_{0}}=d(\mu_{\mu(x_{0})})_{x_{0}}. \]
+	If we take now $v\in T_{x_{0}}N$, then
+	\begin{align*}
+	    g(\grad(||\mu||^{2}),v) & =d(||\mu||^{2})_{x_{0}}(v) \\
+	    & =2\langle \mu(x_{0}),d\mu_{x_{0}}(v)\rangle \\
+	    & =2(\langle \mu(x_{0}),-\rangle \circ d\mu_{x_{0}})(v) \\
+	    & =2(\langle-, \mu(x_{0})\rangle \circ d\mu_{x_{0}})(v) \\
+	    & =2d(\mu_{\mu(x_{0})})_{x_{0}}(v) \\
+	    & =g(2\grad(\mu_{\mu(x_{0})})(x_{0}),v). 
+	\end{align*}
+	Therefore $\grad(||\mu||^{2})(x_{0})=2\grad(\mu_{\mu(x_{0})})(x_{0})=0$.
+	As pointed out above, the map $\grad(\mu_{(-)})(x_{0})\colon \g\to T_{x_{0}}N$ is injective, so this implies that
+	\[ \mu(x_{0})=0. \]
+    \end{proof}
+\end{metalm}
+
 Assume from now on that $g\geqslant 2$.
 Let $E\to M$ be a complex vector bundle of rank $2$ and let $h$ be a Hermitian metric on $E$.
 Let $\sA_{E}$ denote the space of unitary connections on $E$.
