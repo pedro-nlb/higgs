@@ -472,7 +472,7 @@ Summarizing what we have seen in this first section, if $M$ is a compact Riemann
 
 The plan is to reformulate \Cref{eqn:hitchin} in terms of a moment map and then apply the following:
 
-\begin{metalm}
+\begin{metalm}\label{metalm}
     Let $(N,\w)$ be a Kähler mainfold and $G$ a real Lie group acting on $N$ symplectically.
     Assume we are in the following situation:
     \begin{itemize}
@@ -496,7 +496,7 @@ The plan is to reformulate \Cref{eqn:hitchin} in terms of a moment map and then 
 	\[ \xi_{N}(p)=\frac{d}{dt}\big\rvert_{t=0}\exp(t\xi)\cdot p. \]
 	Recall from Vincent's talk that $\mu$ being a moment map means that
 	\[ d\mu_{\xi}(-)=\w(\xi_{N},-). \]
-	But since we are on a Kähler manifold we can also write
+	But since we are on a Kähler manifold \cite[\S 3]{voi02} we can also write
 	\[ d\mu_{\xi}(-)=g(I\xi_{N},-). \]
 	By definition of the gradient, this last equation can be reformulated as
 	\[ \grad(\mu_{\xi})=I\xi_{N}. \]
@@ -512,7 +512,7 @@ The plan is to reformulate \Cref{eqn:hitchin} in terms of a moment map and then 
 	\[ \langle -,\mu(x_{0})\rangle\circ d\mu_{x_{0}}=d(\langle-,\mu(x_{0})\rangle)_{\mu(x_{0})}\circ d\mu_{x_{0}}=d(\mu_{\mu(x_{0})})_{x_{0}}. \]
 	If we take now $v\in T_{x_{0}}N$, then
 	\begin{align*}
-	    g(\grad(||\mu||^{2}),v) & =d(||\mu||^{2})_{x_{0}}(v) \\
+	    g(\grad(||\mu||^{2})(x_{0}),v) & =d(||\mu||^{2})_{x_{0}}(v) \\
 	    & =2\langle \mu(x_{0}),d\mu_{x_{0}}(v)\rangle \\
 	    & =2(\langle \mu(x_{0}),-\rangle \circ d\mu_{x_{0}})(v) \\
 	    & =2(\langle-, \mu(x_{0})\rangle \circ d\mu_{x_{0}})(v) \\
@@ -525,61 +525,36 @@ The plan is to reformulate \Cref{eqn:hitchin} in terms of a moment map and then 
     \end{proof}
 \end{metalm}
 
+Let us see that how to apply this to solve \Cref{eqn:hitchin}.
 Assume from now on that $g\geqslant 2$.
 Let $E\to M$ be a complex vector bundle of rank $2$ and let $h$ be a Hermitian metric on $E$.
 Let $\sA_{E}$ denote the space of unitary connections on $E$.
-Our goal is to find a solution $(\nabla,\Phi)\in N:=\sA_{E}\times A^{1,0}(\End_{0}(E))$ to \Cref{eqn:hitchin} starting from a stable Higgs bundle $(\nabla_{0},\Phi_{0})$, meaning that $\nabla^{0,1}_{0}$ endows $E$ with a holomorphic structure such that $(E,\Phi_{0})$ is stable.
-
 We can endow $N$ with a Kähler structure given by
 \[ \w_{N}((A_{1},\Phi_{1}),(A_{2},\Phi_{2}))=-\int_{M}\tr(A_{1}\wedge A_{2})+2i\Im(\tr(\Phi_{1}\Phi_{2}^{*})) \]
 for $A_{1},A_{2}\in A^{1}(\u_{h}(E))$ and $\Phi_{1},\Phi_{2}\in A^{1,0}(\End_{0}(E))$, where $\u_{h}(E)$ is the vector bundle of skew-hermitian endomorphisms of $E$ \cite[Corollary 4.2.11]{huy05}.
-
-The gauge group $G=A^{0}(\U_{h}(E))$ of unitary automorphisms of $E$ acts on $N$ by conjugation on each factor, and this action admits a moment map
-\[ \mu(\nabla,\Phi)=-F-[\Phi,\Phi^{*}]-2\pi i \mu(E)\1_{E}\w_{M}. \]
-The Lie algebra $\g=A^{0}(\u_{h}(E))$ of $G$ consists of skew-hermitian endomorphisms of $E$, and strictly speaking we have given an element in $A^{2}(\u_{h}(E))$ rather than in $\g\dual$.
+The gauge group $G=A^{0}(\SU_{h}(E))$ of special unitary automorphisms of $E$ acts on $N$ by conjugation on each factor, and this action admits a moment map
+\[ \mu(\nabla,\Phi)=-F-[\Phi,\Phi^{*}]-2\pi i \mu(E)\1_{E}\w_{M}, \]
+cf.~\cite[Proposition III.3.2]{gal19}.
+The Lie algebra $\g=A^{0}(\su_{h}(E))$ of $G$ consists of traceless skew-hermitian endomorphisms of $E$, and strictly speaking we have given an element in $A^{2}(\su_{h}(E))$ rather than in $\g\dual$.
 But we can define on $\g$ an invariant inner product
 \[ \langle\alpha,\beta\rangle:=\int_{M}\tr(\alpha\beta)\w_{M}, \]
-and under the analogous pairing between $\g$ and $A^{2}(\u_{h}(E))$ we may identify $\mu(\nabla,\Phi)$ with an element in $\g\dual$.
-If $\xi\in A^{0}(\u_{h}(E))$ is a skew-hermitian endomorphism of $E$, then we denote by $\mu_{\xi}\in A^{0}(N)$ the smooth function obtained from composing the moment map with evaluation at $\xi$ via this integration pairing.
-
-Recall from Vincent's talk that being a moment map means that we have an equality
-\[ d\mu_{\xi}=\w_{N}(\xi_{N},-) \]
-in $A^{1}(N)$, where $\mu_{\xi}\colon N\to \R$ is the composition of $\mu\colon N\to A^{2}(\u_{h}(E))=A^{0}(\u_{h}(E))\dual$ with the evaluation at $\xi$ and $\xi_{N}\in \X(N)$ is the vector field corresponding to $\xi$ under the infinitesimal action.
-But with the notation from \cite[\S 3]{voi02}, the Kähler condition tells us that
-\[ d\mu_{\xi}=\w_{N}(\xi_{N},-)=g(I\xi_{N},-), \]
-so $\grad(\mu_{\xi})=I\xi_{N}$ by definition \cite[p.~343]{lee13}.
-The gauge action extends to the complex gauge group $\G^{c}$ by the formula
+and, under the analogous pairing between $\g$ and $A^{2}(\su_{h}(E))$, we may identify $\mu(\nabla,\Phi)$ with an element in $\g\dual$.
+The gauge action extends to the complex gauge group $G^{c}=A^{0}(\SL(E))$ of automorphisms of $E$ with determinant $1$ by the formula
 \[ \psi\cdot (\nabla,\Phi)=(\nabla(h;\psi\nabla^{0,1}\psi^{-1}),\psi\Phi \psi^{-1}). \]
-From now on we restrict our attention to the action of the complex gauge group $\G^{c}_{0}$ of automorphisms of $E$ with determinant $1$.
-By \cite[(3.15)]{hit87a} from Jin's talk, the action of $\G^{c}_{0}$ is free on the orbit of the stable pair $(\nabla_{0},\Phi_{0})$.
-Therefore the vector field $I\xi_{N}=(i \xi)_{N}$ obtained from the complex infinitesimal action is non-zero for all $\xi\neq 0$ and all $x$ in the orbit.
+By \cite[(3.15)]{hit87a} from Jin's talk, the action of $G^{c}$ is free on the orbit of the stable pair $(\nabla_{0},\Phi_{0})$, so we can apply \Cref{metalm} to our situation.
+Since the condition $\nabla^{0,1}\Phi$ is preserved by the $G^{c}$ action, it suffices to find a minimum of $||\mu||^{2}$ on the orbit of such a stable pair to produce a solution to \Cref{eqn:hitchin}.
 
-Define a smooth function $f\colon N\to \R_{\geqslant 0}$ by
-\[ f(\nabla,\Phi):=\int_{M}||\mu(\nabla,\Phi)||^{2} \]
-and restrict it to the $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$.
-Suppose that we manage to find a minimum $x_{0}:=\psi\cdot (\nabla_{0},\Phi_{0})$ along this orbit, so that the differential $df$ at $x_{0}$ vanishes on vector fields.
-But since
-\[ d(\langle \mu,\mu\rangle)=\langle d\mu,\mu\rangle+\langle \mu,d\mu\rangle =2\langle \mu, d\mu\rangle \]
-and $\grad(\mu)(\psi\cdot (\nabla_{0},\Phi_{0}))\neq 0$, we must have $\mu(\psi\cdot (\nabla_{0},\Phi_{0}))=0$.
-Therefore $\psi \cdot (\nabla_{0},\Phi_{0})$ would be a solution to \Cref{eqn:hitchin} in the $\G^{c}_{0}$-orbit of our original stable pair $(\nabla_{0},\Phi_{0})$.
+Let then $(\nabla_{0},\Phi_{0})$ be a stable Higgs bundle, meaning that $(E,\Phi_{0})$ is a Higgs bundle with respect to the holomorphic structure $\bar{\partial}_{E}=\nabla^{0,1}$.
+Since $||\mu||^{2}\colon N\to \R_{\geqslant 0}$ is bounded below, we can pick a minimizing sequence $(\nabla_{n},\Phi_{n})$ for $||\mu||^{2}$ in the orbit of $(\nabla_{0},\Phi_{0})$.
+After some analysis \cite[pp.~80-81]{hit87a} we can apply Uhlenbeck's theorem, which allows us to assume that $(\nabla_{n},\Phi_{n})$ has a weakly convergent subsequent.
+We have to show that its limit $(\nabla,\Phi)$ is still in the $G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$.
 
-Let then $(\nabla_{0},\Phi_{0})\in N$ be a stable Higgs bundle, where $\nabla_{0}=\nabla(\bar{\partial}_{E})$ is the Chern connection of the given holomorphic structure $\bar{\partial}_{E}$ on $E$.
-The complex gauge group $\G^{c}_{0}$ of automorphisms of $E$ with determinant $1$ acts on $N$ as well, sending $(\nabla,\Phi)$ to $(\nabla(g\nabla^{0,1}g^{-1}),g\Phi g^{-1})$.
-In particular, $\Phi$ remains a holomorphic section with respect to the new $\bar{\partial}_{E}=\nabla^{0,1}$.
-Moreover, $\G^{c}_{0}$ acts freely on the orbit of the stable Higgs bundle $(\nabla_{0},\Phi_{0})$ by proposition \cite[(3.15)]{hit87a} from Jin's talk.
-It follows from this and the discussion in \cite[\S 4]{hit87a} or in \cite[\S 8]{ab83} that if we manage to find a minimum of for
-in the orbit of $(\nabla_{0},\Phi_{0})$, we will have solved \Cref{eqn:hitchin}.
-
-To do this, we pick a minimizing sequence $(\nabla_{n},\Phi_{n})$ for $f$ in the orbit of $(\nabla_{0},\Phi_{0})$.
-This is always possible by definition of infimum, becuase our function $f$ takes values in $\R_{\geqslant 0}$.
-After some analysis we can apply Uhlenbeck's theorem, which allows us to assume that $(\nabla_{n},\Phi_{n})$ has a weakly convergent subsequent.
-We have to show that its limit $(\nabla,\Phi)$ is still in the same $\G^{c}_{0}$-orbit of $(\nabla_{0},\Phi_{0})$.
-Let $\psi_{n}\in \G^{c}_{0}$ map $(\nabla_{n},\Phi_{n})$ to $(\nabla_{0},\Phi_{0})$.
+Let $\psi_{n}\in G^{c}$ map $(\nabla_{n},\Phi_{n})$ to $(\nabla_{0},\Phi_{0})$.
 Doing some more analysis, we may assume that the sequence $\psi_{n}$ is weakly convergent, having then a non-zero limit $\psi$ \cite[p.~82]{hit87a}.
 By definition we have identities
 \[ \nabla_{(n,0)}^{0,1}\psi_{n}=0 \text{ and } \Phi_{0}\psi_{n}=\psi_{n}\Phi_{n}, \]
 where $\nabla_{(n,0)}$ denotes the connection induced by $\nabla_{n}$ and $\nabla_{1}$ on $\End(E)$ \cite[Example 4.2.6 iii)]{huy05}.
-These remain true in the limit, so $\psi$ is a holomorphic morphism from $(E,\nabla^{0,1})$ to $(E,\nabla^{0,1}_{0})$ such that $\Phi_{0}\psi=\psi\Phi$.
+These remain true in the limit, so $\psi$ is a holomorphic morphism from $E$ with the holomorphic structure $\nabla^{0,1}$ to $E$ with the holomorphic structure $\nabla^{0,1}_{0}$ such that $\Phi_{0}\psi=\psi\Phi$.
 But $\psi$ is non-zero, so we have the following two possibilities:
 \begin{itemize}
     \item $\psi$ is an isomorphism, in which case it is in $\G^{c}_{0}$ and $(\nabla,\Phi)$ is in the same orbit as $(\nabla_{0},\Phi_{0})$, yielding the desired solution.
@@ -591,10 +566,26 @@ Since $\psi$ is holomorphic, the saturation of $\psi(E)$ in $E$ defines a line b
 But $\Phi_{0}\psi=\psi\Phi$, so $L$ is $\Phi_{0}$-invariant.
 Indeed, it suffices to check this generically, so let $x\in M$ such that $L_{x}=\psi(E_{x})$ and let $v=\psi(v')\in L_{x}$.
 Then $\phi_{0}(v)=\phi_{0}(\psi(v'))=\psi(\phi(v'))\in \psi(E_{x})$.
-By \Cref{prop:general}, since $(\nabla_{0},\Phi_{0})$ is stable, this is impossible for $\Phi_{0}$ on a non-empty Zariski open subset.
+By \Cref{prop:general}, since $(\nabla_{0},\Phi_{0})$ is stable, this is impossible for $\Phi_{0}$ on a non-empty Zariski open subset $U\subseteq H^{0}(M,\sEnd_{0}(\E)\ot K)$.
 So for a general $\Phi_{0}$ the limit $\psi$ had to be an isomorphism.
 
-The general non-general case will follow from a further application of Uhlenbeck's theorem.
+This already shows that a stable pair produces plenty of solutions, but not necessarily on the same orbit.
+To strengthen the conclusion, we also have to deal with arbitrary $\Phi$.
+This can be done with a similar argument, applying Uhlenbeck's theorem again and taking advantage now from what we have shown for a general $\Phi$.
+\textcolor{gray}{%
+Let again $(\nabla_{n},\Phi_{n})$ be a minimizing sequence in the orbit of $(\nabla_{0},\Phi_{0})$ such that $\Phi_{n}\in U$ for all $n\in \N$, which we may assume after applying unitary gauge transformations to be weakly convergent to $(\nabla,\Phi)$.
+The equation $\mu=0$ is preserved under weak limits, so $\mu(\nabla,\Phi)$ is a solution to \Cref{eqn:hitchin}, hence stable by \cite[(2.1]{hit87a}.
+The same argument as above shows that we have a holomorphic morphism $\psi\colon E\to E$ with respect to the holomorphic structures $\nabla^{0,1}$ and $\nabla_{0}^{0,1}$ respectively.
+By \cite[(3.15)]{hit87a} from Jin's talk it must be an isomorphism, so $\psi$ is in $G^{c}$ and $(\nabla,\Phi)$ is in the same orbit as $(\nabla_{0},\Phi_{0})$.
+}
+
+Combining the discussion above with \cite[(2.7)]{hit87a} from Jin's talk, we have the following:
+
+\begin{thm}
+    Let $M$ be a compact Riemann surface of genus $g\geqslant 2$ and let $(E,\Phi)$ be a stable Higgs bundle.
+    Then there is a holomorphic automorphism of $E$ with determinant $1$ which takes $(\nabla(h;\bar{\partial}_{E}),\Phi)$ to a solution of \Cref{eqn:hitchin}.
+    Moreover, this automorphism is unique up to gaguge transformation.
+\end{thm}
 
 \bibliographystyle{alpha}
 \bibliography{main}
